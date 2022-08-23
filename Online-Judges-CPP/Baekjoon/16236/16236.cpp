@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -89,7 +90,10 @@ int main() {
 
 	while (1) {
 		int ftime = 0, frow, fcol;
-		
+		// reset timeVector whenever a new loop begins
+		for_each(timeVector.begin(), timeVector.end(), [](vector<int>& r){
+			fill(r.begin(), r.end(), -1);
+			});
 		timeVector.at(shark.getRow()).at(shark.getCol()) = 0;
 
 		// calculates timeVector to know time for reaching every coordinate
@@ -98,14 +102,14 @@ int main() {
 		for(int i = 0; i < n; ++i)
 			for (int j = 0; j < n; ++j) {
 				// finds edible fishes
-				if (pool.at(i).at(j) > 0 && shark.getSize() > pool.at(i).at(j)) {
+				if (pool.at(i).at(j) > 0 && shark.getSize() > pool.at(i).at(j) && timeVector.at(i).at(j) > 0) {
 					// finds the minimum time to eat fish
 					if (ftime == 0 || ftime > timeVector.at(i).at(j)) {
 						ftime = timeVector.at(i).at(j);
 						frow = i;
 						fcol = j;
-						cout << "Fish location - row: " << frow << ", col: " << fcol << endl;
-						cout << "Reach Time - " << ftime << endl;
+						//cout << "Fish location - row: " << frow << ", col: " << fcol << endl;
+						//cout << "Reach Time - " << ftime << endl;
 					}
 				}
 			}
