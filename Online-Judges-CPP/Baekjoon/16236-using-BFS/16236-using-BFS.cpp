@@ -13,12 +13,16 @@ using namespace std;
 
 */
 
-class Ocean {
+class Coordinate {
+	int row;
+	int col;
 
-	class Coordinate {
-		int row;
-		int col;
-	};
+public:
+	int getRow() { return row; }
+	int getCol() { return col; }
+};
+
+class Ocean {
 	class Shark {
 		int size;
 		int count;
@@ -57,6 +61,7 @@ class Ocean {
 public:
 	Ocean(int n);
 	void eatFish(int row, int col);
+	Coordinate addAdj(Coordinate start);
 	void BFS();
 };
 
@@ -88,6 +93,25 @@ void Ocean::eatFish(int row, int col) {
 	shark.growShark();
 }
 
+Coordinate Ocean::addAdj(Coordinate start) {
+	int row = start.getRow();
+	int col = start.getCol();
+	int s_size = shark.getSize();
+
+	int f_size;
+
+	// Go Up
+	if (row > 0) {
+		f_size = graph.at(row - 1).at(col);
+		if (f_size > 0 && f_size < s_size) {
+
+		}
+	}
+	// Go Left
+	// Go Right
+	// Go Down
+}
+
 void Ocean::BFS() {
 	Coordinate start;
 	int size;
@@ -100,6 +124,8 @@ void Ocean::BFS() {
 		// push the adjacent spaces (except the spaces with bigger fishes)
 		// if there are some edible fishes, eat one of it, and reset the loop
 		while (1) {
+			// Updates adj
+			// Loop until the shark eats a fish OR a travel ends
 			
 		}
 	} while (!queue.empty());
