@@ -94,6 +94,10 @@ void Ocean::eatFish(int row, int col) {
 }
 
 Coordinate Ocean::addAdj(Coordinate start) {
+	/*
+		1. Get the front of the queue as a parameter
+	
+	*/
 	int row = start.getRow();
 	int col = start.getCol();
 	int s_size = shark.getSize();
