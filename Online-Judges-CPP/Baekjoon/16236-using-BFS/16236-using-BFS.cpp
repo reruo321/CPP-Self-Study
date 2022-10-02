@@ -29,9 +29,9 @@ class Ocean {
 		int count;
 		Coordinate cord;
 	public:
+		Shark() : size(2), count(0){}
 		void updateCoordinate(int row, int col) {
-			row = row;
-			col = col;
+			cord = Coordinate(row, col);
 		}
 		Coordinate getCoordinate() {
 			return cord;
@@ -71,7 +71,6 @@ public:
 
 Ocean::Ocean() {
 	int input;
-	bool isShark = false;
 
 	cin >> n;
 	// Initialize adj
@@ -82,11 +81,8 @@ Ocean::Ocean() {
 		for (int j = 0; j < n; ++j) {
 			cin >> input;
 			graph.at(i).at(j) = input;
-			if (isShark)
-				continue;
 			if (input == 9) {
 				shark.updateCoordinate(i, j);
-				isShark = true;
 			}
 		}
 	}
@@ -108,6 +104,7 @@ bool Ocean::enqueue(int row, int col, queue<Coordinate> &queue, int s_size) {
 }
 
 void Ocean::eatFish(int row, int col) {
+	graph.at(shark.getCoordinate().getRow()).at(shark.getCoordinate().getCol()) = 0;
 	graph.at(row).at(col) = 9;
 	shark.updateCoordinate(row, col);
 	shark.increaseCount();
@@ -155,12 +152,13 @@ int Ocean::BFS() {
 	Coordinate front;
 	int size;
 	queue<Coordinate> queue;
-	bool ateFish = false;
+	bool ateFish;
 	int time;
 	int total_time = 0;
 
 	// Until a Loop Escape
 	do {
+		ateFish = false;
 		// reset time of each travel
 		time = 0;
 		// mark all spaces not visited
