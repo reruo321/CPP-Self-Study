@@ -17,175 +17,177 @@ class Coordinate {
 	int col;
 
 public:
-	Coordinate() : row(0), col(0){}
-	Coordinate(int row, int col): row(row), col(col){}
+	Coordinate() : row(0), col(0) {}
+	Coordinate(int row, int col) : row(row), col(col) {}
 	int getRow() { return row; }
 	int getCol() { return col; }
 };
 
+struct cand_functor {
+	bool operator() (pair<int, Coordinate> &a, pair<int, Coordinate> &b) {
+		if (a.first == b.first) {
+			if (a.second.getRow() == b.second.getRow())
+				return a.second.getCol() > b.second.getCol();
+			else
+				return a.second.getRow() > b.second.getRow();
+		}
+		else
+			return a.first > b.first;
+	}
+};
+
 class Ocean {
-	class Shark {
-		int size;
-		int count;
-		Coordinate cord;
+	class Cell {
 	public:
-		Shark() : size(2), count(0){}
-		void updateCoordinate(int row, int col) {
+		int fish_size;
+		int time_to_reach;
+		bool visited;
+	};
+	
+	class Shark {
+	public:
+		Coordinate cord;
+		int size;
+		int eat_count;
+
+		Shark() : size(2), eat_count(0) {
+			cord = Coordinate(0, 0);
+		}
+		Shark(int row, int col) : size(2), eat_count(0) {
 			cord = Coordinate(row, col);
 		}
-		Coordinate getCoordinate() {
-			return cord;
-		}
-		int getSize() {
-			return size;
-		}
-		void increaseCount() {
-			++count;
-		}
-		void growShark() {
-			if (count == size) {
+		void updateStatus(int row, int col) {
+			cord = Coordinate(row, col);
+			if (++eat_count == size) {
 				++size;
-				count = 0;
+				eat_count = 0;
 			}
 		}
 	};
 
-	// Ocean with N x N spaces
-	int n;
-	// Ocean Graph
-	vector<vector<int>> graph;
-	// Adjacent Information for the Current Shark's Position
-	vector<vector<int>> adj;
-	// Visit Information
-	vector<vector<bool>> visit;
-	// Shark
+	vector<vector<Cell>> graph2D;
 	Shark shark;
-	
+	int n;
+
 public:
-	Ocean();
-	bool enqueue(int row, int col, queue<Coordinate>& queue, int s_size);
-	void eatFish(int row, int col);
-	bool addAdj(Coordinate front, queue<Coordinate>& queue);
-	int BFS();
+	Ocean() {
+		int input;
+
+		cin >> n;
+		graph2D.resize(n, vector<Cell>(n));
+		for(int i = 0; i < n; ++i)
+			for (int j = 0; j < n; ++j) {
+				cin >> input;
+				if (input == 9) {
+					shark = Shark(i, j);
+					graph2D.at(i).at(j).fish_size = 0;
+				}
+				else {
+					graph2D.at(i).at(j).fish_size = input;
+				}
+			}
+	}
+	void manageEating(int row, int col) {
+		graph2D.at(row).at(col).fish_size = 0;
+		shark.updateStatus(row, col);
+	}
+	bool updateCellsInfo(queue<Coordinate>& queue, int row, int col, int time) {
+		Cell &cell = graph2D.at(row).at(col);
+
+		// If it is a visited cell, skip
+		if (cell.visited)
+			return false;
+		// If passing the cell is okay,
+		if (cell.fish_size <= shark.size) {
+			// If the shark can eat the fish inside the cell
+			if (cell.fish_size > 0 && cell.fish_size < shark.size) {
+				return true;
+			}
+			// Otherwise,
+			queue.push(Coordinate(row, col));
+			cell.time_to_reach = time;
+			cell.visited = true;
+		}
+		// A fish is not eaten
+		return false;
+	}
+	void calculateRoute(Coordinate front, queue<Coordinate> &queue, priority_queue<pair<int, Coordinate>, vector<pair<int, Coordinate>>, cand_functor>& candidate) {
+
+		int row = front.getRow();
+		int col = front.getCol();
+		int time = graph2D.at(row).at(col).time_to_reach;
+
+		// Go Up
+		if (row > 0)
+			if (updateCellsInfo(queue, row - 1, col, time + 1)) // If a fish is eaten in the cell
+				candidate.push(make_pair(time + 1, Coordinate(row - 1, col)));
+		// Go Left
+		if (col > 0)
+			if (updateCellsInfo(queue, row, col - 1, time + 1))
+				candidate.push(make_pair(time + 1, Coordinate(row, col - 1)));
+		// Go Right
+		if (col < n - 1)
+			if (updateCellsInfo(queue, row, col + 1, time + 1))
+				candidate.push(make_pair(time + 1, Coordinate(row, col + 1)));
+		// Go Down
+		if (row < n - 1)
+			if (updateCellsInfo(queue, row + 1, col, time + 1))
+				candidate.push(make_pair(time + 1, Coordinate(row + 1, col)));
+	}
+	int BFS() {
+		// <Coordinate, time> Candidate cells for eating a fish
+		priority_queue<pair<int, Coordinate>, vector<pair<int, Coordinate>>, cand_functor> candidate;
+		queue<Coordinate> queue;
+		Coordinate front;
+		int total_time = 0;
+
+		// Calculate BFS until there's no fish to eat
+		do {
+			// Reset time-to-reach AND visited
+			for (auto& row : graph2D)
+				for (auto& col : row) {
+					col.time_to_reach = 0;
+					col.visited = false;
+				}
+
+			// reset candidate cells
+			candidate = {};
+
+			// reset calc
+
+			// Mark shark's cell as visited
+			graph2D.at(shark.cord.getRow()).at(shark.cord.getCol()).visited = true;
+
+			// Enqueue the coordinate of the shark
+			queue.push(shark.cord);
+
+			// If a fish is eaten OR there is no way to go, escape this loop
+			do {
+				front = queue.front();
+				queue.pop();
+				calculateRoute(front, queue, candidate);
+			} while (!queue.empty());
+
+			// Compare candidate cells to eat - cand_functor will automatically sort them
+			if (!candidate.empty()) {
+				front = candidate.top().second;
+				manageEating(front.getRow(), front.getCol());
+				queue.push(shark.cord);
+				total_time += candidate.top().first;
+			}
+
+			// If there's no edible fish, queue will be empty
+		} while (!queue.empty());
+
+		// End the calculation AND return the result
+		return total_time;
+	}
 };
 
-Ocean::Ocean() {
-	int input;
-
-	cin >> n;
-	// Initialize adj
-	adj.resize(n, vector<int>(0));
-	// Initialize graph
-	graph.resize(n, vector<int>(n));
-	for (int i = 0; i < n; ++i) {
-		for (int j = 0; j < n; ++j) {
-			cin >> input;
-			graph.at(i).at(j) = input;
-			if (input == 9) {
-				shark.updateCoordinate(i, j);
-			}
-		}
-	}
-}
-
-bool Ocean::enqueue(int row, int col, queue<Coordinate> &queue, int s_size) {
-	if (visit.at(row).at(col))
-		return false;
-	int f_size = graph.at(row).at(col);
-	if (f_size <= s_size) {
-		queue.push(Coordinate(row, col));
-		visit.at(row).at(col) = true;
-		if (f_size > 0 && f_size < s_size) {
-			eatFish(row, col);
-			return true;
-		}
-	}
-	return false;
-}
-
-void Ocean::eatFish(int row, int col) {
-	graph.at(shark.getCoordinate().getRow()).at(shark.getCoordinate().getCol()) = 0;
-	graph.at(row).at(col) = 9;
-	shark.updateCoordinate(row, col);
-	shark.increaseCount();
-	shark.growShark();
-}
-
-// If the shark eats a fish, returns true
-bool Ocean::addAdj(Coordinate front, queue<Coordinate> &queue) {
-	//	1. Get the front of the queue as a parameter
-	int row = front.getRow();
-	int col = front.getCol();
-	int s_size = shark.getSize();
-
-	/*
-		2. Adds adjacent spaces to go
-			-> If there's an edible fish, eat it and immediately ends the loop
-	*/
-
-	// Go Up
-	if (row > 0) {
-		if (enqueue(row - 1, col, queue, s_size))
-			return true;
-	}
-	// Go Left
-	if (col > 0) {
-		if (enqueue(row, col - 1, queue, s_size))
-			return true;
-	}
-	// Go Right
-	if (col < n - 1) {
-		if (enqueue(row, col + 1, queue, s_size))
-			return true;
-	}
-	// Go Down
-	if (row < n - 1) {
-		if (enqueue(row + 1, col, queue, s_size))
-			return true;
-	}
-
-	return false;
-}
-
-int Ocean::BFS() {
-	Coordinate start;
-	Coordinate front;
-	int size;
-	queue<Coordinate> queue;
-	bool ateFish;
-	int time;
-	int total_time = 0;
-
-	// Until a Loop Escape
-	do {
-		ateFish = false;
-		// reset time of each travel
-		time = 0;
-		// mark all spaces not visited
-		visit.resize(n, vector<bool>(n, false));
-		// get the current shark's coordinate + size
-		start = shark.getCoordinate();
-		size = shark.getSize();
-		visit.at(start.getRow()).at(start.getCol()) = true;
-		queue.push(start);
-		// push the adjacent spaces (except the spaces with bigger fishes)
-		// if there are some edible fishes, eat one of it, and reset the loop
-		while (!ateFish && !queue.empty()) {
-			// Updates adj
-			// Loop until the shark eats a fish OR a travel ends
-			front = queue.front();
-			queue.pop();
-			ateFish = addAdj(front, queue);
-			++time;
-		}
-		if (ateFish)
-			total_time += time;
-	} while (!queue.empty());
-	return total_time;
-}
-
 int main() {
+	
 	Ocean ocean = Ocean();
-	cout << "Total Time: " << ocean.BFS() << endl;
+	cout << ocean.BFS() << endl;
+
 	return 0;
 }
