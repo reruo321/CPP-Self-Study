@@ -36,7 +36,7 @@ struct CCTV {
 	CCTV(Coordinate coord, int type): coord(coord), type(type) {}
 };
 
-void checkCCTVZone(vector<vector<int>> &zone, vector<CCTV> &cctv_list, int cctv_no, int direction) {
+void checkCCTVZone(vector<vector<int>> zone, vector<CCTV> &cctv_list, int cctv_no, int direction) {
 	int n = zone.size();
 	int m = zone.at(0).size();
 	int last_cctv = cctv_list.size() - 1;
@@ -45,7 +45,24 @@ void checkCCTVZone(vector<vector<int>> &zone, vector<CCTV> &cctv_list, int cctv_
 	if (cctv_no > last_cctv)
 		return;
 
+	int type = cctv_list.at(cctv_no).type;
+
+
+	// The case that the current direction is selected
+
+	for (int i = 0; i < cctv_type_len[type - 1]; ++i) {
+
+	}
+
+	// The case that the current direction is NOT selected
+
+	// first cctv (use the current zone)
+	if (direction == 0) {
 		
+
+
+
+	}
 	
 
 
