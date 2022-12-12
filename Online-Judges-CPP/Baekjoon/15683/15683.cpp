@@ -4,31 +4,23 @@
 
 using namespace std;
 
+#define CCTV_TYPE_1 1
+#define CCTV_TYPE_2 2
+#define CCTV_TYPE_3 3
+#define CCTV_TYPE_4 4
+#define CCTV_TYPE_5 5
+
 struct Coordinate {
 	int row;
 	int col;
 	Coordinate() : row(0), col(0) {}
 	Coordinate(int row, int col) : row(row), col(col) {}
-	Coordinate operator+=(Coordinate ref) {
-		row += ref.row;
-		col += ref.col;
-	}
 };
 
-Coordinate* coord_up = &Coordinate(-1, 0);
-Coordinate* coord_right = &Coordinate(0, 1);
-Coordinate* coord_down = &Coordinate(1, 0);
-Coordinate* coord_left = &Coordinate(0, -1);
+int n, m;
+vector<vector<int>> vector_zone;
 
-Coordinate* cctv_type_1[4][1] = { {coord_up}, {coord_right}, {coord_down}, {coord_left} };
-Coordinate* cctv_type_2[2][2] = { {coord_up, coord_down}, {coord_left, coord_right} };
-Coordinate* cctv_type_3[4][2] = { {coord_up, coord_right}, {coord_right, coord_down}, {coord_down, coord_left}, {coord_left, coord_up} };
-Coordinate* cctv_type_4[4][3] = { {coord_left, coord_up, coord_right}, {coord_up, coord_right, coord_down}, {coord_right, coord_down, coord_left}, {coord_down, coord_left, coord_up} };
-Coordinate* cctv_type_5[1][4] = { {coord_up, coord_left, coord_right, coord_down} };
-
-Coordinate** cctv_type[5] = { *cctv_type_1, *cctv_type_2, *cctv_type_3, *cctv_type_4, *cctv_type_5 };
 int cctv_type_len[5] = { 4, 2, 4, 4, 1 };
-int cctv_type_col_len[5] = { 1, 2, 2, 3, 4 };
 
 struct CCTV {
 	Coordinate coord;
@@ -36,47 +28,234 @@ struct CCTV {
 	CCTV(Coordinate coord, int type): coord(coord), type(type) {}
 };
 
-void checkCCTVZone(vector<vector<int>> zone, vector<CCTV> &cctv_list, int cctv_no, int direction) {
+void checkUp(vector<vector<int>>& zone, int row, int col) {
+	while (1) {
+		--row;
+		if (row < 0)
+			return;
+
+		int& current_space = zone.at(row).at(col);
+
+		// if there is a wall, stop
+		if (current_space == 6)
+			return;
+		
+		// check the empty space to 7
+		if (current_space == 0)
+			current_space = 7;
+		}
+}
+
+void checkDown(vector<vector<int>>& zone, int row, int col) {
+	while (1) {
+		++row;
+		if (row >= zone.size())
+			return;
+
+		int& current_space = zone.at(row).at(col);
+
+		// if there is a wall, stop
+		if (current_space == 6)
+			return;
+
+		// check the empty space to 7
+		if (current_space == 0)
+			current_space = 7;
+	}
+}
+
+void checkLeft(vector<vector<int>>& zone, int row, int col) {
+	while (1) {
+		--col;
+		if (col < 0)
+			return;
+
+		int& current_space = zone.at(row).at(col);
+
+		// if there is a wall, stop
+		if (current_space == 6)
+			return;
+
+		// check the empty space to 7
+		if (current_space == 0)
+			current_space = 7;
+	}
+}
+
+void checkRight(vector<vector<int>>& zone, int row, int col) {
+	while (1) {
+		++col;
+		if (col >= zone.at(0).size())
+			return;
+
+		int& current_space = zone.at(row).at(col);
+
+		// if there is a wall, stop
+		if (current_space == 6)
+			return;
+
+		// check the empty space to 7
+		if (current_space == 0)
+			current_space = 7;
+	}
+}
+
+void checkCCTV_type_1(vector<vector<int>> &zone, const int &row, const int &col, int direction) {
+	
+	switch (direction) {
+
+	case 0:
+		checkUp(zone, row, col);
+		break;
+	case 1:
+		checkRight(zone, row, col);
+		break;
+	case 2:
+		checkDown(zone, row, col);
+		break;
+	case 3:
+		checkLeft(zone, row, col);
+		break;
+	}
+
+}
+
+void checkCCTV_type_2(vector<vector<int>>& zone, const int& row, const int& col, int direction) {
+
+	switch (direction) {
+
+	case 0:
+		checkUp(zone, row, col);
+		checkDown(zone, row, col);
+		break;
+	case 1:
+		checkLeft(zone, row, col);
+		checkRight(zone, row, col);
+		break;
+	}
+
+}
+
+void checkCCTV_type_3(vector<vector<int>>& zone, const int& row, const int& col, int direction) {
+
+	switch (direction) {
+
+	case 0:
+		checkUp(zone, row, col);
+		checkRight(zone, row, col);
+		break;
+	case 1:
+		checkRight(zone, row, col);
+		checkDown(zone, row, col);
+		break;
+	case 2:
+		checkDown(zone, row, col);
+		checkLeft(zone, row, col);
+		break;
+	case 3:
+		checkLeft(zone, row, col);
+		checkUp(zone, row, col);
+		break;
+	}
+
+}
+
+void checkCCTV_type_4(vector<vector<int>>& zone, const int& row, const int& col, int direction) {
+
+	switch (direction) {
+
+	case 0:
+		checkLeft(zone, row, col);
+		checkUp(zone, row, col);
+		checkRight(zone, row, col);
+		break;
+	case 1:
+		checkUp(zone, row, col);
+		checkRight(zone, row, col);
+		checkDown(zone, row, col);
+		break;
+	case 2:
+		checkRight(zone, row, col);
+		checkDown(zone, row, col);
+		checkLeft(zone, row, col);
+		break;
+	case 3:
+		checkDown(zone, row, col);
+		checkLeft(zone, row, col);
+		checkUp(zone, row, col);
+		break;
+	}
+
+}
+
+void checkCCTV_type_5(vector<vector<int>>& zone, const int& row, const int& col, int direction) {
+
+	checkUp(zone, row, col);
+	checkDown(zone, row, col);
+	checkLeft(zone, row, col);
+	checkRight(zone, row, col);
+
+}
+
+int checkCCTVZone(vector<vector<int>> zone, vector<CCTV> &cctv_list, int cctv_no, int direction, int count_min_zero) {
 	int n = zone.size();
 	int m = zone.at(0).size();
 	int last_cctv = cctv_list.size() - 1;
 
-	// if all cctvs were counted
-	if (cctv_no > last_cctv)
-		return;
-
+	CCTV& current_cctv = cctv_list.at(cctv_no);
 	int type = cctv_list.at(cctv_no).type;
 
+	// The case that the current direction is NOT selected
+	// Do not edit the current zone, and pass it to next turn
+	for (int i = direction + 1; i < cctv_type_len[type - 1]; ++i) {
+		checkCCTVZone(zone, cctv_list, cctv_no, i, count_min_zero);
+	}
 
 	// The case that the current direction is selected
-
-	for (int i = 0; i < cctv_type_len[type - 1]; ++i) {
-
+	// Edit the current zone, and go to the next cctv
+	vector<vector<int>> copied_zone = zone;
+	switch (type) {
+	case CCTV_TYPE_1:
+		checkCCTV_type_1(copied_zone, current_cctv.coord.row, current_cctv.coord.col, direction);
+		break;
+	case CCTV_TYPE_2:
+		checkCCTV_type_2(copied_zone, current_cctv.coord.row, current_cctv.coord.col, direction);
+		break;
+	case CCTV_TYPE_3:
+		checkCCTV_type_3(copied_zone, current_cctv.coord.row, current_cctv.coord.col, direction);
+		break;
+	case CCTV_TYPE_4:
+		checkCCTV_type_4(copied_zone, current_cctv.coord.row, current_cctv.coord.col, direction);
+		break;
+	case CCTV_TYPE_5:
+		checkCCTV_type_5(copied_zone, current_cctv.coord.row, current_cctv.coord.col, direction);
+		break;
 	}
 
-	// The case that the current direction is NOT selected
+	int count_zero = 0;
 
-	// first cctv (use the current zone)
-	if (direction == 0) {
-		
-
-
-
+	// if all cctvs were counted, end the function
+	if (cctv_no == last_cctv) {
+		for(auto &row: zone)
+			for (auto& space : row) {
+				if (space == 0)
+					++count_zero;
+			}
+		if (count_min_zero > count_zero)
+			count_min_zero = count_zero;
+		return count_min_zero;
 	}
-	
 
-
-	
+	checkCCTVZone(copied_zone, cctv_list, ++cctv_no, 0, count_min_zero);
+	return count_min_zero;
 }
 
 void countNotSafeZone() {
-	vector<vector<int>> vector_zone;
-	vector<vector<int>> vector_copied_zone;
 	vector<CCTV> cctv_list;
-	int n, m;
 	int input, total_cases = 1;
 	int count_zero, count_min_zero = 64;
 
+	// take inputs
 	cin >> n >> m;
 	vector_zone.assign(n, vector<int>(m, 0));
 	for (int i = 0; i < n; ++i)
@@ -87,33 +266,14 @@ void countNotSafeZone() {
 				cctv_list.push_back(CCTV(Coordinate(i, j), input));
 		}
 
-	// calculate total cases
-	for (int i = 0; i < cctv_list.size(); ++i) {
-		int type = cctv_list.at(i).type;
-		total_cases *= cctv_type_len[type - 1];
-	}
-
-	// look for all cases of each cctv direction
-	for (int i = 0; i < total_cases; ++i) {
-		vector_copied_zone = vector_zone;
-		count_zero = 0;
-		
-		// check cctv one by one
-		for (int j = 0; j < cctv_list.size(); ++j) {
-			checkCCTVZone(vector_copied_zone, cctv_list, 0);
-		}
-		
-		for (auto& row : vector_copied_zone)
-			for (auto& space : row)
-				if (space == 0)
-					++count_zero;
-
-		if (count_min_zero > count_zero)
-			count_min_zero = count_zero;
-	}
+	count_min_zero = checkCCTVZone(vector_zone, cctv_list, 0, 0, count_min_zero);
+	cout << count_min_zero;
 }
 
 
 int main() {
+
+	countNotSafeZone();
+
 	return 0;
 }
