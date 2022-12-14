@@ -22,7 +22,7 @@ struct CCTV {
 	CCTV(int r, int c, int t) : row(r), col(c), type(t - 1) {}
 };
 
-void dfs(vector<vector<int>> &vector_zone, stack<CCTV>& stack_cctv_list) {
+void dfs(vector<vector<int>> &vector_zone, stack<CCTV>& stack_cctv_list, int direction) {
 	// if stack is empty, count not-safe-zones and end the function
 	if (stack_cctv_list.empty()) {
 		int count_not_safe = 0;
@@ -40,13 +40,25 @@ void dfs(vector<vector<int>> &vector_zone, stack<CCTV>& stack_cctv_list) {
 	vector<vector<int>> vector_copied_zone = vector_zone;
 	stack<CCTV> stack_copied_cctv_list = stack_cctv_list;
 
-	// pop a CCTV from the stack
+	// give it the specific direction.
+	/*
+	Type 1 -	One direction (total 4)
+	Type 2 -	Side (total 2)
+	Type 3 -	90 degree (total 4)
+	Type 4 -	Three directions (total 4)
+	Type 5 -	All four directions (total 1)
+	*/
+	
+	// 1. do not select the current direction
+	// do not edit the current vector
+	// pass the current stack, and give another direction
+
+	// 2. select the current direction
+	// pop the top CCTV from the stack
 	CCTV cctv = stack_copied_cctv_list.top();
 	stack_copied_cctv_list.pop();
-
-	// give it the specific direction
-	
-	
+	// check the current vector
+	// pass the 
 }
 
 void countNotSafeZone() {
