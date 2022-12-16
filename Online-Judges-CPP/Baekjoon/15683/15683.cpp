@@ -18,101 +18,105 @@ struct CCTV {
 	CCTV(int r, int c, int t) : row(r), col(c), type(t) {}
 };
 
-void checkUp(vector<vector<int>>& vector_zone, int row, int col) {
+vector<vector<int>> checkUp(vector<vector<int>> vector_zone, int row, int col) {
 	// loop
 	while (1) {
 		--row;
 		// until out of bound
 		if (row < 0)
-			return;
+			return vector_zone;
 
 		int& space = vector_zone.at(row).at(col);
 
 		// until there is a wall
 		if (space == 6)
-			return;
+			return vector_zone;
 
 		// if the space is empty
 		if (space == 0)
 			space = SAFE_ZONE;
 	}
+	return vector_zone;
 }
 
-void checkDown(vector<vector<int>>& vector_zone, int row, int col) {
+vector<vector<int>> checkDown(vector<vector<int>> vector_zone, int row, int col) {
 	// loop
 	while (1) {
 		++row;
 		// until out of bound
 		if (row >= n)
-			return;
+			return vector_zone;
 
 		int& space = vector_zone.at(row).at(col);
 
 		// until there is a wall
 		if (space == 6)
-			return;
+			return vector_zone;
 
 		// if the space is empty
 		if (space == 0)
 			space = SAFE_ZONE;
 	}
+	return vector_zone;
 }
 
-void checkLeft(vector<vector<int>>& vector_zone, int row, int col) {
+vector<vector<int>> checkLeft(vector<vector<int>> vector_zone, int row, int col) {
 	// loop
 	while (1) {
 		--col;
 		// until out of bound
 		if (col < 0)
-			return;
+			return vector_zone;
 
 		int& space = vector_zone.at(row).at(col);
 
 		// until there is a wall
 		if (space == 6)
-			return;
+			return vector_zone;
 
 		// if the space is empty
 		if (space == 0)
 			space = SAFE_ZONE;
 	}
+	return vector_zone;
 }
 
-void checkRight(vector<vector<int>>& vector_zone, int row, int col) {
+vector<vector<int>> checkRight(vector<vector<int>> vector_zone, int row, int col) {
 	// loop
 	while (1) {
 		++col;
 		// until out of bound
 		if (col >= m)
-			return;
+			return vector_zone;
 
 		int& space = vector_zone.at(row).at(col);
 
 		// until there is a wall
 		if (space == 6)
-			return;
+			return vector_zone;
 
 		// if the space is empty
 		if (space == 0)
 			space = SAFE_ZONE;
 	}
+	return vector_zone;
 }
 
-void dfs(vector<vector<int>> &vector_zone, stack<CCTV> &stack_cctv_list, int direction) {
+void dfs(vector<vector<int>> vector_zone, stack<CCTV> stack_cctv_list, int direction) {
 
 	// if stack is empty, count not-safe-zones and end the function
 	if (stack_cctv_list.empty()) {
 		int count_not_safe = 0;
 
-		cout << endl;
+//		cout << endl;
 
 		for (auto& row : vector_zone) {
 			for (auto& e : row) {
-				cout << e << " ";
+//				cout << e << " ";
 					if (e == 0)
 						++count_not_safe;
 			}
-			cout << endl;
+//			cout << endl;
 		}
 
 		if (count_min_not_safe > count_not_safe)
@@ -120,25 +124,9 @@ void dfs(vector<vector<int>> &vector_zone, stack<CCTV> &stack_cctv_list, int dir
 		return;
 	}
 
-	// copy vector_zone and stack_cctv_list
-	vector<vector<int>> vector_copied_zone = vector_zone;
-	stack<CCTV> stack_copied_cctv_list = stack_cctv_list;
-
 	// top CCTV
-	CCTV cctv = stack_copied_cctv_list.top();
+	CCTV cctv = stack_cctv_list.top();
 
-	// give it the specific direction.
-	/*
-	Type 1 -	One direction (total 4)
-	Type 2 -	Side (total 2)
-	Type 3 -	90 degree (total 4)
-	Type 4 -	Three directions (total 4)
-	Type 5 -	All four directions (total 1)
-	*/
-	
-	// 1. do not select the current direction
-	// do not edit the current vector
-	// pass the current stack, and give another direction
 	int num_dir = 0;
 	switch (cctv.type) {
 		// 4
@@ -159,12 +147,29 @@ void dfs(vector<vector<int>> &vector_zone, stack<CCTV> &stack_cctv_list, int dir
 		break;
 	}
 
+	// if cctv will not select any direction, discard right now
+	if (num_dir <= direction)
+		return;
+
+	// give it the specific direction.
+	/*
+	Type 1 -	One direction (total 4)
+	Type 2 -	Side (total 2)
+	Type 3 -	90 degree (total 4)
+	Type 4 -	Three directions (total 4)
+	Type 5 -	All four directions (total 1)
+	*/
+	
+	// 1. do not select the current direction
+	// do not edit the current vector
+	// pass the current stack, and give another direction
+
 	for(int i=direction+1; i<num_dir; ++i)
-	dfs(vector_copied_zone, stack_copied_cctv_list, num_dir);
+	dfs(vector_zone, stack_cctv_list, i);
 
 	// 2. select the current direction
 	// pop the top CCTV from the stack
-	stack_copied_cctv_list.pop();
+	stack_cctv_list.pop();
 	
 	// edit the current vector with the CCTV
 	switch (cctv.type) {
@@ -172,16 +177,16 @@ void dfs(vector<vector<int>> &vector_zone, stack<CCTV> &stack_cctv_list, int dir
 	case 1:
 		switch (direction) {
 		case 0:
-			checkUp(vector_copied_zone, cctv.row, cctv.col);
+			vector_zone = checkUp(vector_zone, cctv.row, cctv.col);
 			break;
 		case 1:
-			checkRight(vector_copied_zone, cctv.row, cctv.col);
+			vector_zone = checkRight(vector_zone, cctv.row, cctv.col);
 			break;
 		case 2:
-			checkDown(vector_copied_zone, cctv.row, cctv.col);
+			vector_zone = checkDown(vector_zone, cctv.row, cctv.col);
 			break;
 		case 3:
-			checkLeft(vector_copied_zone, cctv.row, cctv.col);
+			vector_zone = checkLeft(vector_zone, cctv.row, cctv.col);
 			break;
 		}
 		break;
@@ -190,12 +195,12 @@ void dfs(vector<vector<int>> &vector_zone, stack<CCTV> &stack_cctv_list, int dir
 	case 2:
 		switch (direction) {
 		case 0:
-			checkUp(vector_copied_zone, cctv.row, cctv.col);
-			checkDown(vector_copied_zone, cctv.row, cctv.col);
+			vector_zone = checkUp(vector_zone, cctv.row, cctv.col);
+			vector_zone = checkDown(vector_zone, cctv.row, cctv.col);
 			break;
 		case 1:
-			checkLeft(vector_copied_zone, cctv.row, cctv.col);
-			checkRight(vector_copied_zone, cctv.row, cctv.col);
+			vector_zone = checkLeft(vector_zone, cctv.row, cctv.col);
+			vector_zone = checkRight(vector_zone, cctv.row, cctv.col);
 			break;
 		}
 		break;
@@ -204,20 +209,20 @@ void dfs(vector<vector<int>> &vector_zone, stack<CCTV> &stack_cctv_list, int dir
 	case 3:
 		switch (direction) {
 		case 0:
-			checkUp(vector_copied_zone, cctv.row, cctv.col);
-			checkRight(vector_copied_zone, cctv.row, cctv.col);
+			vector_zone = checkUp(vector_zone, cctv.row, cctv.col);
+			vector_zone = checkRight(vector_zone, cctv.row, cctv.col);
 			break;
 		case 1:
-			checkRight(vector_copied_zone, cctv.row, cctv.col);
-			checkDown(vector_copied_zone, cctv.row, cctv.col);
+			vector_zone = checkRight(vector_zone, cctv.row, cctv.col);
+			vector_zone = checkDown(vector_zone, cctv.row, cctv.col);
 			break;
 		case 2:
-			checkDown(vector_copied_zone, cctv.row, cctv.col);
-			checkLeft(vector_copied_zone, cctv.row, cctv.col);
+			vector_zone = checkDown(vector_zone, cctv.row, cctv.col);
+			vector_zone = checkLeft(vector_zone, cctv.row, cctv.col);
 			break;
 		case 3:
-			checkUp(vector_copied_zone, cctv.row, cctv.col);
-			checkLeft(vector_copied_zone, cctv.row, cctv.col);
+			vector_zone = checkUp(vector_zone, cctv.row, cctv.col);
+			vector_zone = checkLeft(vector_zone, cctv.row, cctv.col);
 			break;
 		}
 		break;
@@ -226,39 +231,39 @@ void dfs(vector<vector<int>> &vector_zone, stack<CCTV> &stack_cctv_list, int dir
 	case 4:
 		switch (direction) {
 		case 0:
-			checkLeft(vector_copied_zone, cctv.row, cctv.col);
-			checkUp(vector_copied_zone, cctv.row, cctv.col);
-			checkRight(vector_copied_zone, cctv.row, cctv.col);
+			vector_zone = checkLeft(vector_zone, cctv.row, cctv.col);
+			vector_zone = checkUp(vector_zone, cctv.row, cctv.col);
+			vector_zone = checkRight(vector_zone, cctv.row, cctv.col);
 			break;
 		case 1:
-			checkUp(vector_copied_zone, cctv.row, cctv.col);
-			checkRight(vector_copied_zone, cctv.row, cctv.col);
-			checkDown(vector_copied_zone, cctv.row, cctv.col);
+			vector_zone = checkUp(vector_zone, cctv.row, cctv.col);
+			vector_zone = checkRight(vector_zone, cctv.row, cctv.col);
+			vector_zone = checkDown(vector_zone, cctv.row, cctv.col);
 			break;
 		case 2:
-			checkRight(vector_copied_zone, cctv.row, cctv.col);
-			checkDown(vector_copied_zone, cctv.row, cctv.col);
-			checkLeft(vector_copied_zone, cctv.row, cctv.col);
+			vector_zone = checkRight(vector_zone, cctv.row, cctv.col);
+			vector_zone = checkDown(vector_zone, cctv.row, cctv.col);
+			vector_zone = checkLeft(vector_zone, cctv.row, cctv.col);
 			break;
 		case 3:
-			checkUp(vector_copied_zone, cctv.row, cctv.col);
-			checkLeft(vector_copied_zone, cctv.row, cctv.col);
-			checkDown(vector_copied_zone, cctv.row, cctv.col);
+			vector_zone = checkUp(vector_zone, cctv.row, cctv.col);
+			vector_zone = checkLeft(vector_zone, cctv.row, cctv.col);
+			vector_zone = checkDown(vector_zone, cctv.row, cctv.col);
 			break;
 		}
 		break;
 
 	// CCTV Type 5
 	case 5:
-		checkUp(vector_copied_zone, cctv.row, cctv.col);
-		checkLeft(vector_copied_zone, cctv.row, cctv.col);
-		checkRight(vector_copied_zone, cctv.row, cctv.col);
-		checkDown(vector_copied_zone, cctv.row, cctv.col);
+		vector_zone = checkUp(vector_zone, cctv.row, cctv.col);
+		vector_zone = checkLeft(vector_zone, cctv.row, cctv.col);
+		vector_zone = checkRight(vector_zone, cctv.row, cctv.col);
+		vector_zone = checkDown(vector_zone, cctv.row, cctv.col);
 		break;
 	}
 
 	// next dfs
-	dfs(vector_copied_zone, stack_copied_cctv_list, 0);
+	dfs(vector_zone, stack_cctv_list, 0);
 }
 
 void countNotSafeZone() {
