@@ -1,4 +1,5 @@
 # C++ Strategy
+The document is a C++ quick guide especially for online judges.
 ## Time Complexity
 
 ## Sort
@@ -77,3 +78,9 @@ Guide: (1) [push_back() vs emplace_back() in C++ STL Vectors](https://www.geeksf
 
 *emplace_back()* seems to be faster than *push_back()*, but **BE CAREFUL!** There is a risk of unwanted implicit conversion while using *emplace_back()*, because of constructor forwarding.
 So if you are not sure about the conversion, it is better to just use *push_back()* for safety, reliability, and maintainability. 
+
+## Set
+**Set**: Usually implemented red-black tree, only key
+
+## Map
+**Map**: Similar to set, key-value pairs, unique keys
