@@ -94,6 +94,9 @@ So if you are not sure about the conversion, it is better to just use *push_back
 **Set**: Usually implemented red-black tree, only key
 ### Header
     #include <set>
+### Assignment
+    // Converting vector (vec) into set (s1)
+    set<int> s1(vec.begin(), vec.end());
 ### *insert()*
 ### *find()*
 ### *count()*
@@ -102,3 +105,7 @@ So if you are not sure about the conversion, it is better to just use *push_back
 **Map**: Similar to set, key-value pairs, unique keys
 ### Header
     #include <map>
+### Assignment
+    map<string, int> m1;
+### *insert()*
+    m1.insert(make_pair("Hello", 123));
