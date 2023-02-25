@@ -98,7 +98,18 @@ So if you are not sure about the conversion, it is better to just use *push_back
     // Converting vector (vec) into set (s1)
     set<int> s1(vec.begin(), vec.end());
 ### *insert()*
+    s1.insert(123);
 ### *find()*
+Use iterator to search the container for an element.
+(If no element, it returns set::end().)
+
+    set<int> s1;
+    set<int>::iterator it;
+    .
+    .
+    .
+    it=s1.find(321);
+
 ### *count()*
 
 ## Map
