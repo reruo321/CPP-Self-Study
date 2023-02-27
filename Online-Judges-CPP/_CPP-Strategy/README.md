@@ -6,7 +6,7 @@ The document is a C++ quick guide especially for online judges.
 ### Header
     #include <algorithm>
 ### *sort()*
-    template <class RandomAccessIterator>  void sort (RandomAccessIterator first, RandomAccessIterator last);
+    template <class RandomAccessIterator> void sort (RandomAccessIterator first, RandomAccessIterator last);
     template <class RandomAccessIterator, class Compare>  void sort (RandomAccessIterator first, RandomAccessIterator last, Compare comp);
 
 #### Example
@@ -47,6 +47,8 @@ The document is a C++ quick guide especially for online judges.
 ### *append()*
     string& append (const string& str);
     string& append (const string& str, size_t subpos, size_t sublen = npos);
+### *push_back()*
+
 
 #### Example
 
@@ -79,9 +81,13 @@ Guide: (1) [push_back() vs emplace_back() in C++ STL Vectors](https://www.geeksf
 *emplace_back()* seems to be faster than *push_back()*, but **BE CAREFUL!** There is a risk of unwanted implicit conversion while using *emplace_back()*, because of constructor forwarding.
 So if you are not sure about the conversion, it is better to just use *push_back()* for safety, reliability, and maintainability. 
 
+## Stack
+**Stack**: LIFO
 ## Queue
+**Queue**: FIFO
 
 ## Priority Queue
+
 ### Header
     #include <queue>
 ### Assignment
@@ -89,6 +95,8 @@ So if you are not sure about the conversion, it is better to just use *push_back
     priority_queue<int> qu1;
     // greater() will make its top the least.
     priority_queue<int, vector<int>, greater<int>> qu2;
+
+## Deque
 
 ## Set
 **Set**: Usually implemented red-black tree, only key
@@ -111,6 +119,8 @@ Use iterator to search the container for an element.
     it=s1.find(321);
 
 ### *count()*
+    if(s1.count(222) > 0)
+      cout << "There is 222 in the set." << endl;
 
 ## Map
 **Map**: Similar to set, key-value pairs, unique keys
