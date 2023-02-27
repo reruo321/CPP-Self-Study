@@ -47,9 +47,6 @@ The document is a C++ quick guide especially for online judges.
 ### *append()*
     string& append (const string& str);
     string& append (const string& str, size_t subpos, size_t sublen = npos);
-### *push_back()*
-
-
 #### Example
 
     string str1 = "Wow! ";
@@ -61,6 +58,9 @@ The document is a C++ quick guide especially for online judges.
     str3.append(str2, 6);  // str3 == "Good World"
     str5.append(str2, 0, 4);  // str5 == "What the Hell"
 
+### *push_back()*
+### *size()*
+***size()*** = *length()* in string.
 ## Print
 ### *printf()*
     printf("%02x", buf);    // Prints the integer at least 2 digits in hexadecimal format, pad with 0s on the left it there's less than 2.
@@ -130,3 +130,8 @@ Use iterator to search the container for an element.
     map<string, int> m1;
 ### *insert()*
     m1.insert(make_pair("Hello", 123));
+### *count()*
+Since normal maps have unique keys, map::count will return either 0 or 1.
+
+    if(m1.count("Oh") > 0)
+      cout << "You said OH." << endl;
