@@ -97,7 +97,15 @@ So if you are not sure about the conversion, it is better to just use *push_back
     priority_queue<int, vector<int>, greater<int>> qu2;
 
 ## Deque
+**Deque**: The double-ended queue
+### *push_front()*
+### *push_back()*
+### *pop_front()*
+### *pop_back()* 
+### *at()*
+Note that you can use *at()* on a deque, which is unavailable on a queue.
 
+    de.at(1);
 ## Set
 **Set**: Usually implemented red-black tree, only key
 ### Header
