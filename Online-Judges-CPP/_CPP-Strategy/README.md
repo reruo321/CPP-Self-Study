@@ -131,7 +131,12 @@ Use iterator to search the container for an element.
       cout << "There is 222 in the set." << endl;
 
 ## Map
-**Map**: Similar to set, key-value pairs, unique keys
+* Associative container: Element reference - Key (O) Absolute position (X)
+* Ordered: Strict elements' order at all times
+* Map: Key - Mapped value
+* Unique keys: No equivalent keys
+* Allocator-aware: Allovator object for dynamically handling storage needs
+
 ### Header
     #include <map>
 ### Assignment
