@@ -65,9 +65,23 @@ The document is a C++ quick guide especially for online judges.
     str3.append(str2, 6);  // str3 == "Good World"
     str5.append(str2, 0, 4);  // str5 == "What the Hell"
 
+### *substr()*
+    string substr (size_t pos = 0, size_t len = npos) const;
+#### Example
+    string str1 = "Hello World!";
+    string str2 = str1.substr(0, 4);    // str2 == "Hell"
 ### *push_back()*
+    str.push_back('X');
+    str.push_back('5');
+### *pop_back()*
+    str.pop_back();
 ### *size()*
-***size()*** = *length()* in string.
+***size()* = *length()*** in string.
+### *compare()*
+    if(str1.compare(str2) == 0)
+        cout << "They are the same." << endl;
+    if(str1.compare(str3) != 0)
+        cout << "They are different." << endl;
 ## Print
 ### *printf()*
     printf("%02x", buf);    // Prints the integer at least 2 digits in hexadecimal format, pad with 0s on the left it there's less than 2.
