@@ -51,6 +51,13 @@ The document is a C++ quick guide especially for online judges.
 ## String
 ### Header
     #include <string>
+### Operators
+There are various operators supported on string.
+
+***operator=*** (assignment), ***operator[]*** (get character), ***operator+=*** (appending),
+***operator+*** (concatenation), ***operator>>*** (istream), ***operator<<*** (ostream).
+
+***Relational operators*** (such as operator==, operator<=) can be also used.
 ### *append()*
     string& append (const string& str);
     string& append (const string& str, size_t subpos, size_t sublen = npos);
