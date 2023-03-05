@@ -7,6 +7,9 @@ The document is a C++ quick guide especially for online judges.
 4. Try to reduce loops in your program.
 
 ### Time Complexity
+Guide: [Guide 1](https://adrianmejia.com/how-to-find-time-complexity-of-an-algorithm-code-big-o-notation/)
+, [Guide 2](https://adrianmejia.com/most-popular-algorithms-time-complexity-every-programmer-should-know-free-online-tutorial-course/#Mergesort)
+
 ![Complexities-Graph1](https://user-images.githubusercontent.com/48712088/222981233-a6b1c11a-8c49-4162-94ae-69380c8d3a08.png)
 
 
