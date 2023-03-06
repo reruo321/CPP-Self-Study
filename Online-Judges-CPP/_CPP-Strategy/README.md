@@ -12,6 +12,8 @@ Guide: [Guide 1](https://adrianmejia.com/how-to-find-time-complexity-of-an-algor
 
 ![Complexities-Graph1](https://user-images.githubusercontent.com/48712088/222981233-a6b1c11a-8c49-4162-94ae-69380c8d3a08.png)
 
+A quick, intuitive way to know the complexity of a function is putting n=1, n=2, n=3, ... and so on.
+
 
 
 ## Sort
