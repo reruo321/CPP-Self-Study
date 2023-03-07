@@ -183,3 +183,11 @@ Since normal maps have unique keys, map::count will return either 0 or 1.
 
     if(m1.count("Oh") > 0)
       cout << "You said OH." << endl;
+
+## List
+**List**: Sufficient for inserting/deleting elements, even if they are not on the edge.
+(Some other containers such as vector would not be good choices for that.)
+
+### **erase()**
+
+## Forward List
