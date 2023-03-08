@@ -6,15 +6,27 @@ The document is a C++ quick guide especially for online judges.
 3. No 4 or more nested loops if N >= 100.
 4. Try to reduce loops in your program.
 
-### Time Complexity
+## Time Complexity
 Guide: [Guide 1](https://adrianmejia.com/how-to-find-time-complexity-of-an-algorithm-code-big-o-notation/)
 , [Guide 2](https://adrianmejia.com/most-popular-algorithms-time-complexity-every-programmer-should-know-free-online-tutorial-course/#Mergesort)
 
 ![Complexities-Graph1](https://user-images.githubusercontent.com/48712088/222981233-a6b1c11a-8c49-4162-94ae-69380c8d3a08.png)
 
-A quick, intuitive way to know the complexity of a function is putting n=1, n=2, n=3, ... and so on.
+We can find time complexity of codes by counting performed opperations, by using **Big-O notation**.
 
+* ***n***: input size
+* ***O***: The worst-case scenario growth rate function
 
+A simple, intuitive way to know the complexity of a function is just putting n=1, n=2, n=3, ... and so on.
+
+### Examples
+* O(1): Primitive operations (+-×/%, bit shift, etc.), Average lookup/inserting/deleting in hash table (Worst is O(n).)
+* 
+
+### Notes
+* The absolute value does not matter in primitive operations. (Both "4+3" and "53837493+2838384" are O(1).)
+* Since primitive operations have maximum-value limits, they can have constant time.
+* One-line code ≠ O(1)
 
 ## Sort
 ### Header
