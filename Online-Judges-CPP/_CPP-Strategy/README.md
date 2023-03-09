@@ -20,11 +20,14 @@ We can find time complexity of codes by counting performed opperations, by using
 A simple, intuitive way to know the complexity of a function is just putting n=1, n=2, n=3, ... and so on.
 
 ### Examples
-* **O(1)**: Primitive operations (+-×/%, bit shift, etc.), Average lookup/inserting/deleting in hash table (Worst is O(n).)
-* **O(n)**: Loop
+* **O(1)**(Constant): Primitive operations (+-×/%, bit shift, etc.), Average lookup/inserting/deleting in hash table (Worst is O(n).)
+* **O(logn)**(Logarithmic): Binary search
+* **O(n)**(Linear): Single loop
+* **O(n^2)**(Quadratic): Double loop, Bubble sort
+* **O(n^c)**(Polynomial): c-loop
 
 ### Notes
-* The absolute value does not matter in primitive operations. (Both "4+3" and "53837493+2838384" are O(1).)
+* The absolute value of a number does not matter in primitive operations. (Both "4+3" and "53837493+2838384" are O(1).)
 * Since primitive operations have maximum-value limits, they can have constant time.
 * One-line code ≠ O(1)
 * Use only dominant term in O notation, without coefficients. if f(n) = 3n^2+2n+1, O(g(n)) = O(n^2).
