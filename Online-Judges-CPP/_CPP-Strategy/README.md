@@ -36,7 +36,7 @@ A simple, intuitive way to know the complexity of a function is just putting n=1
 [**Master theorem**](https://en.m.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)): Asymptotic analysis for recurrence relations of types. **T(n) = aT(n/b) + f(n)**
 where *a*: No. of subproblems, *b*: the factor by which *n* is reduced, *f(n)*: the running time outside of the recursion.
 
-The recurrences often satisfy one of three forms, which is determined by how the work to split/recombine the problem relates to the critical exponent ccrit. = logb(a).
+The recurrences often satisfy one of three forms, which is determined by how the work to split/recombine the problem *f(n)* relates to the critical exponent ccrit. = logb(a).
 
 For example, master theorem can be used to find the running time of binary search.
 
