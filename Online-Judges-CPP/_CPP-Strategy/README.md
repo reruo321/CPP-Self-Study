@@ -21,10 +21,13 @@ A simple, intuitive way to know the complexity of a function is just putting n=1
 
 ### Examples
 * **O(1)**(Constant): Primitive operations (+-×/%, bit shift, etc.), Average lookup/inserting/deleting in hash table (Worst is O(n).)
-* **O(log(n))**(Logarithmic): Binary search
+* **O(logn)**(Logarithmic): Binary search
 * **O(n)**(Linear): Single loop
+* **O(nlogn)**(Linearithmic): Merge sort, Quick sort, ...
 * **O(n^2)**(Quadratic): Double loop, Bubble sort
 * **O(n^c)**(Polynomial): c-loop
+* **O(2^n)**(Exponential): Power set (finding all subsets on a set), Fibonacci
+* **O(n!)**(Factorial): Permutation
 
 ### Notes
 * The absolute value of a number does not matter in primitive operations. (Both "4+3" and "53837493+2838384" are O(1).)
@@ -38,7 +41,7 @@ where *a*: No. of subproblems, *b*: the factor by which *n* is reduced, *f(n)*: 
 
 The recurrences often satisfy one of three forms, which is determined by how the work to split/recombine the problem *f(n)* relates to the critical exponent ccrit. = logb(a).
 
-For example, master theorem can be used to find the running time of binary search.
+For example, master theorem can be used to find the running time of binary search or merge sort.
 
 ## Sort
 ### Header
