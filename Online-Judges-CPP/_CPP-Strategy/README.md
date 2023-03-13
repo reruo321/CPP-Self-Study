@@ -43,6 +43,10 @@ The recurrences often satisfy one of three forms, which is determined by how the
 
 For example, master theorem can be used to find the running time of binary search or merge sort.
 
+### Auxiliary Space and Space Complexity
+* **Auxiliary Space**: The extra space or temporary spave used by an algorithm
+* **Space Complexity**: Auxiliary space + Space used by input
+
 ## Sort
 ### Header
     #include <algorithm>
