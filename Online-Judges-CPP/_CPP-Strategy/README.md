@@ -153,7 +153,7 @@ So if you are not sure about the conversion, it is better to just use *push_back
 **Queue**: FIFO
 
 ## Priority Queue
-
+**Priority queue** automatically sorts the elements in the queue.
 ### Header
     #include <queue>
 ### Assignment
@@ -220,5 +220,10 @@ Since normal maps have unique keys, map::count will return either 0 or 1.
 (Some other containers such as vector would not be good choices for that.)
 
 ### **erase()**
+**WARNING!** You should assign the iterator again when you are erasing something, or it will point to erased element.
+(Do not need to take care of it while using vector though.)
+
+    it = mylist.erase(it);  // Should do like this!
+    mylist.erase(it);   // In this line "it" will point to ERASED element...
 
 ## Forward List
