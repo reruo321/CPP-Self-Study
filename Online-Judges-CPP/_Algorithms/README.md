@@ -8,11 +8,23 @@ Here are algorithms to find the index of substring in a string.
 ### Naive Algorithm
 The simplest, using brute force approach. O(n-m+1).
 ### KMP
+
 ### Finite Automata
 ### Boyer Moore
+| | Time Complexity |
+|-|-|
+|Best|O(n/m)|
+|Worst|O(mn)|
+
 #### The Bad Character Rule
 #### The Good Suffix Rule
 ### Boyer-Moore-Horspool
+| | Time Complexity |
+|-|-|
+|Best|O(n/m)|
+|Average|O(n)|
+|Worst|O(mn)|
+
 1. Create the Bad Match Table with pattern.
 
     a. If the length of pattern is `m`, the value of an alphabet will be `m - index - 1`.
