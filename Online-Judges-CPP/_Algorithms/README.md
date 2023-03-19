@@ -6,7 +6,12 @@ Here are algorithms to find the index of substring in a string.
 (n: the length of string, m: the length of pattern)
 
 ### Naive Algorithm
-The simplest, using brute force approach. O(n-m+1).
+The simplest, using brute force approach.
+
+| | Time Complezity |
+|-|-|
+|Best|O(n)|
+|Worst|O(m*(n-m+1))|
 ### KMP
 
 ### Finite Automata
