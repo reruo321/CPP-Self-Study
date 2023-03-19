@@ -52,7 +52,7 @@ For example, master theorem can be used to find the running time of binary searc
     #include <algorithm>
 ### *sort()*
     template <class RandomAccessIterator> void sort (RandomAccessIterator first, RandomAccessIterator last);
-    template <class RandomAccessIterator, class Compare>  void sort (RandomAccessIterator first, RandomAccessIterator last, Compare comp);
+    template <class RandomAccessIterator, class Compare> void sort (RandomAccessIterator first, RandomAccessIterator last, Compare comp);
 
 #### Example
 
@@ -133,7 +133,8 @@ There are various operators supported on string.
     printf("0.2f", abc);   // Prints the float, and output should have only 2 digits after the decimal place.
 
 ## Vector
-### Release Memory of Vector
+* Not good choice to insert/delete elements in the middle of the vector
+### Releasing Memory of Vector
 
     // (v: vector)
     v.clear();          // Removes all elements from the vector, makes its size == 0.
@@ -213,11 +214,17 @@ Use iterator to search the container for an element.
 Since normal maps have unique keys, map::count will return either 0 or 1.
 
     if(m1.count("Oh") > 0)
-      cout << "You said OH." << endl;
+      cout << "You said Oh." << endl;
 
 ## List
 **List**: Sufficient for inserting/deleting elements, even if they are not on the edge.
 (Some other containers such as vector would not be good choices for that.)
+
+### Iterator
+Make its iterator to find, erase, or go to a loop.
+
+    list<int> mylist;
+    list<int>::iterator it;
 
 ### **erase()**
 **WARNING!** You should assign the iterator again when you are erasing something, or it will point to erased element.
