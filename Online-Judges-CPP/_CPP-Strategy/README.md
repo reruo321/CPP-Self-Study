@@ -174,7 +174,7 @@ Note that you can use *at()* on a deque, which is unavailable on a queue.
 
     de.at(1);
 ## Set
-**Set**: Usually implemented red-black tree, only key
+**Set**: Usually implemented red-black tree, has only keys
 ### Header
     #include <set>
 ### Assignment
@@ -218,7 +218,7 @@ Since normal maps have unique keys, map::count will return either 0 or 1.
 
 ## List
 **List**: Sufficient for inserting/deleting elements, even if they are not on the edge.
-(Some other containers such as vector would not be good choices for that.)
+(Some other containers such as vector would not be good choices to do them.)
 
 ### Iterator
 Make its iterator to find, erase, or go to a loop.
