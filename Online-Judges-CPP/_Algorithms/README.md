@@ -23,6 +23,10 @@ The simplest algorithm, using brute force approach.
 
 ### KMP
 
+1. Create the KMP table with pattern.
+
+2. Following the table, find the pattern in the string.
+
 ### Finite Automata
 ### Boyer Moore
 | | Time Complexity |
