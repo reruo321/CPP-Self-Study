@@ -115,6 +115,12 @@ There are various operators supported on string.
 #### Example
     string str1 = "Hello World!";
     string str2 = str1.substr(0, 4);    // str2 == "Hell"
+
+### *find()*
+Very useful to parse or find something in the string.
+#### Example
+    size_t found = str.find("#");
+    string my_string = str.substr(0, found);
 ### *push_back()*
     str.push_back('X');
     str.push_back('5');
@@ -127,6 +133,7 @@ There are various operators supported on string.
         cout << "They are the same." << endl;
     if(str1.compare(str3) != 0)
         cout << "They are different." << endl;
+
 ## Print
 ### *printf()*
     printf("%02x", buf);    // Prints the integer at least 2 digits in hexadecimal format, pad with 0s on the left it there's less than 2.
