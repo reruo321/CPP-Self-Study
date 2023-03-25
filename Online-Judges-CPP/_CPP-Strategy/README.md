@@ -245,7 +245,7 @@ Make its iterator to find, erase, or go to a loop.
 ## Rope
 **Rope**: Scalable string, string operations (concatenate, substr, ...) are almost independent of the length of the string
 
-NOTE: It is not from C++ STL library. From SGI extensions.
+NOTE: It is not from the C++ standard library. From SGI extensions.
 
 ### Header
     #include <ext/rope>
