@@ -241,3 +241,13 @@ Make its iterator to find, erase, or go to a loop.
     mylist.erase(it);   // In this line "it" will point to ERASED element...
 
 ## Forward List
+
+## Rope
+**Rope**: Scalable string, string operations (concatenate, substr, ...) are almost independent of the length of the string
+
+NOTE: It is not from C++ STL library. From SGI extensions.
+
+### Header
+    #include <ext/rope>
+### Namespace
+    using namespace __gnu_cxx;
