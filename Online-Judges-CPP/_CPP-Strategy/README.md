@@ -243,7 +243,9 @@ Make its iterator to find, erase, or go to a loop.
 ## Forward List
 
 ## Rope
-**Rope**: Scalable string, string operations (concatenate, substr, ...) are almost independent of the length of the string
+* Scalable string
+* String operations (concatenate, substr, ...) are almost independent of the length of the string
+* Member functions are similar to those of `string`.
 
 NOTE: It is not from the C++ standard library. From SGI extensions.
 
@@ -251,3 +253,12 @@ NOTE: It is not from the C++ standard library. From SGI extensions.
     #include <ext/rope>
 ### Namespace
     using namespace __gnu_cxx;
+### Convert String to Rope
+You can choose c-string (via string::c_str) as a vehicle.
+
+    string str;
+    crope ro(str.c_str());
+### *insert()*
+### *append()*
+### *erase()*
+
