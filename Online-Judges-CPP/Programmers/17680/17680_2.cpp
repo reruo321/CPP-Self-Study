@@ -1,14 +1,14 @@
 #include <string>
 #include <vector>
 #include <list>
-#include <map>
+#include <unordered_map>
 
 using namespace std;
 
 int solution(int cacheSize, vector<string> cities) {
     int answer = 0;
     list<string> cli;
-    map<string, list<string>::iterator> mmap;
+    unordered_map<string, list<string>::iterator> mmap;
     if(!cacheSize)
         return cities.size() * 5;
     
