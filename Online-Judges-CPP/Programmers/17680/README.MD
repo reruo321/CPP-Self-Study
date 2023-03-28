@@ -16,7 +16,7 @@ Using others such as list would have been also fine.
 
 <details>
 <summary>Spoilers</summary>
-According to Geeksforgeeks, we can also use `list<string>` and `map<string, list<string>::iterator>`
+According to Geeksforgeeks, we can also use list and map (key: string, value: list's iterator).
 
 
 </details>
