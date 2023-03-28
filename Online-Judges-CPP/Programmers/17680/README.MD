@@ -8,8 +8,15 @@ The naive and the easiest solution to think will be...
 <details>
 <summary>Spoilers</summary>
 Vector.
-I worried about the fact that deleting elements in the middle of the vector is inefficient.
-Fortunately, it anyway solves all test cases in the problem.
 
-Using list would have been also fine.
+Using others such as list would have been also fine.
+</details>
+
+## Using Two Data Structures
+
+<details>
+<summary>Spoilers</summary>
+According to Geeksforgeeks, we can also use `list<string>` and `map<string, list<string>::iterator>`
+
+
 </details>
