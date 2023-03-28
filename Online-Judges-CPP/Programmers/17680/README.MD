@@ -9,14 +9,16 @@ The naive and the easiest solution to think will be...
 <summary>Spoilers</summary>
 Vector.
 
-Using others such as list would have been also fine.
+Using others such as list would be also fine.
 </details>
 
 ## Using Two Data Structures
 
 <details>
 <summary>Spoilers</summary>
-According to Geeksforgeeks, we can also use list and map (key: string, value: list's iterator).
+According to Geeksforgeeks, we can also use list and map.
 
+    list<string> li;
+    map<string, list<string>::iterator> ma;
 
 </details>
