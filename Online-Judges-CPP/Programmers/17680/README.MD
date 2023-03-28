@@ -16,9 +16,9 @@ Using others such as list would be also fine.
 
 <details>
 <summary>Spoilers</summary>
-According to Geeksforgeeks, we can also use list and map.
+According to Geeksforgeeks, we can also use list and unordered map.
 
     list<string> li;
-    map<string, list<string>::iterator> ma;
+    unordered_map<string, list<string>::iterator> ma;
 
 </details>
