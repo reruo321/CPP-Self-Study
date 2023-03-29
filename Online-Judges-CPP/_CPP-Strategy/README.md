@@ -223,6 +223,18 @@ Since normal maps have unique keys, map::count will return either 0 or 1.
     if(m1.count("Oh") > 0)
       cout << "You said Oh." << endl;
 
+## Unordered Map
+
+### Map vs Unordered Map
+
+| - | Map | Unordered Map |
+| - | - | - |
+| Ordering | Key ASC | X |
+| Implementation | Self balancing BST | Hash Table |
+| Search Time | log(n) | Average: O(1)<br>Worst: O(n) |
+| Insertion Time | log(n) + Rebalance | " |
+| Deletion Time | log(n) + Rebalance | " |
+
 ## List
 **List**: Sufficient for inserting/deleting elements, even if they are not on the edge.
 (Some other containers such as vector would not be good choices to do them.)
