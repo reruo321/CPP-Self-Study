@@ -206,10 +206,10 @@ Use iterator to search the container for an element.
 
 ## Map
 * Associative container: Element reference - Key (O) Absolute position (X)
-* Ordered: Strict elements' order at all times
+* Ordered: Strict elements' (keys') order at all times
 * Map: Key - Mapped value
 * Unique keys: No equivalent keys
-* Allocator-aware: Allovator object for dynamically handling storage needs
+* Allocator-aware: Allocator object for dynamically handling storage needs
 
 ### Header
     #include <map>
@@ -234,6 +234,7 @@ Since normal maps have unique keys, map::count will return either 0 or 1.
 | Search Time | log(n) | Average: O(1)<br>Worst: O(n) |
 | Insertion Time | log(n) + Rebalance | " |
 | Deletion Time | log(n) + Rebalance | " |
+| General Usage | Range iteration | Accessing individuals |
 
 ## List
 **List**: Sufficient for inserting/deleting elements, even if they are not on the edge.
