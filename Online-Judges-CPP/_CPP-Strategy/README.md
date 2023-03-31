@@ -224,7 +224,8 @@ Since normal maps have unique keys, map::count will return either 0 or 1.
       cout << "You said Oh." << endl;
 
 ## Unordered Map
-
+* Not ordered by keys or mapped values
+* Organized into **buckets** with their hash value for faster accessing
 ### Map vs Unordered Map
 
 | - | Map | Unordered Map |
