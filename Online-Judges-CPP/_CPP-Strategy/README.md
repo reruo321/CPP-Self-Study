@@ -47,6 +47,7 @@ For example, master theorem can be used to find the running time of binary searc
 * **Auxiliary Space**: The extra space or temporary spave used by an algorithm
 * **Space Complexity**: Auxiliary space + Space used by input
 
+# C++ STL
 ## Sort
 ### Header
     #include <algorithm>
@@ -133,6 +134,32 @@ Very useful to parse or find something in the string.
         cout << "They are the same." << endl;
     if(str1.compare(str3) != 0)
         cout << "They are different." << endl;
+
+### Notes
+**BE CAREFUL** while dealing with chars and strings together!
+
+Suppose that you want to make a string "hi AB".
+    
+    char a = 'A';
+    char b = 'B';
+    string str = "hi ";
+    
+    str += a + b;   // OH NO!
+    
+    cout << str << endl;
+
+However, the result is `hi �`.
+The precedence of the operator `+` is higher than that of `+=`.
+Therefore, `a+b` is done first.
+
+    str += to_string(a) + to_string(b);   // No.
+
+The second try is not good neither, since its output is `hi 6566`.
+
+    str = str + a + b;   // Right!
+
+This is one of the right answer. As the associativity of `+` is left-to-right,
+it will add chars to the string in sequence.
 
 ## Print
 ### *printf()*
@@ -256,6 +283,7 @@ Make its iterator to find, erase, or go to a loop.
 
 ## Forward List
 
+# Others
 ## Rope
 * Scalable string
 * String operations (concatenate, substr, ...) are almost independent of the length of the string
