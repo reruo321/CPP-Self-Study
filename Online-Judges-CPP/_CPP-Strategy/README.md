@@ -138,7 +138,8 @@ Very useful to parse or find something in the string.
 ### Notes
 **BE CAREFUL** while dealing with chars and strings together!
 
-Suppose that you want to make a string "hi AB".
+Suppose that you want to make a string `hi AB`,
+by concatenating some chars and a string.
     
     char a = 'A';
     char b = 'B';
@@ -160,6 +161,15 @@ The second try is not good neither, since its output is `hi 6566`.
 
 This is one of the right answer. As the associativity of `+` is left-to-right,
 it will add chars to the string in sequence.
+
+Also, pay attention to **parameters** for some member functions,
+if there is a char! They need `n` before a char argument,
+which means the number of the characters.
+
+    str.append(n, '*');
+    str.assign(n, '*');
+    str.insert(0, n, '*');
+    str.replace(0, 1, n, '*');
 
 ## Print
 ### *printf()*
