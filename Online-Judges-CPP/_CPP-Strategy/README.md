@@ -166,10 +166,13 @@ Also, pay attention to **parameters** for some member functions,
 if there is a char! They need `n` before a char argument,
 which means the number of the characters.
 
+    // The functions which use "n" as a parameter.
     str.append(n, '*');
     str.assign(n, '*');
     str.insert(0, n, '*');
     str.replace(0, 1, n, '*');
+
+The other functions such as *string::push_back()* do not need to put the number.
 
 ## Print
 ### *printf()*
