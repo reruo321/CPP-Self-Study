@@ -195,6 +195,15 @@ Guide: (1) [push_back() vs emplace_back() in C++ STL Vectors](https://www.geeksf
 *emplace_back()* seems to be faster than *push_back()*, but **BE CAREFUL!** There is a risk of unwanted implicit conversion while using *emplace_back()*, because of constructor forwarding.
 So if you are not sure about the conversion, it is better to just use *push_back()* for safety, reliability, and maintainability. 
 
+### Re*push_back()*
+> Calling push_back will cause reallocation (when size()+1 > capacity()).
+
+According to notes on [cppreference](https://en.cppreference.com/w/cpp/container/vector/push_back),
+we should be careful while spamming `push_back()`s! This can make some problems, for instance, when you are handling iterators on the vector.
+
+It's better to use `insert()` for range inserting.
+Or try to use `reserve()` if you are willing to try multiple `push_back()`s!
+
 ## Stack
 **Stack**: LIFO
 ## Queue
