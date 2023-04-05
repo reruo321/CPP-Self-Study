@@ -55,11 +55,11 @@ For example, master theorem can be used to find the running time of binary searc
 | Compiler must document it | O | O | X | X |
 | Improves the portability? | O | X | X | X |
 
-### Well-defined behavior
+### Well-defined Behavior
 **Well-defined behavior** is the behavior strictly conforming to the C++ standard. It is neither IB, UsB, nor UB.
 It is ideally portable without change, and has the strongest guarantees to their users.
 
-### IB
+### Implementation-defined Behavior
 **Implementation-defined behavior(IB)** is the behavior that must be documented by the *particular* compiler/platform, according to the standard, and it must do something precisely.
 
 #### Examples
@@ -67,11 +67,11 @@ It is ideally portable without change, and has the strongest guarantees to their
 * The size of integral types in bytes. The C++ standard does not specify it, and it does not matter if it is 2, 4, or 8. Nevertheless, a compiler must document it.
 * The `>>` operator on a negative number.
 
-### UsB
+### Unspecified Behavior
 **Unspecified behavior(UsB)** is the behavior a compiler must do something on it, similar to IB. It does not have to be documented by it, though.
 
-### UB
-**Unspecified behavior** is the thing a compiler can do whatever on, including crashing or giving unpredictable results.
+### Undefined Behavior
+**Undefined behavior(UB)** is the thing a compiler can do whatever on, including crashing or giving unpredictable results.
 
 "Why the standard does not mandate implementations to handle these annoying UBs?": Not checking possibility of UBs brings quite a lot of optimization, and extensibility on C++.
 
