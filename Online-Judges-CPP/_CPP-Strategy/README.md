@@ -296,6 +296,19 @@ Use iterator to search the container for an element.
     #include <map>
 ### Assignment
     map<string, int> m1;
+### Comparison
+#### 1. Using Struct
+    struct comp {
+        bool operator()(const int& a, const int& b) const {
+            return a > b;
+        }
+    };
+    map<int, int, comp> ma;
+
+#### 2. (C++11) Using Lambda Expression
+    auto comp = [](const int& a, const int& b) { return a > b; };
+    map<int, int, decltype(comp)> ma(comp);
+
 ### *insert()*
     m1.insert(make_pair("Hello", 123));
 ### *count()*
