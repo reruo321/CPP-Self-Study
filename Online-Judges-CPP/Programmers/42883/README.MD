@@ -6,7 +6,7 @@ How can we make the biggest number by removing `k` digits?
 
 **USE STACK.**
 
-Since the length of the answer is constant,
+**+ Greedy algorithm**. Since the length of the answer is constant,
 we should make the left digits as big as possible.
 
 1. (Start from the 0th) Pick the `i`th digit, `num`, from the string.
