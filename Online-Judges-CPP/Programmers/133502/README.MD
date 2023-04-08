@@ -11,8 +11,8 @@ Actually, there is more important trick you should know...
 Do not start again from the 0th position, when you are in the middle of the string!
 Even if you try to find another burger after making one, just go back `2` steps from the current position.
 
-You may not need to see the string parts you have seen already over and over again.
-It is confirmed to not have a full burger, but might have some possible parts.
+You may not need to see the string parts you have seen over and over again.
+They are confirmed to not have a full burger, but might have some possible parts.
 Leave them, until you pop out burgers and go back to them.
 
 Suppose that there are ingredients like:
@@ -31,7 +31,8 @@ Then going back just `2` steps is sufficient to find another burger.
 > 3 3 3 3 3 [@1 2 3 1]
 
 ### Why just 2 Steps?
-Let's see some examples to check the relationship between the further burger deletion and the cursor's position.
+Let's see some examples to check the relationship between making a burger and the cursor's position.
+We will find the maximum steps to go back to find the next burger.
 
 1. Stay
 > 3 [@1 2 3 1] 1 2 3 1
