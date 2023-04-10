@@ -167,6 +167,15 @@ Very useful to parse or find something in the string.
     if(str1.compare(str3) != 0)
         cout << "They are different." << endl;
 
+### *npos*
+    static const size_t npos = -1;
+
+`npos` is a static member constant value with the maximum value for the type `size_t`.
+
+#### Usage
+1. As a value for ***len/sublen*** parameter: **Until the end of the string**.
+2. As a return value: Usually "No matches".
+
 ### Notes
 **BE CAREFUL** while dealing with chars and strings together!
 
