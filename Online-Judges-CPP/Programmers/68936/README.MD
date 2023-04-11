@@ -54,7 +54,7 @@ The input is not 1x1. Therefore, let's start to divide-and-conquer it!
 
 You can find that all four values are the same `0`.
 
-Insert `(0, 0)` to the pair set. Also `answer[0] += 1`.
+Insert `(0, 0)` into the pair set. Also `answer[0] += 1`.
 
 | | (Row 0) | (Row 1) |
 |-|-|-|
