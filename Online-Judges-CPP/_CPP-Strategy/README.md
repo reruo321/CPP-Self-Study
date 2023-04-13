@@ -300,6 +300,8 @@ Use iterator to search the container for an element.
     it=s1.find(321);
 
 ### *count()*
+The return value will be always `0` OR `1`, since normal `set` does not allow duplicated keys.
+
     if(s1.count(222) > 0)
       cout << "There is 222 in the set." << endl;
 
