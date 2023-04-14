@@ -66,3 +66,9 @@ The simplest algorithm, using brute force approach.
     b. If all alphabets are matching, you find the answer!
 
     - i. To continue, shift the pattern to the right by `1`, and go back to step 3.
+
+## Finding the Shortest Path
+### BFS
+### Dijkstra's
+### Bellman-Ford
+### Floyd-Warshall
