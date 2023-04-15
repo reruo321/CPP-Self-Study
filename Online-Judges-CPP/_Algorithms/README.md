@@ -69,6 +69,13 @@ The simplest algorithm, using brute force approach.
 
 ## Finding the Shortest Path
 ### BFS
+* Cannot use on graph with weights
 ### Dijkstra's
+* Can use on graph with weights
+* Cannot use on negative weights
 ### Bellman-Ford
+* Can use on graph with weights
+* Can use on negative weights
 ### Floyd-Warshall
+* Can use on graph with weights
+* Can use on negative weights
