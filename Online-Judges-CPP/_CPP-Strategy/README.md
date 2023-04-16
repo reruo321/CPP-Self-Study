@@ -359,6 +359,9 @@ The return value will be always `0` OR `1`, since normal `set` does not allow du
 
 ### *insert()*
     m1.insert(make_pair("Hello", 123));
+### *find()*
+    if(m1.find("Wow*)==m1.end())
+      cout << "You didn't say Wow." << endl;
 ### *count()*
 Since normal maps have unique keys, map::count will return either 0 or 1.
 
