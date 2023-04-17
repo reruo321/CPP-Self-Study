@@ -3,7 +3,7 @@ The document is a C++ quick guide especially for online judges.
 ## Avoiding Time Limit Exceeded Problem
 1. Analyze time constraints. 1-sec time limit will allow your process to run **10^8** operaions.
 2. Use faster I/O method. Use *printf()*/*scanf()* instead of *cin()*/*cout()*.
-3. No 4 or more nested loops if N >= 100.
+3. No 4 or more nested loops if N >= 100. It will cause more than 10^8 operations.
 4. Try to reduce loops in your program.
 
 ## Time Complexity
