@@ -400,7 +400,9 @@ Make its iterator to find, erase, or go to a loop.
     mylist.erase(it);   // In this line "it" will point to ERASED element...
 
 ## Forward List
-
+* Like **singly-linked list**
+* Only goes forward (`list`: goes both ways)
+* More efficient than `list`.
 # Others
 ## Rope
 * Scalable string
