@@ -19,4 +19,25 @@ Let's see how the numbers move. Suppose that there are two queues:
 
 > [5 6 7 8]
 
+I will do pop-and-push on queue1, queue2, queue1, queue2, queue1, queue2, queue1, queue2.
+(DIY with some drawing tools!)
+
+(1st try)
+
+> [2 3 4]
+
+> [5 6 7 8 1]
+
+(2nd try)
+
+> [2 3 4 5]
+
+> [6 7 8 1]
+
+(...after 8th try)
+
+> [5 6 7 8]
+
+> [1 2 3 4]
+
 </details>
