@@ -79,6 +79,10 @@ It is ideally portable without change, and has the strongest guarantees to their
 * Dereferencing the null pointer.
 * The pointer arithmetic resulting in the out-of-bounds of an array.
 
+## Others
+* When you use `unsigned` integer types, such as `size_t`, **BE CAREFUL** while doing some calculation!
+For example, when `size_t size = 3`, `size - 5` will make the result very-very big, since it causes underflow!
+
 # C++ STL
 ## Sort
 ### Header
