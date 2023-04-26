@@ -56,7 +56,7 @@ Therefore, you do not need to worry about some complicated crossing pop-and-push
 
 3. (If the inputs are `vector`s) Create real `queue`s, `que1` and `que2`, and fill them with their original numbers.
 
-4. Push back a special number into `que1` to notify the end of the pop-and-push loop. Be careful to not add/subtract it to/from `q1`. It must be out of input numbers' range. I chose `INT_MAX`.
+4. Push back a special number into `que1` to notify the end of the pop-and-push loop. Be careful not to add/subtract it to/from `q1`. It must be out of input numbers' range. I chose `INT_MAX`.
 
 5. Loop until you find the answer, or the special number is the front of `que2`. We will track only `q1`, not `q2`.
 
