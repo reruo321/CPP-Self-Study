@@ -407,6 +407,7 @@ Make its iterator to find, erase, or go to a loop.
 * Like **singly-linked list**
 * Only goes forward (`list`: goes both ways)
 * More efficient than `list`.
+
 # Others
 ## Rope
 * Scalable string
@@ -424,7 +425,6 @@ You can choose c-string (via string::c_str) as a vehicle.
 
     string str;
     crope ro(str.c_str());
-### *insert()*
-### *append()*
-### *erase()*
+
+After making a `rope`, you can use it as if it were a `string`.
 
