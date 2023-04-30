@@ -1,5 +1,5 @@
 # C++ Self Study
-This repository covers anything I have studied on C++.
+This repository covers anything I have studied on C and C++.
 
 * Personal Solutions for Online Judge Problems
 * C++ STL and Other Useful Libraries
