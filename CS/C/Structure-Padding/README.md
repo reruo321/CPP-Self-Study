@@ -16,7 +16,7 @@ If a type *Ty* is `n`-byte, *Ty*'s starting address `st_adr` must satisfy `st_ad
         char c2;
     };
 
-`ST::s1' has the strictest alignment. To make the starting address of 'ST::s1` even, add one-byte paddings after `ST::c1` and `ST::c2`.
+`ST::s1` has the strictest alignment. To make the starting address of `ST::s1` even, add one-byte paddings after `ST::c1` and `ST::c2`.
 The total size of `ST` is `6` bytes.
 
     struct ST{
