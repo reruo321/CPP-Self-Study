@@ -2,9 +2,6 @@
 **LEA(Load Effective Address)** instruction is used to put an "effective address" into the destination.
 Although it has similar form with `MOV`, it just computes address instead of reading from it.
 
-## Effective Address
-**Effective address** is 
-
 ## Usage
 1. To copy an effective address to destination, which is done with `&` operation in C.
 
