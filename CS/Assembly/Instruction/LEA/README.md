@@ -23,4 +23,10 @@ The below shows some part of the figure 3.32 codes from the CS book. It uses `LE
     movq %rax, 8(%rsp)
 
 2. To create a pointer for memory reference.
-3. To simply descript normal arithmetic operations. Compiler can use `LEA` even if there is no effective address.
+3. To simply descript normal arithmetic operations. Compiler can use `LEA` even if there is no use of "actual" effective address.
+
+Suppose that `%rdx` has the value `x`. Then
+
+    leaq 7(%rdx, %rdx, 4), %rax
+    
+will store `5x + 7` to `%rax`.
