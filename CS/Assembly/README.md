@@ -1,2 +1,2 @@
 # Assembly
-Note: I will use AT&T assembly syntax, mainly for x86-64.
+Note: I will study mainly on AT&T assembly syntax for x86-64.
