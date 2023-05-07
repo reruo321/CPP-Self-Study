@@ -13,12 +13,6 @@ proc:
     ret
     
 main:
-	# X1: rdi, &x1: rsi
-	# X2: rdx, &x2: rcx
-	# X3: r8,  &x3: r9
-	# X4: (rsp)
-	# X &x4: 8(rsp)
-	
 	subq $32, %rsp
 	
 	movq $1, 24(%rsp)
