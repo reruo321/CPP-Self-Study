@@ -10,4 +10,6 @@ It notifies C++ compiler "not to do" **name mangling** on the C++ symbols.
 To distinguish between different functions with the same name when generating object code, the C++ compilers change some symbols' name and encode their information.
 Different compilers may have different naming rules.
 
-Since C does not support function overloading, use `extern "C"` block to ensure that the symbols' names inside it are not changed.
+Name mangling enables to avoid conflicts in binary code while compiling C++ source code.
+However, since C does not support function overloading, it may make some problems when you try to link C and C++ source codes.
+In that case, use `extern "C"` block to ensure that the symbols' names inside it are not changed.
