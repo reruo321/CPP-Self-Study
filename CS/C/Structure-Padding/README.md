@@ -7,7 +7,7 @@ If a type *Ty* is `n`-byte, *Ty*'s starting address `st_adr` must satisfy `st_ad
 2. `signed` and `unsigned` do not matter.
 3. The more bytes a C datatype has, the stricter its alignment becomes.
 4. **Pointer alignment** is the strictest, whether the machine is 32-bit or 64-bit.
-5. (In C) Structure's address == 1st strucutre member's address. No leading padding.
+5. (In C) `Structure's address == 1st strucutre member's address`. No leading padding.
 
 ## Note
 C++ is almost the same with C, but classes looking like structures may ignore the "Key Points - Rule 5": their addresses are not always the same with those of their first members. Whether they do or not varies by compiler, or the way they are implemented.
