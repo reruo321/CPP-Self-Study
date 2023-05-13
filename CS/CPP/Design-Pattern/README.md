@@ -6,3 +6,5 @@ We will learn them with some C++ code examples.
 2. Strategy Pattern
 3. Singleton Pattern
 4. Observer Pattern
+
+## Other Patterns
