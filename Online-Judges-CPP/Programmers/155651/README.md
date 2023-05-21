@@ -17,7 +17,7 @@ I was using somewhat silly algorithm for this and other similar problems, so I w
 
 <details>
   <summary><b>Spoilers</b></summary>
-  I used 
+
 </details>
 
 ## Solution
