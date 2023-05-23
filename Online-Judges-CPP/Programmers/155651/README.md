@@ -50,10 +50,12 @@ I was using somewhat silly algorithm for this and other similar problems, so I w
     return answer;
 </details>
 
+### Counter-examples
+
 ## Solution
 <details>
   <summary><b>Spoilers</b></summary>
   This kind of problem is called **"Interval Partitioning"**, and its solution is **Greedy Algorithm**.
   
-  
+
 </details>
