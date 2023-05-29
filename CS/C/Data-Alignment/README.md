@@ -1,5 +1,5 @@
-# Structure Padding & Structure Packing
-Guide: http://www.catb.org/esr/structure-packing/
+# Data Alignment
+Very good guide: http://www.catb.org/esr/structure-packing/
 
 ## Key Points
 1. In a major class of modern ISAs, each C datatype except `char` has an **alignment requirement**.
