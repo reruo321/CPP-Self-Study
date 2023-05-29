@@ -33,18 +33,29 @@ Disassemble each program, set a breakpoint at `fun(argv\[1\]);`, and track `%rsp
     (gdb) si
     ...
 
-I will see `hello_boundary_12` as an example. In the main function,
+### Example 1
+Let's examine `hello_boundary_12` first. In the main function,
 
 ![main_b_12](https://github.com/reruo321/CPP-Self-Study/assets/48712088/d3a89307-4b0f-455a-a0d7-7f446fabd93b)
 
     0x0000555555555222 <+8>:	and    $0xfffffffffffff000,%rsp
     0x0000555555555229 <+15>:	sub    $0x1000,%rsp
     
-`%rsp` is masked and subtracted to be multiple of 2^12 = 0x1000.
+`%rsp` is masked and subtracted to be a multiple of 2^12 = 0x1000.
 
 When `main()` calls `fun()` and `%rbp` is pushed, 
 
 ![main_b_12_callee](https://github.com/reruo321/CPP-Self-Study/assets/48712088/509e18ae-f619-422e-9f84-fe9b9c2a4595)
 
 `%rsp` changes from `0x7fffffffc000` to `0x7fffffffbff0`.
+Although `%rsp` is not to be a multiple of 0x1000 temporarily,
 
+    0x0000555555555191 <+8>:	sub    $0x1000,%rsp
+    0x0000555555555198 <+15>:	orq    $0x0,(%rsp)
+    0x000055555555519d <+20>:	sub    $0x1000,%rsp
+    0x00005555555551a4 <+27>:	orq    $0x0,(%rsp)
+    0x00005555555551a9 <+32>:	sub    $0xff0,%rsp
+    
+`%rsp` becomes `0x7fffffff9000` after three `sub`s, which make it a multiple of 0x1000 again!
+
+![main_b_12_callee3](https://github.com/reruo321/CPP-Self-Study/assets/48712088/cc1e765b-5bd8-4a62-9698-ddce50326617)
