@@ -8,7 +8,7 @@
 #include <string.h>
 
 void fun(char *str){
-    char buf[135];
+    char buf[123];
     strcpy(buf, str);
     printf("Hello, %s\n", buf);
 }
