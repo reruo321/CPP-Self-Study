@@ -3,7 +3,8 @@
 ## Options
 
 ### `-mpreferred-stack-boundary=num`
-`-mpreferred-stack-boundary=num` attempts to keep the stack boundary aligned to a 2 raised to `num` (2^`num`) byte boundary.
+`-mpreferred-stack-boundary=num` attempts to keep the stack boundary aligned to a 2 raised to `num` (2^`num`) byte boundary. In other words, you can set memory address `2^num`-byte aligned with this option.
+
 GCC limits to pick `num` between `X` and 12, where `X` is either 3 or 4.
 Note that the default argument is `4`, 16 bytes.
 
