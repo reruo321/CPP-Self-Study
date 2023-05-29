@@ -47,7 +47,7 @@ When `main()` calls `fun()` and `%rbp` is pushed,
 
 ![main_b_12_callee](https://github.com/reruo321/CPP-Self-Study/assets/48712088/509e18ae-f619-422e-9f84-fe9b9c2a4595)
 
-`%rsp` changes from `0x7fffffffc000` to `0x7fffffffbff0`.
+`%rsp` changes from `0x7fffffffc000` to `0x7fffffffbff0`. (Each `push` subtracts `%rsp` 8 bytes.)
 Although `%rsp` is not to be a multiple of 0x1000 temporarily,
 
     0x0000555555555191 <+8>:	sub    $0x1000,%rsp
@@ -59,3 +59,7 @@ Although `%rsp` is not to be a multiple of 0x1000 temporarily,
 `%rsp` becomes `0x7fffffff9000` after three `sub`s, which make it a multiple of 0x1000 again!
 
 ![main_b_12_callee3](https://github.com/reruo321/CPP-Self-Study/assets/48712088/cc1e765b-5bd8-4a62-9698-ddce50326617)
+
+We learn that when the program allocates buffer on the stack, its size does not always follow the buffer size specified by the C source code. Instead, it can allocate more than the buffer size to make `%rsp` to be a multiple of `2^num`, so that it makes the stack `2^num`-aligned.
+
+### Example 2
