@@ -68,7 +68,9 @@ Now let's see other cases.
 #### 2. `num=2`
 ![main_b_2](https://github.com/reruo321/CPP-Self-Study/assets/48712088/3b695a7f-cc00-4155-8a0d-bcefd6e33037)
 
-Because of `-m32`, the executable file was compiled in 32-bit mode. No `%rsp` here. Instead, `%esp` is `0xffffd0d8`, multiple of `2^2 = 4`, in my GDB. You will say: **"Hey, there is no guarantee that the stack is aligned when calling the main function!"** Let's see this question later.
+Because of `-m32`, the executable file was compiled in 32-bit mode. No `%rsp` here. Instead, `%esp` is `0xffffd0d8`, multiple of `2^2 = 4`, in my GDB.
+
+You may say: **"Hey, there is no guarantee that the stack is aligned when calling the main function!"** Let's see this question later.
 
 #### 3. `num=3`
 
