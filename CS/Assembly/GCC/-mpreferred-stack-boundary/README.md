@@ -70,3 +70,8 @@ Now let's see other cases.
 
 Because of `-m32`, the executable file was compiled in 32-bit mode. No `%rsp` here. Instead, `%esp` is `0xffffd0d8`, multiple of `2^2 = 4`, in my GDB. You will say: **"Hey, there is no guarantee that the stack is aligned when calling the main function!"** Let's see this question later.
 
+#### 3. `num=3`
+
+#### 4. default (`num=4`)
+
+#### 5. `num=8`
