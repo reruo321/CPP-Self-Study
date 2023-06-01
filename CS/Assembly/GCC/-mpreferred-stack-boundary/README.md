@@ -74,13 +74,15 @@ Because of `-m32`, the executable file was compiled in 32-bit mode. No `%rsp` he
 ##### fun()
 ![fun_b_2](https://github.com/reruo321/CPP-Self-Study/assets/48712088/b4d4625d-6699-4336-8f72-e6e2c97845fb)
 
-1. I mentioned above that `%esp` was the multiple of 4 before calling `fun()`.
+Statements:
+
+1. `%esp` was the multiple of 4 before calling `fun()`.
 2. Each push subtracts 4 from `%esp`.
 3. At 0x565561c1, `0x84` (132) is subtracted from `%esp` to allocate memory for buffer.
 
-Therefore, `%esp` is always a multiple of `4`.
+Conclusion: After calling `main()`, `%esp` is always a multiple of `4` in this program.
 
-However, you may doubt and say: "Hey, there is no guarantee that the stack is aligned when calling the main function. **If `%esp % 4 != 0` at the beginning, it will ruin all your proof on the stack alignment!**"
+However, you may doubt and say: "Hey, there is no guarantee that the stack is always aligned when calling the main function, like your Statement 1. **If `%esp % 4 != 0` at the beginning, it will ruin your proof!**"
 
 Okay, let's talk about this later after seeing all other programs.
 
@@ -88,19 +90,37 @@ Okay, let's talk about this later after seeing all other programs.
 ##### main()
 ![main_b_3](https://github.com/reruo321/CPP-Self-Study/assets/48712088/7208e9c1-9345-45e1-8d22-5e56e5ac65df)
 
+    0x0000000000001208 <+8>:	sub    $0x10,%rsp
+
+We should keep the stack boundary aligned to a `8` byte boundary. Assuming that `%rsp % 8 == 0`, subtracting `0x10` (16) from it is okay.
+
 ##### fun()
 ![fun_b_3](https://github.com/reruo321/CPP-Self-Study/assets/48712088/b7be8eb6-9b08-4472-9b82-3089081a95b4)
+
+    0x0000000000001191 <+8>:	and    $0xfffffffffffffff0,%rsp
+    0x0000000000001195 <+12>:	sub    $0xa0,%rsp
+
 
 #### 4. default (`num=4`)
 ##### main()
 ![main_b_default](https://github.com/reruo321/CPP-Self-Study/assets/48712088/d5badf21-a4e9-4737-8d3e-d8a7732e2d42)
 
+    0x0000000000001204 <+8>:	sub    $0x10,%rsp
+
 ##### fun()
 ![fun_b_default](https://github.com/reruo321/CPP-Self-Study/assets/48712088/8f36f8c8-b9ce-4552-b8a3-1189c04b0f8c)
+
+    0x0000000000001191 <+8>:	sub    $0xa0,%rsp
 
 #### 5. `num=8`
 ##### main()
 ![main_b_8](https://github.com/reruo321/CPP-Self-Study/assets/48712088/f27ee03c-6990-40e0-aa92-60c1d2c03726)
 
+    0x000000000000120a <+8>:	mov    $0x0,%spl
+    0x000000000000120d <+11>:	sub    $0x100,%rsp
+
 ##### fun()
 ![fun_b_8](https://github.com/reruo321/CPP-Self-Study/assets/48712088/dbde4a20-ecbb-4a8f-be3a-f43944a56a53)
+
+    0x0000000000001191 <+8>:	sub    $0x2f0,%rsp
+
