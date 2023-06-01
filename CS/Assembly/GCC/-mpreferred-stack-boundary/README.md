@@ -63,7 +63,7 @@ Although `%rsp` is not to be a multiple of 0x1000 temporarily,
 
 We learn that when the program allocates buffer on the stack, its size does not always follow the buffer size specified by the C source code, `123`. Instead, it can allocate more than the buffer size to make `%rsp` to be a multiple of `2^num`, so that it makes the stack `2^num`-aligned.
 
-Now let's see other cases.
+Now let's examine other cases.
 
 #### 2. `num=2`
 ##### main()
@@ -74,11 +74,15 @@ Because of `-m32`, the executable file was compiled in 32-bit mode. No `%rsp` he
 ##### fun()
 ![fun_b_2](https://github.com/reruo321/CPP-Self-Study/assets/48712088/b4d4625d-6699-4336-8f72-e6e2c97845fb)
 
-At the beginning of `fun()`, `0x84` (132) is subtracted from `%esp`.
+1. I mentioned above that `%esp` was the multiple of 4 before calling `fun()`.
+2. Each push subtracts 4 from `%esp`.
+3. At 0x565561c1, `0x84` (132) is subtracted from `%esp` to allocate memory for buffer.
 
+Therefore, `%esp` is always a multiple of `4`.
 
+However, you may doubt and say: "Hey, there is no guarantee that the stack is aligned when calling the main function. **If `%esp % 4 != 0` at the beginning, it will ruin all your proof on the stack alignment!**"
 
-You may say: **"Hey, there is no guarantee that the stack is aligned when calling the main function!"** Let's talk about this later.
+Okay, let's talk about this later after seeing all other programs.
 
 #### 3. `num=3`
 ##### main()
