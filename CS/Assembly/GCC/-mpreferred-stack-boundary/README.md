@@ -66,14 +66,37 @@ We learn that when the program allocates buffer on the stack, its size does not 
 Now let's see other cases.
 
 #### 2. `num=2`
+##### main()
 ![main_b_2](https://github.com/reruo321/CPP-Self-Study/assets/48712088/3b695a7f-cc00-4155-8a0d-bcefd6e33037)
 
 Because of `-m32`, the executable file was compiled in 32-bit mode. No `%rsp` here. Instead, `%esp` is `0xffffd0d8`, multiple of `2^2 = 4`, in my GDB.
 
-You may say: **"Hey, there is no guarantee that the stack is aligned when calling the main function!"** Let's see this question later.
+##### fun()
+![fun_b_2](https://github.com/reruo321/CPP-Self-Study/assets/48712088/b4d4625d-6699-4336-8f72-e6e2c97845fb)
+
+At the beginning of `fun()`, `0x84` (132) is subtracted from `%esp`.
+
+
+
+You may say: **"Hey, there is no guarantee that the stack is aligned when calling the main function!"** Let's talk about this later.
 
 #### 3. `num=3`
+##### main()
+![main_b_3](https://github.com/reruo321/CPP-Self-Study/assets/48712088/7208e9c1-9345-45e1-8d22-5e56e5ac65df)
+
+##### fun()
+![fun_b_3](https://github.com/reruo321/CPP-Self-Study/assets/48712088/b7be8eb6-9b08-4472-9b82-3089081a95b4)
 
 #### 4. default (`num=4`)
+##### main()
+![main_b_default](https://github.com/reruo321/CPP-Self-Study/assets/48712088/d5badf21-a4e9-4737-8d3e-d8a7732e2d42)
+
+##### fun()
+![fun_b_default](https://github.com/reruo321/CPP-Self-Study/assets/48712088/8f36f8c8-b9ce-4552-b8a3-1189c04b0f8c)
 
 #### 5. `num=8`
+##### main()
+![main_b_8](https://github.com/reruo321/CPP-Self-Study/assets/48712088/f27ee03c-6990-40e0-aa92-60c1d2c03726)
+
+##### fun()
+![fun_b_8](https://github.com/reruo321/CPP-Self-Study/assets/48712088/dbde4a20-ecbb-4a8f-be3a-f43944a56a53)
