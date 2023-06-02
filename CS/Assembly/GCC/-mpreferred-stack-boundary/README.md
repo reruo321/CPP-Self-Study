@@ -124,3 +124,4 @@ We should keep the stack boundary aligned to a `8` byte boundary. Assuming that 
 
     0x0000000000001191 <+8>:	sub    $0x2f0,%rsp
 
+### \_start()
