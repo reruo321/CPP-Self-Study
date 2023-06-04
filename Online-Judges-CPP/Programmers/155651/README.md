@@ -57,5 +57,5 @@ I was using somewhat silly algorithm for this and other similar problems, so I w
   <summary><b>Spoilers</b></summary>
   This kind of problem is called **"Interval Partitioning"**, and its solution is **Greedy Algorithm**.
   
-
+There is one thing to add to my trial: we should sort all `book_time`s by its `BOOKING_START_TIME`, in ascending order.
 </details>
