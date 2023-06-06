@@ -125,3 +125,6 @@ We should keep the stack boundary aligned to a `8` byte boundary. Assuming that 
     0x0000000000001191 <+8>:	sub    $0x2f0,%rsp
 
 ### \_start()
+TL;DR! **\_start()** is the function that initiates the program before the main().
+
+As you expected, `%rsp` (or `%esp` in 32-bit environment) may have random value. However, since \_start() makes it `2^num`-aligned, we can meet the aligned `%rsp`/`%esp` at the beginning of main().
