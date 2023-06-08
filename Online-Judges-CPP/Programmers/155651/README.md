@@ -60,4 +60,5 @@ I was using somewhat silly algorithm for this and other similar problems, so I w
 There is one thing to add to my trial: we should sort all `book_time`s by its `BOOKING_START_TIME`, in ascending order. It will prevent the counter-examples.
   
 ### Proof for Greedy Algorithm
+How can we prove that greedy algorithm for interval partitioning is optimal?
 </details>
