@@ -51,7 +51,7 @@ I was using somewhat silly algorithm for this and other similar problems, so I w
 </details>
 
 ### Counter-examples
-
+  
 ## Solution
 <details>
   <summary><b>Spoilers</b></summary>
