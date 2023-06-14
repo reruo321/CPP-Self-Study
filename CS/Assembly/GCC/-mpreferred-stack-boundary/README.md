@@ -48,7 +48,7 @@ When `main()` calls `fun()` and `%rbp` is pushed,
 
 ![main_b_12_callee](https://github.com/reruo321/CPP-Self-Study/assets/48712088/509e18ae-f619-422e-9f84-fe9b9c2a4595)
 
-`%rsp` changes from `0x7fffffffc000` to `0x7fffffffbff0`. (Each `push` subtracts `%rsp` 8 bytes.)
+`%rsp` changes from `0x7fffffffc000` to `0x7fffffffbff0`. (Each `PUSH` subtracts `%rsp` 8 bytes.)
 Although `%rsp` is not to be a multiple of 0x1000 temporarily,
 
     0x0000555555555191 <+8>:	sub    $0x1000,%rsp
@@ -100,6 +100,7 @@ We should keep the stack boundary aligned to a `8` byte boundary. Assuming that 
     0x0000000000001191 <+8>:	and    $0xfffffffffffffff0,%rsp
     0x0000000000001195 <+12>:	sub    $0xa0,%rsp
 
+`AND` instruction guarantees `%rsp` to become the multiple of `16`. Therefore, the stack is always `8`-byte aligned after `AND` and `SUB`.
 
 #### 4. default (`num=4`)
 ##### main()
