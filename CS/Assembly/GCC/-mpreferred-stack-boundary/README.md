@@ -77,7 +77,7 @@ Because of `-m32`, the executable file was compiled in 32-bit mode. No `%rsp` he
 Statements:
 
 1. `%esp` was the multiple of 4 before calling `fun()`.
-2. Each push subtracts 4 from `%esp`.
+2. Each push subtracts 4 from `%esp`. (8)
 3. At 0x565561c1, `0x84` (132) is subtracted from `%esp` to allocate memory for buffer.
 
 Conclusion: After calling `main()`, `%esp` is always a multiple of `4` in this program.
@@ -100,7 +100,7 @@ We should keep the stack boundary aligned to a `8` byte boundary. Assuming that 
     0x0000000000001191 <+8>:	and    $0xfffffffffffffff0,%rsp
     0x0000000000001195 <+12>:	sub    $0xa0,%rsp
 
-`AND` instruction guarantees `%rsp` to become the multiple of `16`. Therefore, the stack is always `8`-byte aligned after `AND` and `SUB`.
+If `%rsp % 8 == 0` before calling `fun()`, the stack is still `8`-byte aligned after pusing twice. (16) Also, `AND` instruction guarantees `%rsp` to become the multiple of `16` by bit-masking. Therefore, the stack is always `8`-byte aligned after `AND` and `SUB`.
 
 #### 4. default (`num=4`)
 ##### main()
@@ -108,10 +108,14 @@ We should keep the stack boundary aligned to a `8` byte boundary. Assuming that 
 
     0x0000000000001204 <+8>:	sub    $0x10,%rsp
 
+Assuming that `%rsp % 16 == 0`, subtracting `0x10` (16) from it is okay.
+
 ##### fun()
 ![fun_b_default](https://github.com/reruo321/CPP-Self-Study/assets/48712088/8f36f8c8-b9ce-4552-b8a3-1189c04b0f8c)
 
     0x0000000000001191 <+8>:	sub    $0xa0,%rsp
+
+If `%rsp % 16 == 0` before calling `fun()`, pushing twice (16) and subtracting `0xA0` (160) from it is also fine.
 
 #### 5. `num=8`
 ##### main()
@@ -120,10 +124,16 @@ We should keep the stack boundary aligned to a `8` byte boundary. Assuming that 
     0x000000000000120a <+8>:	mov    $0x0,%spl
     0x000000000000120d <+11>:	sub    $0x100,%rsp
 
+`MOV` instruction guarantees `%rsp` to become the multiple of `256`. `%spl` which is the "byte 0" of `%rsp` stores `0x0`. It means that if `%rsp = 0xXXXXXXXX`, it leads to `%rsp = 0xXXXXXX00`.
+
+Therefore, since `%rsp` is always the multiple of `256` after `MOV` and `SUB`, it is also the multiple of `32`.
+ 
 ##### fun()
 ![fun_b_8](https://github.com/reruo321/CPP-Self-Study/assets/48712088/dbde4a20-ecbb-4a8f-be3a-f43944a56a53)
 
     0x0000000000001191 <+8>:	sub    $0x2f0,%rsp
+
+Pushing a return address and `%rbp` subtracts `0x10` from `%rsp`. As `%rsp = 0xXXXXXXf0` after `PUSH`s, `SUB` leads to `%rsp = 0xXXXXXX00`, which makes the stack `32`-byte aligned again.
 
 ### \_start()
 TL;DR! **\_start()** is the function that initiates the program before the main().
