@@ -136,6 +136,12 @@ Therefore, since `%rsp` is always the multiple of `256` after `MOV` and `SUB`, i
 Pushing a return address and `%rbp` subtracts `0x10` from `%rsp`. As `%rsp = 0xXXXXXXf0` after `PUSH`s, `SUB` leads to `%rsp = 0xXXXXXX00`, which makes the stack `32`-byte aligned again.
 
 ### \_start()
-TL;DR! **\_start()** is the function that initiates the program before the main().
+Seeing all cases, you may have worried about the stack alignment at the beginning of the `main()`.
+
+> Hey, there is no guarantee that the stack is always aligned when calling the main function. **If `%esp % alignment_byte != 0` at the beginning, it will ruin your proof!**
+
+TL;DR!
+
+Actually, for most C and C++ programs, there is a true entry before the `main()`: **\_start()**. It initializes the program runtime and invokes the program's `main()`. It is usually written in assembly, and may vary depending on the system, compiler, and standard libraries.
 
 As you expected, `%rsp` (or `%esp` in 32-bit environment) may have random value at the "real" beginning of the program. However, since \_start() makes the stack `2^num`-aligned, it is aligned at the beginning of main().
