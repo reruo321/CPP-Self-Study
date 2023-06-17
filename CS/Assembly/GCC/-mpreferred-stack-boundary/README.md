@@ -136,12 +136,24 @@ Therefore, since `%rsp` is always the multiple of `256` after `MOV` and `SUB`, i
 Pushing a return address and `%rbp` subtracts `0x10` from `%rsp`. As `%rsp = 0xXXXXXXf0` after `PUSH`s, `SUB` leads to `%rsp = 0xXXXXXX00`, which makes the stack `32`-byte aligned again.
 
 ### \_start()
+Good to read: https://embeddedartistry.com/blog/2019/04/08/a-general-overview-of-what-happens-before-main/
+
 Seeing all cases, you may have worried about the stack alignment at the beginning of the `main()`.
 
 > Hey, there is no guarantee that the stack is always aligned when calling the main function. **If `%esp % alignment_byte != 0` at the beginning, it will ruin your proof!**
 
 TL;DR!
 
-Actually, for most C and C++ programs, there is a true entry before the `main()`: **\_start()**. It initializes the program runtime and invokes the program's `main()`. It is usually written in assembly, and may vary depending on the system, compiler, and standard libraries.
+Actually, for most C and C++ programs, there is an **entry point** before the `main()`: **\_start()**. It initializes the program runtime and invokes the program's `main()`. It is usually written in assembly, and may vary depending on the system, compiler, and standard libraries. Normally, it is supplied by a file called `crt0.o` containing the startup code for the C runtime environment.
 
-As you expected, `%rsp` (or `%esp` in 32-bit environment) may have random value at the "real" beginning of the program. However, since \_start() makes the stack `2^num`-aligned, it is aligned at the beginning of main().
+The things that `_start()` does are:
+
+1. Low-level Initialization
+2. Stack Initialization (Properly aligns it according to the ABI requirement.)
+3. Frame Pointer Initialization
+4. C/C++ Runtime Initialization
+5. Others-for-the-system Initialization
+6. Jumping to `main()`
+7. Exiting the Program with the return code from `main()`
+
+As you estimated, `%rsp` (or `%esp` in 32-bit environment) may have random value at the very beginning of the program. However, since `_start()` makes the stack `2^num`-aligned, it can be aligned before calling `main()`.
