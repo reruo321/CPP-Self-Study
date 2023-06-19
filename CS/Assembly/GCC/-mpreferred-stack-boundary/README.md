@@ -33,6 +33,41 @@ Disassemble each program, set a breakpoint at `fun(argv\[1\]);`, and track `%rsp
     (gdb) si
     ...
 
+### Quick Guide for Disassembly
+1. Open GDB on terminal. For example, to examine `hello_boundary_2`,
+    
+       $ gdb hello_boundary_2
+       
+2. To disassemble a function `main()`,
+        
+        (gdb) disas main
+       
+3. To set a breakpoint at entry to `main()`,
+       
+       (gdb) b main
+
+4. To see the first instruction of a program's execution, type the `starti` command. It sets a temporary breakpoint at it, and invokes the `run` command.
+
+       (gdb) starti
+
+![starti](https://github.com/reruo321/CPP-Self-Study/assets/48712088/e6ee1561-4f79-461d-b8f9-87ca2d36967a)
+
+5. Feel free to take a look at the beginning of the program. Here are some hints:
+ 
+    a. `x/i $pc` to examine the current instruction.
+    
+    b. `x/Ni $pc` to examine total `N` instructions, including the current one. For example, `x/3i $pc` will show you 3 instructions.
+    
+    c. `layout asm` to switch to assembly layout. `CTRL+X+2` also works. `CTRL+X+A` to close the layout.
+    
+    d. `i r rsp` (or `i r esp` in 32-bit environment) to see information about the stack pointer.
+    
+    e. `si` to step by one machine instruction.
+    
+    f. `c` to resume execution. It will stop at an upcoming breakpoint.
+
+6. To run, proceed, and stop at the breakpoint, type command `r` before running, or `c` while debugging.
+
 ### Examples
 #### 1. `num=12`
 Let's examine `hello_boundary_12` first. In the main function,
@@ -135,7 +170,7 @@ Therefore, since `%rsp` is always the multiple of `256` after `MOV` and `SUB`, i
 
 Pushing a return address and `%rbp` subtracts `0x10` from `%rsp`. As `%rsp = 0xXXXXXXf0` after `PUSH`s, `SUB` leads to `%rsp = 0xXXXXXX00`, which makes the stack `32`-byte aligned again.
 
-### \_start()
+### `_start()`
 Good to read: https://embeddedartistry.com/blog/2019/04/08/a-general-overview-of-what-happens-before-main/
 
 Seeing all cases, you may have worried about the stack alignment at the beginning of the `main()`.
@@ -144,7 +179,7 @@ Seeing all cases, you may have worried about the stack alignment at the beginnin
 
 TL;DR!
 
-Actually, for most C and C++ programs, there is an **entry point** before the `main()`: **\_start()**. It initializes the program runtime and invokes the program's `main()`. It is usually written in assembly, and may vary depending on the system, compiler, and standard libraries. Normally, it is supplied by a file called `crt0.o` containing the startup code for the C runtime environment.
+Actually, for most C and C++ programs, there is an **entry point** before the `main()`: `_start()`. It initializes the program runtime and invokes the program's `main()`. It is usually written in assembly, and may vary depending on the system, compiler, and standard libraries. Normally, it is supplied by a file called `crt0.o` containing the startup code for the C runtime environment.
 
 The things that `_start()` does are:
 
@@ -157,3 +192,26 @@ The things that `_start()` does are:
 7. Exiting the Program with the return code from `main()`
 
 As you estimated, `%rsp` (or `%esp` in 32-bit environment) may have random value at the very beginning of the program. However, since `_start()` makes the stack `2^num`-aligned, it can be aligned before calling `main()`.
+
+#### Disassembling `_start()`
+1. Disassemble `_start()` to see what it does.
+
+       (gdb) disas _start
+
+3. To track the information about the stack pointer around `_start()`, set a breakpoint at entry to `_start()`
+
+       (gdb) b _start
+
+3. Run the program, and stop at the breakpoint.
+    
+       (gdb) r
+
+4. Track the information about the stack pointer. (`rsp` or `esp`)
+
+       (gdb) i r rsp
+       (gdb) si
+       (gdb) i r rsp
+       (gdb) si
+
+
+
