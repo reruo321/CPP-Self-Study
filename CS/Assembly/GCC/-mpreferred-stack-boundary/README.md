@@ -7,6 +7,12 @@ Note that the default argument is `4`, `2^4 = 16` bytes.
 
 I also wrote about issues and solutions for the option when [num=2 or num=3](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/GCC#-mpreferred-stack-boundarynum-is-not-between-x-and-12).
 
+## Summary
+1. `-mpreferred-stack-boundary=num` tries to keep the stack boundary aligned to `2^num` byte boundary.
+2. The stack should be aligned before `call`. After `call`, it becomes `2^num`-byte aligned again, by `push` on a return address, some more `push`s, and extra spacing.
+3. Before calling `main`, it is done on an entry point to `_start`.
+4. In conclusion, the stack is always guaranteed to be `2^num`-byte aligned before `call`, including `call` on `main`.
+
 ## How It Works?
 **[Data alignment](https://github.com/reruo321/CPP-Self-Study/tree/master/CS/C/Data-Alignment)** really matters for using this option.
 
@@ -213,5 +219,24 @@ As you estimated, `%rsp` (or `%esp` in 32-bit environment) may have random value
        (gdb) i r rsp
        (gdb) si
 
+##### Results
+`hello_boundary_2`
 
+![_start_b_2](https://github.com/reruo321/CPP-Self-Study/assets/48712088/db78c1a2-9ac7-4b08-9beb-1e05fbbe6c00)
+
+`hello_boundary_3`
+
+![_start_b_3](https://github.com/reruo321/CPP-Self-Study/assets/48712088/48a9d3b7-6fe0-4846-a61e-00a2edccf0af)
+
+`hello_boundary_default`
+
+![_start_b_default](https://github.com/reruo321/CPP-Self-Study/assets/48712088/60667adf-6bfe-4674-ba73-4da1eac51f47)
+
+`hello_boundary_8`
+
+![_start_b_8](https://github.com/reruo321/CPP-Self-Study/assets/48712088/ef6bd3d1-a9e0-4b89-9499-4612c10d75bb)
+
+`hello_boundary_12`
+
+![_start_b_12](https://github.com/reruo321/CPP-Self-Study/assets/48712088/a4ebc2e1-fd36-4a73-9cac-beda4f313373)
 
