@@ -27,7 +27,7 @@ Write and compile a simple hello-world C code, `hello.c` several times, changing
     $ gcc -g hello.c -o hello_boundary_8 -mpreferred-stack-boundary=8
     $ gcc -g hello.c -o hello_boundary_12 -mpreferred-stack-boundary=12
     
-Disassemble each program, set a breakpoint at `fun(argv\[1\]);`, and track `%rsp`.
+Disassemble each program, set a breakpoint at `fun(argv[1]);`, and track `%rsp`.
 
     $ gdb hello_boundary_X
 
