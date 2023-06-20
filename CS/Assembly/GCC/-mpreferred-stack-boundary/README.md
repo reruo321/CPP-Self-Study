@@ -9,8 +9,8 @@ I also wrote about issues and solutions for the option when [num=2 or num=3](htt
 
 ## Summary
 1. `-mpreferred-stack-boundary=num` tries to keep the stack boundary aligned to `2^num` byte boundary. If this option is not specified, the alignment follows the default value of `2^num` is `16` in the modern i386 System V ABI.
-3. The stack should be aligned before `call`. After `call`, it becomes `2^num`-byte aligned again, by `push` on a return address, some more `push`s, and extra spacing.
-4. Before calling `main`, it is done on an entry point to `_start`.
+3. The stack should be aligned before `call`. Before and after `call`, it becomes `2^num`-byte aligned by `push` on a return address, some more `push`s, and extra spacing.
+4. Before calling `main`, it is done on an entry point to `_start()`.
 5. In conclusion, the stack is always guaranteed to be `2^num`-byte aligned before `call`, including `call` on `main`. 
 
 ## How It Works?
