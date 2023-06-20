@@ -8,10 +8,10 @@ Note that the default argument is `4`, `2^4 = 16` bytes.
 I also wrote about issues and solutions for the option when [num=2 or num=3](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/GCC#-mpreferred-stack-boundarynum-is-not-between-x-and-12).
 
 ## Summary
-1. `-mpreferred-stack-boundary=num` tries to keep the stack boundary aligned to `2^num` byte boundary.
-2. The stack should be aligned before `call`. After `call`, it becomes `2^num`-byte aligned again, by `push` on a return address, some more `push`s, and extra spacing.
-3. Before calling `main`, it is done on an entry point to `_start`.
-4. In conclusion, the stack is always guaranteed to be `2^num`-byte aligned before `call`, including `call` on `main`.
+1. `-mpreferred-stack-boundary=num` tries to keep the stack boundary aligned to `2^num` byte boundary. If there is no stack-boundary option, the default value of `2^num` is `16` in the modern i386 System V ABI.
+3. The stack should be aligned before `call`. After `call`, it becomes `2^num`-byte aligned again, by `push` on a return address, some more `push`s, and extra spacing.
+4. Before calling `main`, it is done on an entry point to `_start`.
+5. In conclusion, the stack is always guaranteed to be `2^num`-byte aligned before `call`, including `call` on `main`. 
 
 ## How It Works?
 **[Data alignment](https://github.com/reruo321/CPP-Self-Study/tree/master/CS/C/Data-Alignment)** really matters for using this option.
@@ -220,6 +220,8 @@ As you estimated, `%rsp` (or `%esp` in 32-bit environment) may have random value
        (gdb) si
 
 ##### Results
+Here we can see bit-masking instructions in `_start()` from several programs.
+
 `hello_boundary_2`
 
 ![_start_b_2](https://github.com/reruo321/CPP-Self-Study/assets/48712088/db78c1a2-9ac7-4b08-9beb-1e05fbbe6c00)
@@ -240,3 +242,13 @@ As you estimated, `%rsp` (or `%esp` in 32-bit environment) may have random value
 
 ![_start_b_12](https://github.com/reruo321/CPP-Self-Study/assets/48712088/a4ebc2e1-fd36-4a73-9cac-beda4f313373)
 
+Even if it seems to be not sure about the alignment on `hello_boundary_8` and `hello_boundary_12` in the screenshots,
+pushing registers and additional extra spacing guarantee `2^num`-byte alignment **before** any `call`.
+
+`hello_boundary_12`
+
+![align_b_12](https://github.com/reruo321/CPP-Self-Study/assets/48712088/c3219735-6986-49ca-86bc-ee14bca0db01)
+
+![align2_b_12](https://github.com/reruo321/CPP-Self-Study/assets/48712088/406ef1fd-15bc-4a3f-a0dc-d7a31171b493)
+
+Although the bit-masking from `_start()` seems to be not enough for stack alignment, we can check additional spacing makes the stack aligned before `call` on `main()` or `fun()`.
