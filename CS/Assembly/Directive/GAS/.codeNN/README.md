@@ -14,4 +14,4 @@ If you assemble an entire code using `.code32` in 64-bit system, without `-m32` 
 
 Therefore, make use of the directive `.codeNN` only if you need to write some blocks of a code in NN-bit.
 
-However, if you want to build NN-bit binaries in a XX-bit system, just adding `.codeNN` at the top of the code may not be a good choice! Examine all instructions carefully when to use the directive, checking the NN-bit code syntax. Otherwise, simply remove it and use the GCC option `-mNN` instead.
+However, if you want to build NN-bit binaries in a XX-bit system, just adding `.codeNN` at the top of the code may not be a good choice! Check all instructions, the NN-bit code synatx, assembling process, and linking process carefully when to use the directive. Otherwise, simply remove it and use the GCC option `-mNN` instead.
