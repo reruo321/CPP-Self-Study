@@ -2,6 +2,8 @@
 Insert a `.codeNN` directive before assembly language instructions to be run in NN-bit mode.
 You can even switch GAS back to write normal MM-bit code with the `.codeMM` directive.
 
+Its synonym in NASM is `BITS NN`.
+
 ## `.codeNN` vs GCC's `-mNN` Option
 Here are differences when you use the functions in XX-bit system.
 
@@ -14,4 +16,4 @@ If you assemble an entire code using `.code32` in 64-bit system, without `-m32` 
 
 Therefore, make use of the directive `.codeNN` only if you need to write some blocks of a code in NN-bit.
 
-However, if you want to build NN-bit binaries in a XX-bit system, just adding `.codeNN` at the top of the code may not be a good choice! Check all instructions, the NN-bit code synatx, assembling process, and linking process carefully when to use the directive. Otherwise, simply remove it and use the GCC option `-mNN` instead.
+However, if you want to build NN-bit binaries in a XX-bit system, just adding `.codeNN` at the top of the code might not be a good choice! Check all instructions, the NN-bit code synatx, assembling process, and linking process carefully when to use the directive. Otherwise, simply remove it and use the GCC option `-mNN` instead.
