@@ -18,7 +18,9 @@ So if you are not sure about the conversion, it is better to just use *push_back
 > Calling push_back will cause reallocation (when size()+1 > capacity()).
 
 According to notes on [cppreference](https://en.cppreference.com/w/cpp/container/vector/push_back),
-we should be careful while spamming `push_back()`s! This can make some problems, for instance, when you are handling iterators on the vector.
+we should be careful while spamming `push_back()`s! This can make some problems, for instance, when you are handling iterators or pointers on the vector.
 
-It's better to use `insert()` for range inserting.
-Or try to use `reserve()` if you are willing to try multiple `push_back()`s!
+### Solutions
+1. Use `insert()` for range inserting.
+2. Use `reserve()`. Okay for multiple `push_back()`s, until it hits the capacity.
+3. Use pointers. Okay for multiple `push_back()`s.
