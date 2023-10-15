@@ -6,5 +6,5 @@ This repository covers everything I have studied on C and C++.
 * Assembly, C, C++, and Modern C++
 * Anything Else for Tech. Interview
 
-Also see [here](https://github.com/reruo321/OS-Self-Study) for my OS self study repository. It focuses on the C and 
+See [here](https://github.com/reruo321/Cplus_Practice) for my practices with a guide book. Also see [here](https://github.com/reruo321/OS-Self-Study) for my OS self study repository. It focuses on the C and 
 C++ usage on the Linux system programming.
