@@ -1,7 +1,7 @@
 # [86491] The Smallest Rectangle
 * Problem Link: https://school.programmers.co.kr/learn/courses/30/lessons/86491
 
-Present the method to find the smallest wallet area by **proving it mathematically**.
+Present the solution to find the smallest wallet area by **proving it mathematically**.
 
 ## Solution
 <details>
@@ -34,7 +34,7 @@ Let ap and bq are having a vertical relationship for every 1 <= p, q <= n.
    
    iv. Let W3 = 100 is in B. Then A = {1000, 500, 10}, B = {1, 3, 100}.
    
-   v. The situation becomes a counterexample. The answer from Proposition iv is 1000 * 100 = 100000, but the real answer is 1000 * 10 = 10000 when A = {1000, 500, 3}, B = {1, 3, 10}.
+   v. The situation becomes a counterexample. The answer from Proposition iv is 1000 * 100 = 100000, but the real answer is 1000 * 10 = 10000 when A = {1000, 500, 100}, B = {1, 3, 10}.
    
    vi. Therefore, B does not contain any bigger value in every rectangle.
 
