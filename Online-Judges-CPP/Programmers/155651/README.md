@@ -1,5 +1,6 @@
 # [155651] Minimum Hotel Rooms
 * Problem Link: [https://school.programmers.co.kr/learn/courses/30/lessons/155651]
+
 Present the solution to find the minimum number of hotel rooms required for book scheduling by **proving it mathematically**.
 
 Suppose that:
