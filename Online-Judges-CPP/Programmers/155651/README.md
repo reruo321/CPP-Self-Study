@@ -1,5 +1,6 @@
 # [155651] Minimum Hotel Rooms
-Find the minimum number of hotel rooms required for book scheduling.
+* Problem Link: [https://school.programmers.co.kr/learn/courses/30/lessons/155651]
+Present the solution to find the minimum number of hotel rooms required for book scheduling by **proving it mathematically**.
 
 Suppose that:
 1. `book_time` is the 2D vector that shows the list of hotel booking times. Let's say its size is `N`.
@@ -7,8 +8,6 @@ Suppose that:
 3. Time format: `string` ("HH:MM"), from "00:00" to "23:59"
 4. `BOOKING_START_TIME` < `BOOKING_END_TIME`.
 5. No booking after midnight.
-
-I was using somewhat silly algorithm for this and other similar problems, so I want to share one of good solutions.
 
 ## My Trial and Error
 **※ Warning: My approach was not correct. See below for the correct one. ※**
