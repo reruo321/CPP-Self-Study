@@ -25,7 +25,7 @@ Without sorting, just applied a FIFO concept; first booking, first scheduling.
 ### Counter-Examples
 We will sort the bookings, and then schedule them one by one.
 For each sorting method, the upper schedule is a counter-example.
-The lower one is the right answer.
+The lower one is the right answer, which sorts the bookings by start time.
 #### No Sort
 ![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/cce337f5-3340-4aa1-9419-7d6b6151ecac)
 
