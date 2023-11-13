@@ -9,11 +9,9 @@ Present the solution to find the minimum number of hotel rooms required for book
   This kind of problem is called <b>"Interval Partitioning"</b>, and its solution is <b>Greedy Algorithm</b>.
 
 ### Wrong Approach
-**※ Warning: My approach was not correct. See below for the correct one. ※**
+**※ Warning: This approach is not correct. See below for the correct one. ※**
 
-Before the real solution, I want to show you my trial and error was not correct and had a counter-example.
-
-I just applied a FIFO concept.
+Without sorting, just applied a FIFO concept; first booking, first scheduling.
 
 1. Read the start time & end time of the first booking.
 2. Examine the 1st, 2nd, 3rd, ... N-th room schedule.
@@ -24,12 +22,15 @@ I just applied a FIFO concept.
 
 3. The total number of room schedules will be the answer.
 
-#### Counter-Example
+### Counter-Examples
+We will sort the bookings, and then schedule them one by one.
+For each sorting method, the upper schedule is a counter-example.
+The lower one is the right answer.
+#### No Sort
 ![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/cce337f5-3340-4aa1-9419-7d6b6151ecac)
 
-The upper schedule is a counter-example of scheduling without any sort.
-
-(The lower one is the right answer.)
+#### Shortest First
+![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/28b0cb70-f0d5-45aa-a324-76b596f8247d)
 
 ### Real Solution
 There is one thing to add to my approach: sort all bookings by its start time in ascending order. It will prevent the counter-examples.
