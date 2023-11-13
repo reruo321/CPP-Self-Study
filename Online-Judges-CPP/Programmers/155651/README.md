@@ -30,7 +30,7 @@ The lower one is the right answer.
 ![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/cce337f5-3340-4aa1-9419-7d6b6151ecac)
 
 #### Shortest First
-![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/28b0cb70-f0d5-45aa-a324-76b596f8247d)
+![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/224e38ae-6bb0-4b89-8c7a-d23e0db3b358)
 
 ### Real Solution
 There is one thing to add to my approach: sort all bookings by its start time in ascending order. It will prevent the counter-examples.
