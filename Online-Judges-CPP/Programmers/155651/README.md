@@ -35,5 +35,6 @@ The lower one is the right answer, which sorts the bookings by start time.
 ### Real Solution
 There is one thing to add to my approach: sort all bookings by its start time in ascending order. It will prevent the counter-examples.
 
+#### Proof
 How can we prove that greedy algorithm for interval partitioning is optimal?
 </details>
