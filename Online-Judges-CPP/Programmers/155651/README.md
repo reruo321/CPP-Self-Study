@@ -6,12 +6,10 @@ Present the solution to find the minimum number of hotel rooms required for book
 ## Solution
 <details>
   <summary><b>Spoilers</b></summary>
-  This kind of problem is called <b>"Interval Partitioning"</b>, and its solution is <b>Greedy Algorithm</b>.
+This kind of problem is called <b>"Interval Partitioning"</b>, and its solution is <b>Greedy Algorithm</b>. Sort all intervals (booking) first, and then schedule them.
 
-### Wrong Approach
-**※ Warning: This approach is not correct. See below for the correct one. ※**
-
-Without sorting, just applied a FIFO concept; first booking, first scheduling.
+### Basic Algorithm
+After we apply specific sorting algorithm to all intervals, schedule them like FIFO; first booking, first scheduling.
 
 1. Read the start time & end time of the first booking.
 2. Examine the 1st, 2nd, 3rd, ... N-th room schedule.
@@ -23,18 +21,33 @@ Without sorting, just applied a FIFO concept; first booking, first scheduling.
 3. The total number of room schedules will be the answer.
 
 ### Counter-Examples
-We will sort the bookings, and then schedule them one by one.
-For each sorting method, the upper schedule is a counter-example.
-The lower one is the right answer, which sorts the bookings by start time.
+For greedy algorithm, we can think four ways to sort intervals:
+
+1. ★ Earliest start time
+2. Earliest finish time
+3. Fewest conflicts
+4. Shortest interval
+   
+The answer is the first. For other sorting methods, the upper schedule is a counter-example.
+The lower one is the right answer.
 #### No Sort
 ![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/cce337f5-3340-4aa1-9419-7d6b6151ecac)
 
-#### Shortest First
+#### 2. Earliest Finish Time
+
+#### 3. Fewest Conflicts
+
+#### 4. Shortest Interval
 ![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/224e38ae-6bb0-4b89-8c7a-d23e0db3b358)
 
-### Real Solution
-There is one thing to add to my approach: sort all bookings by its start time in ascending order. It will prevent the counter-examples.
+### Real Solution: Earliest Start Time
+Sort all bookings by its start time in ascending order. It will prevent the counter-examples.
 
 #### Proof
-How can we prove that greedy algorithm for interval partitioning is optimal?
+##### Claim:
+##### Proof:
+
+For 
+
+
 </details>
