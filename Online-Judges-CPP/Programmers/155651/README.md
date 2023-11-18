@@ -47,7 +47,7 @@ Sort all bookings by its start time in ascending order. It will prevent the coun
 ##### Claim:
 ##### Proof:
 
-For 
+
 
 
 </details>
