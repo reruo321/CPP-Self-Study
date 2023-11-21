@@ -19,7 +19,7 @@ Apply specific sorting algorithm to all intervals, and schedule them like FIFO; 
 
   b. If not, examine the next room schedule.
 
-3. The total number of room schedules will be the answer.
+3. The total number of room schedules is the answer.
 
 ### Counter-Examples
 For greedy algorithm, we can think four ways to sort intervals:
