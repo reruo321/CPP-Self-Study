@@ -15,9 +15,9 @@ Apply specific sorting algorithm to all intervals, and schedule them like FIFO; 
 2. Read the start time & end time of the first booking.
 3. Examine the 1st, 2nd, 3rd, ... N-th room schedule.
   
-  a. If a room schedule can accept the booking, put it into the schedule.
+  a. If a K-th room schedule can accept the booking, put it into the schedule.
 
-  b. If not, examine the next room schedule.
+  b. If not, examine the (K+1)-th, the next room schedule.
 
 3. The total number of room schedules is the answer.
 
