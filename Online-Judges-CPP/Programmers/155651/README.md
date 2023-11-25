@@ -10,7 +10,7 @@ This kind of problem is called <b>"Interval Partitioning"</b>, and its solution 
 
 The sort algorithm should sort intervals by their start times.
 
-### Basic Algorithm
+### Algorithm
 Apply specific sorting algorithm to all intervals, and schedule them like FIFO; first booking, first scheduling.
 
 1. (Sort all intervals with specific algorithm)
