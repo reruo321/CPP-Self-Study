@@ -40,6 +40,12 @@ The lower one is the right answer.
 ![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/15d9add3-822b-4da1-b297-5322a1386e13)
 
 #### 3. Fewest Conflicts
+![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/8ec93f8d-c8c1-4c24-9c40-3f712dbae71b)
+
+In the context of "fewest conflicts" sorting in interval partitioning, the term "conflict" refers to the overlapping of intervals.
+When conflicts exist, the approach would prioritize scheduling intervals first that have fewer conflicts with other intervals.
+
+The algorithm involves precomputing the number of conflicts for each interval and sorting them based on this count. Therefore, we only need to perform this computation once at the beginning before applying the greedy algorithm.
 
 #### 4. Shortest Interval
 ![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/224e38ae-6bb0-4b89-8c7a-d23e0db3b358)
