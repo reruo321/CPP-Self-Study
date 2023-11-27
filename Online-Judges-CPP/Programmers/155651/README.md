@@ -37,6 +37,7 @@ The lower one is the right answer.
 ![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/cce337f5-3340-4aa1-9419-7d6b6151ecac)
 
 #### 2. Earliest Finish Time
+![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/15d9add3-822b-4da1-b297-5322a1386e13)
 
 #### 3. Fewest Conflicts
 
