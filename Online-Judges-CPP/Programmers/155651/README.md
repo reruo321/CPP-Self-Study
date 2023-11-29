@@ -40,7 +40,7 @@ The lower one is the right answer.
 ![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/15d9add3-822b-4da1-b297-5322a1386e13)
 
 #### 3. Fewest Conflicts
-![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/8ec93f8d-c8c1-4c24-9c40-3f712dbae71b)
+![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/874991f3-bf0f-4620-9aab-5bc08e76838f)
 
 ##### Algorithm Explanation
 In the context of "fewest conflicts" sorting in interval partitioning, the term "conflict" refers to the overlapping of intervals.
