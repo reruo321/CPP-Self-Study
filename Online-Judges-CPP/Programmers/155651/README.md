@@ -48,7 +48,7 @@ When conflicts exist, the approach would prioritize scheduling intervals first t
 
 The algorithm involves precomputing the number of conflicts for each interval and sorting them based on this count. Therefore, we only need to perform this computation once at the beginning before applying the greedy algorithm.
 
-
+Intervals from the upper sides  figure above 
 
 #### 4. Shortest Interval
 ![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/224e38ae-6bb0-4b89-8c7a-d23e0db3b358)
