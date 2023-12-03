@@ -48,7 +48,23 @@ When conflicts exist, the approach would prioritize scheduling intervals first t
 
 The algorithm involves precomputing the number of conflicts for each interval and sorting them based on this count. Therefore, we only need to perform this computation once at the beginning before applying the greedy algorithm.
 
-Intervals from the upper sides  figure above 
+![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/45f17714-6ad1-45d2-98db-54c26e95812f)
+
+Let's see this figure again. Each interval has start time and end time like this:
+
+* A: [0, 4]
+* B: [6, 8]
+* C: [4, 10]
+* D: [0, 5]
+
+I said "conflict" is the overlapping of intervals. Let's count them!
+
+* A: 1 (Conflict with D)
+* B: 1 (Conflict with C)
+* C: 2 (Conflict with B, D)
+* D: 2 (Conflict with A, C)
+
+Therefore, the order of the intervals will be A-B-C-D, B-A-D-C, or anything else. The order between "A and B", or "C and D" does not matter at all.
 
 #### 4. Shortest Interval
 ![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/224e38ae-6bb0-4b89-8c7a-d23e0db3b358)
@@ -57,9 +73,6 @@ Intervals from the upper sides  figure above
 Sort all bookings by its start time in ascending order. It will prevent the counter-examples.
 
 #### Proof
-##### Claim:
-##### Proof:
-
 
 
 
