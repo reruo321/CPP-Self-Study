@@ -66,7 +66,7 @@ I said "conflict" is the overlapping of intervals. Let's count them!
 
 Therefore, the order of the intervals will be A-B-C-D, B-A-D-C, or anything else. The order between "A and B", or "C and D" does not matter at all.
 
-**Proof:**
+**Proof for order of the intervals**
 
 #### 4. Shortest Interval
 ![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/224e38ae-6bb0-4b89-8c7a-d23e0db3b358)
