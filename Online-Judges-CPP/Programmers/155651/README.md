@@ -6,7 +6,10 @@ Present the solution to find the minimum number of hotel rooms required for book
 ## Solution
 <details>
   <summary><b>Spoilers</b></summary>
-This kind of problem is called <b>"Interval Partitioning"</b>, and its solution is <b>Greedy Algorithm</b>. Sort all intervals (booking) first, and then schedule them.
+This kind of problem is called <b>"Interval Partitioning"</b>, and its solution uses <b>Greedy Algorithm</b>.
+  
+1. Sort all intervals. (bookings)
+2. Schedule them.
 
 Answer: The sort algorithm should sort intervals by start time.
 
