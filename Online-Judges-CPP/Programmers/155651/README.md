@@ -74,8 +74,8 @@ Therefore, the order of the intervals will be A-B-C-D, B-A-D-C, or anything else
 #### 4. Shortest Interval
 ![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/224e38ae-6bb0-4b89-8c7a-d23e0db3b358)
 
-### Real Solution: Earliest Start Time
-Sort all bookings by its start time in ascending order. It will prevent the counter-examples.
+### Solution: Earliest Start Time
+Sort all bookings by start time in ascending order.
 
 #### Proof
 
