@@ -60,7 +60,7 @@ Let's see this figure again. Each interval has start time and end time like this
 * C: [4, 10]
 * D: [0, 5]
 
-I said "conflict" is the overlaps between two intervals. Let's count them!
+I said "conflict" is the overlap between two intervals. Let's count them!
 
 * A: 1 (Conflict with D)
 * B: 1 (Conflict with C)
