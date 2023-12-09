@@ -14,7 +14,7 @@ This kind of problem is called <b>"Interval Partitioning"</b>, and its solution 
 Answer: The sort algorithm should sort intervals by start time.
 
 ### Algorithm
-Apply specific sorting algorithm to all intervals, and schedule them like FIFO; first booking, first scheduling.
+Apply specific sorting algorithm to all intervals, and schedule them.
 
 1. (Sort all intervals with specific algorithm)
 2. Read the start time & end time of the first booking.
