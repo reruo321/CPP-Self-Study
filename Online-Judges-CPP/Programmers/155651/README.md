@@ -26,7 +26,7 @@ Apply specific sorting algorithm to all intervals, and schedule them.
 
 3. The total number of room schedules is the answer.
 
-### Counter-Examples
+### Greedy Algorithm
 For greedy algorithm, we can think four ways to sort intervals:
 
 1. ★ Earliest start time
@@ -37,12 +37,15 @@ For greedy algorithm, we can think four ways to sort intervals:
 The answer is the first. For other sorting methods, the upper schedule is a counter-example.
 The lower one is the right answer.
 #### No Sort
+##### Counterexample
 ![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/cce337f5-3340-4aa1-9419-7d6b6151ecac)
 
 #### 2. Earliest Finish Time
+##### Counterexample
 ![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/15d9add3-822b-4da1-b297-5322a1386e13)
 
 #### 3. Fewest Conflicts
+##### Counterexample
 ![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/036b823f-bcdb-49e5-b848-94931c4414fa)
 
 ##### Algorithm Explanation
