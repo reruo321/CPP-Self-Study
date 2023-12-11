@@ -77,11 +77,44 @@ Therefore, the order of the intervals will be A-B-C-D, B-A-D-C, or anything else
 #### 4. Shortest Interval
 ![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/224e38ae-6bb0-4b89-8c7a-d23e0db3b358)
 
-### Solution: Earliest Start Time
+#### Solution Proof: Earliest Start Time
 Sort all bookings by start time in ascending order.
+##### Theorem
 
-#### Proof
+Greedy algorithm with sorted intervals by start time is optimal.
 
+(We can employ the **"exchange argument" technique**. This technique involves assuming an optimal solution different from the one produced by the greedy algorithm and then demonstrating how it can be transformed into a solution that is at least as good or better using the greedy approach.)
+
+##### Assumption:
+
+Consider an optimal solution that differs from the greedy algorithm's solution. Let's assume there exists an optimal schedule $S$ that has a different allocation of intervals compared to the solution obtained using the greedy algorithm.
+
+##### Proof by Contradiction:
+
+We will show that, by exchanging a particular interval from $S$ with an interval from the greedy solution, the overall schedule improves or remains unchanged. This will contradict the assumption that $S$ is an optimal solution.
+
+Let $i$ be the leftmost interval in $S$ that is different from the greedy solution. This interval $i$ must exist because $S$ and the greedy solution differ.
+
+**Case 1: Interval $i$ is also in the greedy solution.**
+If $i$ is present in the greedy solution, both schedules contain the same intervals up to this point. Thus, the schedules are identical up to interval $i$.
+
+**Case 2: Interval $i$ is not present in the greedy solution.**
+If $i$ is not in the greedy solution, it means that some other interval, let's call it $i'$, occupies the position in the greedy solution where $i$ is located in $S$.
+
+Since the intervals are sorted by start time, we know that the start time of interval i' is smaller than or equal to the start time of interval $i$.
+
+Now, we can make the following exchange:
+
+1. Remove interval $i'$ from the greedy solution.
+2. Insert interval $i$ in the position previously occupied by $i'$ in the greedy solution.
+
+The resulting schedule $S'$ is formed by exchanging intervals and is at least as good as the greedy solution. The reason is that the start time of $i$ is greater than or equal to the start time of $i'$, which ensures that there is no overlap or conflict caused by the exchange.
+
+Furthermore, since $S'$ is at least as good as the greedy solution, and the greedy solution is optimal based on the greedy algorithm, it follows that $S'$ is also an optimal solution.
+
+##### Conclusion:
+
+By assuming the existence of an optimal solution that differs from the greedy algorithm's solution, we have demonstrated that we can transform it into a solution that is at least as good (or better) using the greedy approach. This contradicts the assumption that the alternative solution was optimal, reinforcing the optimality of the greedy algorithm that sorts intervals by start time.
 
 
 </details>
