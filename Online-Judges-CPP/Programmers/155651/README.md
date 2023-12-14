@@ -89,4 +89,6 @@ Greedy algorithm with sorted intervals by start time is optimal.
 
 ##### Case 2
 
+##### Conclusion
+
 </details>
