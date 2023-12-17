@@ -79,7 +79,11 @@ Therefore, the order of the intervals will be A-B-C-D, B-A-D-C, or anything else
 
 #### Solution Proof: Earliest Start Time
 Sort all bookings by start time in ascending order.
-##### Theorem
+
+##### Theorem 1
+Greedy algorithm is optimal.
+
+##### Theorem 2
 
 Greedy algorithm with sorted intervals by start time is optimal.
 
