@@ -34,8 +34,7 @@ For greedy algorithm, we can think four ways to sort intervals:
 3. Fewest conflicts
 4. Shortest interval
    
-The answer is the first. For other sorting methods, the upper schedule is a counter-example.
-The lower one is the right answer.
+※ The answer is the first one. I uploaded two figures per greedy algorithm which is not an answer. The upper schedule figure is a counter-example, and the lower one is the right answer sorting by start time.
 #### No Sort
 ##### Counterexample
 ![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/cce337f5-3340-4aa1-9419-7d6b6151ecac)
