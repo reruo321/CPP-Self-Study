@@ -92,7 +92,11 @@ Greedy algorithm with sorted intervals by start time is optimal.
 
 (We can employ the **"exchange argument" technique**. This technique involves assuming an optimal solution different from the one produced by the greedy algorithm and then demonstrating how it can be transformed into a solution that is at least as good or better using the greedy approach.)
 
+##### Assumption
+
 ##### Case
+
+##### Contradiction
 
 ##### Conclusion
 
