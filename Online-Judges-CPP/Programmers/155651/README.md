@@ -99,14 +99,14 @@ Let the greedy algorithm that sorts lectures by start time and assigns them to c
 Suppose there exists an optimal solution O that does not follow the greedy algorithm of sorting lectures by start time. Let the first lecture that is scheduled differently in G and O be L. Since G is a greedy algorithm, it always makes the locally optimal choice. Therefore, the lecture L scheduled by G at this point is the best possible choice among all lectures at that time. In O, the lecture L is scheduled differently. This means that O has chosen a different lecture at this point. Let this lecture be M. There must be a difference in scheduling at L’s point and M’s point.
 
 ##### Case 1:
-The cases that L and M do not introduce any conflicts with other lectures in G.
+The cases that L and M do not introduce any conflicts with other lectures in G. This means neither of them affect other lectures.
 
-Whether L and M conflict with each other or not does not matter, since exchanging them does not affect other lectures and the number of schedules. Therefore, the difference between G and O does not affect the optimality of G and O.
+Whether L and M conflict with each other or not does not matter. Therefore, the Case 1 has no effect on the number of schedules and the optimality of G and O.
 
 ##### Case 2:
 The cases that L and M introduce conflicts with other lectures in G.
 
-There must be some conflict or overlap introduced by O that G avoided, or resolved by O that G introduced. This conflict has the potential to increase or decrease the number of classrooms needed in O, as it may introduce or resolve overlaps that were not/were present in G. The specific impact on the total number of classrooms will depend on the subsequent scheduling decisions and how the conflicts are resolved in the course of the algorithm.
+There must be some conflict or overlap introduced by O that G avoided, or resolved by O that G introduced. These conflicts have the potential to increase or decrease the number of classrooms needed in O, as it may introduce or resolve overlaps that were not/were present in G. The specific impact on the total number of classrooms will depend on the subsequent scheduling decisions and how the conflicts are resolved in the course of the algorithm.
 
 ##### Contradiction
 
