@@ -111,5 +111,6 @@ There must be some conflict or overlap introduced by O that G avoided, or resolv
 ##### Contradiction
 
 ##### Conclusion
+Among all greedy algorithms, the one sorting intervals by start time is optimal in interval partitioning.
 
 </details>
