@@ -108,6 +108,8 @@ The cases that L and M introduce conflicts with other lectures in G.
 
 There must be some conflict or overlap introduced by O that G avoided, or resolved by O that G introduced. These conflicts have the potential to increase or decrease the number of classrooms needed in O, as it may introduce or resolve overlaps that were not/were present in G. The specific impact on the total number of classrooms will depend on the subsequent scheduling decisions and how the conflicts are resolved in the course of the algorithm.
 
+![image](https://github.com/reruo321/CPP-Self-Study/assets/48712088/b09d297a-2f7f-4abc-9a64-53c68eb05ac7)
+
 ##### Contradiction
 
 ##### Conclusion
