@@ -90,6 +90,17 @@ These two theorems support the optimality of the algorithm.
 #### Theorem 1:
 Locally optimal choice by a greedy algorithm leads to a globally optimal solution.
 
+##### Definition:
+
+Let f(x) be a greedy algorithm that is used in a problem, where x can be either an element or a set. Let S be the set of elements that f(x) should be applied.
+
+- When $n=1$, the locally optimal choice in the sorted set $*S'*$ is the globally optimal choice.
+- Assume that for k elements, the statement holds for the sorted set S’:
+    
+    f(G’_k) = f(L’_1)+f(L’_2)+…+f(L’_k).
+    
+- f(G’_k+1) = f(L’_1)+f(L’_2)+…+f(L’_k)+f(L’_k+1)
+
 #### Theorem 2: Greedy Algorithm for Interval Partitioning
 Greedy algorithm that sorts intervals by start time is optimal in interval partitioning.
 
