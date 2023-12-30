@@ -23,8 +23,8 @@ Apply specific sorting algorithm to all intervals, and schedule them.
 
 3. The total number of room schedules is the answer.
 
-### Greedy Algorithm
-For greedy algorithm, we can think four ways to sort intervals:
+### Greedy Algorithms
+We can think four greedy algorithm approaches to sort intervals:
 
 1. ★ Earliest start time
 2. Earliest finish time
