@@ -1,6 +1,30 @@
 # Input and Output in C++
 
 ## `cin`
+`cin` leaves a newline character '\n' in the buffer for flexible input handling. The `>>` operator reads characters from the input until it encounters whitespace (space, tab, or newline). It is used to separate inputs.
+
+    #include <iostream>
+
+    using namespace std;
+
+    int main(){
+        string a;
+        string b;
+        cin >> a >> b;
+
+        return 0;
+    }
+
+When we type "hello world", "hello\nworld", or "hello\tworld", these happen. 
+
+1. Read "hello" into `a`.
+2. Leave a newline character '\n' in the buffer.
+3. Read "world" into `b`.
+4. Leave a newline character '\n' in the buffer.
+
+The example program should read "hello" into `a` and "world" into `b`, whichever hello-world one it get as an input. The behavior that handles whitespace characters indeed helps to separate inputs.
+
+Be careful. **DO NOT** use `getline` right after `cin`! After `getline` will encounter the remaining newline character in the buffer, it will stop reading immediately. It will result in an empty string for the input.
 
 ### `cin.ignore()`
 
@@ -67,3 +91,5 @@ When using `std::cin` and then `std::getline()`,
 > str: ij
 
 ## `cout`
+
+## `getline`
