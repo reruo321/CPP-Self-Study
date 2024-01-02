@@ -4,10 +4,15 @@
 
 ### `cin.ignore()`
 
+    #include <iostream>
+    using namespace std;
+
     string str;
     cin.ignore(N, C) >> str;
 
 Ignores up to `N` characters or until it encounters the specified delimiter character `C`. If `C` is not specified (the default is `EOF`), it will ignores the first `N` characters.
+
+When using `std::cin` and then `std::getline()`, 
 
 #### Example 1
 * N=3
