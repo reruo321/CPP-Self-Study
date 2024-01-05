@@ -93,3 +93,4 @@ When using `std::cin` and then `std::getline()`,
 ## `cout`
 
 ## `getline`
+Be careful. **DO NOT** use `getline` right after `cin`! After `getline` encounters the remaining newline character in the buffer, it will stop reading immediately. It will result in an empty string for the `getline` input.
