@@ -92,6 +92,15 @@ When using `std::cin` and then `std::getline()`,
 
 ## `cout`
 
+    #include <iostream>
+
+    using namespace std;
+
+    int main(){
+        cout << "Hello, World!" << endl;
+        return 0;
+    }
+
 ## `getline`
 
     #include <iostream>
