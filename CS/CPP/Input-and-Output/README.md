@@ -15,7 +15,7 @@
         return 0;
     }
 
-When we type "hello world", "hello\nworld", or "hello\tworld", these happen. 
+When we type "hello world", "hello\nworld", or "hello\tworld", these steps happen. 
 
 1. Read "hello" into `a`.
 2. Leave a newline character '\n' in the buffer.
