@@ -115,6 +115,9 @@ It reads a line until it meets a newline character, '\n'.
 
 Be careful. **DO NOT** use `getline` right after `cin`! After `getline` encounters the remaining newline character in the buffer, it will stop reading immediately. It will result in an empty string for the `getline` input.
 
+### Usage
+1. When the number of input lines is not specified (Text files, some programming problems, ...)
+
 ## istringstream
 
     #include <sstream>
