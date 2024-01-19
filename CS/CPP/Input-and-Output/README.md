@@ -122,7 +122,11 @@ Be careful. **DO NOT** use `getline` right after `cin`! After `getline` encounte
 
     #include <sstream>
 
-    
+    string line = "This is great";
+    string str_this, str_is, str_great;
+
+    std::istringstream iss(line);
+    iss >> str_this >> str_is >> str_great;
 
 ## ifstream
 
