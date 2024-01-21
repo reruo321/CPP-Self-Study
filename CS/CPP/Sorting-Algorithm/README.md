@@ -1,6 +1,6 @@
-# Sorting Algirhtm in C++
+# Sorting Algorithms in C++
 
 # O(nlog(n))
-## 1. Merge Sort
-## 2. Quick Sort
+## 1. Quick Sort
+## 2. Merge Sort
 ## 3. Heap Sort
