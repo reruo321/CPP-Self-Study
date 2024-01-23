@@ -5,5 +5,8 @@
 
 # O(nlog(n))
 ## 1. Quick Sort
+Use pivot & divide-and-conquer.
+
+
 ## 2. Merge Sort
 ## 3. Heap Sort
