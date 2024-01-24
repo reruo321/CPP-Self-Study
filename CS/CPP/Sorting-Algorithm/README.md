@@ -2,6 +2,7 @@
 # O(n^2)
 ## 1. Insertion Sort
 ## 2. Bubble Sort
+## 3. Selection Sort
 
 # O(nlog(n))
 ## 1. Quick Sort
