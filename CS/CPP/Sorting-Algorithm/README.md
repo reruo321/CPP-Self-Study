@@ -10,4 +10,6 @@ Use pivot & divide-and-conquer.
 
 
 ## 2. Merge Sort
+Use divide-and-conquer.
+
 ## 3. Heap Sort
