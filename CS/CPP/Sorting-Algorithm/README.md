@@ -1,10 +1,11 @@
 # Sorting Algorithms in C++
-## O(n^2)
+## Average: O(n^2)
 ### 1. Insertion Sort
+
 ### 2. Bubble Sort
 ### 3. Selection Sort
 
-## O(nlog(n))
+## Average: O(nlog(n))
 ### 1. Quick Sort
 Use pivot & divide-and-conquer.
 
