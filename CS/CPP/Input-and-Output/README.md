@@ -118,6 +118,7 @@ Be careful. **DO NOT** use `getline` right after `cin`! After `getline` encounte
 ### Usage
 1. When the number of input lines is not specified (Text files, some programming problems, ...)
 
+# <sstream>
 ## istringstream
 
     #include <sstream>
