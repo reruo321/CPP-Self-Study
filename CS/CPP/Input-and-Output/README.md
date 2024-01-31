@@ -87,7 +87,7 @@ When using `std::cin` and then `std::getline()`,
 
 > str: ij
 
-## `cout`
+### `cout`
 
     #include <iostream>
 
@@ -98,7 +98,7 @@ When using `std::cin` and then `std::getline()`,
         return 0;
     }
 
-## `getline`
+### `getline`
 
     #include <iostream>
 
@@ -118,8 +118,8 @@ Be careful. **DO NOT** use `getline` right after `cin`! After `getline` encounte
 ### Usage
 1. When the number of input lines is not specified (Text files, some programming problems, ...)
 
-# <sstream>
-## istringstream
+## <sstream>
+### istringstream
 
     #include <sstream>
 
@@ -129,5 +129,5 @@ Be careful. **DO NOT** use `getline` right after `cin`! After `getline` encounte
     std::istringstream iss(line);
     iss >> str_this >> str_is >> str_great;
 
-## ifstream
+### ifstream
 
