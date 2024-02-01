@@ -1,11 +1,11 @@
 # Sorting Algorithms in C++
-## Average Time Complexity: O(n^2)
+## A. O(n^2)
 ### 1. Insertion Sort
 
 ### 2. Bubble Sort
 ### 3. Selection Sort
 
-## Average Time Complexity: O(nlog(n))
+## B. O(nlog(n))
 ### 1. Quick Sort
 Use pivot & divide-and-conquer.
 
