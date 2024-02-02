@@ -1,4 +1,8 @@
 # Sorting Algorithms in C++
+Time Complexity:
+* O(n^2)
+* O(nlog(n))
+
 ## A. O(n^2)
 ### 1. Insertion Sort
 
