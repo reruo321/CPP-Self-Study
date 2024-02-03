@@ -1,7 +1,7 @@
 # Input and Output in C++
 ## `<iostream>`
 ### `cin`
-`cin` leaves a newline character '\n' in the buffer for flexible input handling. The `>>` operator reads characters from the input until it encounters whitespace (space, tab, or newline). It is used to separate inputs.
+`cin` leaves a newline character '\n' in the buffer for flexible input handling. The `>>` operator reads characters from the input until it encounters whitespace (space, tab '\t', or newline '\n'). It is used to separate inputs.
 
     #include <iostream>
 
