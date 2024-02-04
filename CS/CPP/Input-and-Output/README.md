@@ -31,7 +31,7 @@ Be careful. **DO NOT** use `getline` right after `cin`! After `getline` encounte
     std::string str;
     std::cin.ignore(N, C) >> str;
 
-Ignores up to `N` characters or until it encounters the specified delimiter character `C`. If `C` is not specified (the default is `EOF`), it will ignores the first `N` characters.
+Ignores up to `N` characters OR until it encounters the specified delimiter character `C`. If `C` is not specified (the default is `EOF`), it will ignores the first `N` characters.
 
 When using `std::cin` and then `std::getline()`, 
 
