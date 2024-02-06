@@ -5,8 +5,11 @@ Time Complexity:
 
 ## A. O(n^2)
 ### 1. Insertion Sort
+Pick an element and put it into the adaquate place.
 
 ### 2. Bubble Sort
+Change two elements.
+
 ### 3. Selection Sort
 
 ## B. O(nlog(n))
