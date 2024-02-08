@@ -1,7 +1,13 @@
 # Sorting Algorithms in C++
 Time Complexity:
 * O(n^2)
+  * Insertion Sort
+  * Bubble Sort
+  * Selection Sort
 * O(nlog(n))
+  * Quick Sort
+  * Merge Sort
+  * Heap Sort
 
 ## A. O(n^2)
 ### 1. Insertion Sort
