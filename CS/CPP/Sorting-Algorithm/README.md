@@ -8,6 +8,7 @@ Time Complexity:
   * Quick Sort
   * Merge Sort
   * Heap Sort
+  * Introspective Sort
 
 ## A. O(n^2)
 ### 1. Insertion Sort
@@ -27,3 +28,6 @@ Use pivot & divide-and-conquer.
 Use divide-and-conquer.
 
 ### 3. Heap Sort
+
+### 4. Introspective Sort
+Hybrid sorting altorithm that combines the strengths of quick sort, heap sort, and insertion sort.
