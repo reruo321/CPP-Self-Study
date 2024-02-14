@@ -131,3 +131,4 @@ Be careful. **DO NOT** use `getline` right after `cin`! After `getline` encounte
 
 ### ifstream
 
+    #include <sstream>
