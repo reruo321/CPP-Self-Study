@@ -22,6 +22,7 @@ Change two elements.
 ## B. O(nlog(n))
 ### 1. Quick Sort
 Use pivot & divide-and-conquer.
+#### Pivot Selection
 
 
 ### 2. Merge Sort
