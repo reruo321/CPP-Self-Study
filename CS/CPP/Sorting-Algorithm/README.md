@@ -22,6 +22,7 @@ Change two elements.
 ## B. O(nlog(n))
 ### 1. Quick Sort
 Use pivot & divide-and-conquer.
+
 #### Pivot Selection
 
 
@@ -29,6 +30,7 @@ Use pivot & divide-and-conquer.
 Use divide-and-conquer.
 
 ### 3. Heap Sort
+**Heap** is a tree-based data structure.
 
 ### 4. Introspective Sort
 Hybrid sorting altorithm that is used in the Standard C++ Library. It combines the strengths of quick sort, heap sort, and insertion sort.
