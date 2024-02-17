@@ -24,7 +24,8 @@ Change two elements.
 Use pivot & divide-and-conquer.
 
 #### Pivot Selection
-
+1. The first element in the set
+2. The last element in the set
 
 ### 2. Merge Sort
 Use divide-and-conquer.
