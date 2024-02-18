@@ -35,3 +35,6 @@ Use divide-and-conquer.
 
 ### 4. Introspective Sort
 Hybrid sorting altorithm that is used in the Standard C++ Library. It combines the strengths of quick sort, heap sort, and insertion sort.
+It chooses the sort algorithms depending on the data size.
+
+1. Quick Sort
