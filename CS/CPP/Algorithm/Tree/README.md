@@ -1,3 +1,4 @@
 # Tree
-## BST
+## Binary Search Tree
 ## Heap
+## Red-Black Tree
