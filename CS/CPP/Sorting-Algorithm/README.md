@@ -18,6 +18,7 @@ Pick an element and put it into the adaquate place.
 Change two elements.
 
 ### 3. Selection Sort
+Select two elements, and if they need to be changed, change them.
 
 ## B. O(nlog(n))
 ### 1. Quick Sort
