@@ -30,7 +30,7 @@ Use pivot & divide-and-conquer.
 3. The median of multiple elements
 
 ### 2. Merge Sort
-Use divide-and-conquer.
+Use divide-and-conquer. Divide an input set into half until all subset have 1 element.
 
 ### 3. Heap Sort
 **Heap** is a tree-based data structure.
