@@ -1,4 +1,4 @@
 # Tree
 ## Binary Search Tree
-## Heap
+## Heap Sort
 ## Red-Black Tree
