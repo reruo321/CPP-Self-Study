@@ -6,7 +6,8 @@ class TreeNode{
     TreeNode * front;
     TreeNode * back;
     int val;
-    
+
+    // Note: nullptr is supported since C++11
     TreeNode(int v): val(v), front(nullptr), back(nullptr) {}
     
     setFront(TreeNode n){
