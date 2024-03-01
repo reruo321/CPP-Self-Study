@@ -3,5 +3,7 @@
 
 ## Binary Tree
 ### Binary Search Tree
+1. Binary Tree
+2. Left right
 ## Heap Sort
 ## Red-Black Tree
