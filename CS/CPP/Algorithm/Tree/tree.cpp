@@ -19,9 +19,19 @@ class TreeNode{
 
 };
 
-class Tree{
+class BST{
     
-    int traversal;
+    TreeNode * root;
+
+pulic:
+
+    BST(): root(nullptr){}
+    
+    void insert(const int &n){
+        if(root == nullptr){
+            
+        }
+    }
     
 };
 
