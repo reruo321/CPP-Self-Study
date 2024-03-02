@@ -37,8 +37,8 @@ Use divide-and-conquer. Divide an input set into half until all subset have 1 el
 
 ### 4. Introspective Sort
 Hybrid sorting altorithm that is used in the Standard C++ Library. It combines the strengths of quick sort, heap sort, and insertion sort.
-It chooses the sort algorithms depending on the data size.
+It takes quick sort first, and later changes its sort algorithm based on the data size.
 
-1. Quick Sort: Introsort
+1. Quick Sort
 2. Heap Sort
 3. Insertion Sort
