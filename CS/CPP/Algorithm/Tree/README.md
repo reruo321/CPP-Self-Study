@@ -4,6 +4,6 @@
 ## Binary Tree
 ### Binary Search Tree
 1. Binary Tree
-2. Left right
+2. Value of all left subtree nodes must be smaller than their root value, and value of all right subtree nodes must be bigger than their root value.
 ## Heap Sort
 ## Red-Black Tree
