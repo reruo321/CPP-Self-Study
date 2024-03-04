@@ -7,14 +7,19 @@ class TreeNode{
     TreeNode * back;
     int val;
 
+public:
     // Note: nullptr is supported since C++11
     TreeNode(int v): val(v), front(nullptr), back(nullptr) {}
     
-    setFront(TreeNode n){
+    void setFront(TreeNode n){
         front = &n;
     }
-    setBack(TreeNode n){
+    void setBack(TreeNode n){
         back = &n;
+    }
+    
+    void getVal(){
+        return val;
     }
 
 };
@@ -28,9 +33,16 @@ pulic:
     BST(): root(nullptr){}
     
     void insert(const int &n){
+        
         if(root == nullptr){
+            root = new TreeNode(n);
+            return;
+        }
+        
+        if(root.val){
             
         }
+        
     }
     
 };
