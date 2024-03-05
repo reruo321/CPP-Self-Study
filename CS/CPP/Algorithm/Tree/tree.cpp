@@ -3,8 +3,8 @@
 
 class TreeNode{
 
-    TreeNode * front;
-    TreeNode * back;
+    TreeNode * left;
+    TreeNode * right;
     int val;
 
 public:
@@ -33,16 +33,20 @@ pulic:
     BST(): root(nullptr){}
     
     void insert(const int &n){
+        TreeNode * t = root;
         
-        if(root == nullptr){
-            root = new TreeNode(n);
-            return;
+        while(1){
+            if(t == nullptr){
+                t = new TreeNode(n);
+                return;
+            }
+            if(n < root.getVal()){
+                t = root.left;
+            }
+            else if(n > root.getVal()){
+                t = root.right;
+            }
         }
-        
-        if(root.val){
-            
-        }
-        
     }
     
 };
