@@ -32,21 +32,56 @@ pulic:
 
     BST(): root(nullptr){}
     
-    void insert(const int &n){
+    void insertNode(const int &n){
         TreeNode * t = root;
         
         while(1){
             if(t == nullptr){
                 t = new TreeNode(n);
+                std::cout << "Inserted " << n << "." << endl;
                 return;
             }
-            if(n < root.getVal()){
-                t = root.left;
+            if(n < t.getVal()){
+                t = t.left;
             }
-            else if(n > root.getVal()){
-                t = root.right;
+            else if(n > t.getVal()){
+                t = t.right;
+            }
+            else{
+                return;
             }
         }
+    }
+    
+    void removeNode(const int &n){
+        
+        TreeNode * t = root;
+        
+        while(1){
+            
+            if(t == nullptr){
+                std::cout << "Could not find " << n << "." << endl;
+                return;
+            }
+            else{
+                if(n < t.getVal()){
+                    t = t.left;
+                }
+                else if(n > t.getVal()){
+                    t = t.right;
+                }
+                else{
+                    // find the minimum value in right subtree
+                    
+                    removeNodeSubtree(t);
+                    std::cout << "Removed " << n << "." << endl;
+                    return;
+                }
+            }
+            
+
+        }
+        
     }
     
 };
