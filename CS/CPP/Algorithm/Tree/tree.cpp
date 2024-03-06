@@ -53,6 +53,10 @@ pulic:
         }
     }
     
+    void removeNodeSubtree(TreeNode * node){
+        
+    }
+    
     void removeNode(const int &n){
         
         TreeNode * t = root;
@@ -71,7 +75,7 @@ pulic:
                     t = t.right;
                 }
                 else{
-                    // find the minimum value in right subtree
+                    // find the minimum value in the right subtree
                     
                     removeNodeSubtree(t);
                     std::cout << "Removed " << n << "." << endl;
