@@ -75,7 +75,7 @@ pulic:
                     t = t.right;
                 }
                 else{
-                    // find the minimum value in the right subtree
+                    // find the minimum value in the right subtree, which is in the rightmost node
                     
                     removeNodeSubtree(t);
                     std::cout << "Removed " << n << "." << endl;
