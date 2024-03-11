@@ -93,7 +93,7 @@ pulic:
 
 int main()
 {
-    std::cout<<"Hello World";
+    BST bst = new BST();
 
     return 0;
 }
