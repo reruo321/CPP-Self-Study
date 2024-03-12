@@ -7,4 +7,6 @@ All nodes in a binary tree can have their children maximum two.
 1. Binary Tree
 2. Value of all left subtree nodes must be smaller than their root value, and value of all right subtree nodes must be bigger than their root value.
 ## Heap Sort
+1. Binary Tree
 ## Red-Black Tree
+1. Binary Tree
