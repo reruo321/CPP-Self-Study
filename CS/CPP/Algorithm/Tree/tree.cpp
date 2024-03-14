@@ -75,9 +75,17 @@ pulic:
                     t = t.right;
                 }
                 else{
-                    // find the minimum value in the right subtree, which is in the leftmost node in it
+                    // 1. No child
+                    // remove the root
                     
-                    removeNodeSubtree(t);
+                    
+                    // 2. One child
+                    // bring the child to the root
+                    
+                    // 3. Two children
+                    // find the minimum value RMIN in the right subtree, which is in the leftmost node in it
+                    // change the root to RMIN
+                    // process moving on RMIN's previous children
                     std::cout << "Removed " << n << "." << endl;
                     return;
                 }
