@@ -11,11 +11,11 @@ public:
     // Note: nullptr is supported since C++11
     TreeNode(int v): val(v), front(nullptr), back(nullptr) {}
     
-    void setFront(TreeNode n){
-        front = &n;
+    void setLeft(TreeNode n){
+        left = &n;
     }
-    void setBack(TreeNode n){
-        back = &n;
+    void setRight(TreeNode n){
+        right = &n;
     }
     
     void getVal(){
@@ -75,7 +75,7 @@ pulic:
                     t = t.right;
                 }
                 else{
-                    // find the minimum value in the right subtree, which is in the rightmost node
+                    // find the minimum value in the right subtree, which is in the leftmost node in it
                     
                     removeNodeSubtree(t);
                     std::cout << "Removed " << n << "." << endl;
