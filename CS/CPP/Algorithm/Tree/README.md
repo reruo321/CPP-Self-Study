@@ -10,7 +10,7 @@ All nodoes in a complete binary tree have two children.
 1. Binary Tree
 2. Value of all left subtree nodes must be smaller than their root value, and value of all right subtree nodes must be bigger than their root value.
 ## Heap Sort
-1. Binary Tree
+1. Binary Heap
 2. 
 ## Red-Black Tree
 1. Binary Tree
