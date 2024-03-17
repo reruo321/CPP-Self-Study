@@ -77,7 +77,7 @@ pulic:
                 else{
                     // 1. No child
                     // remove the root
-                    
+                    delete t;
                     
                     // 2. One child
                     // bring the child to the root
