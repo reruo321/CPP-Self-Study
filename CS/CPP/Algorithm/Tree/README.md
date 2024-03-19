@@ -5,7 +5,7 @@
 All nodes in a binary tree can have their children maximum two.
 
 ### Complete Binary Tree
-All nodoes in a complete binary tree have two children.
+All nodes in a complete binary tree have two children.
 ### Binary Search Tree
 1. Binary Tree
 2. Value of all left subtree nodes must be smaller than their root value, and value of all right subtree nodes must be bigger than their root value.
