@@ -16,4 +16,4 @@ All nodes in a complete binary tree have two children.
 1. Binary Search Tree
 2. Every node is elther red or black.
 3. All NIL nodes are considered black.
-4. Red nodes do not have any red child.
+4. All red nodes do not have any red child.
