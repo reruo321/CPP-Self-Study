@@ -12,4 +12,4 @@ Also see [here](https://github.com/reruo321/OS-Self-Study) for my OS self study 
 
 ## My C++ Projects
 * [CLI Simple Picross](https://github.com/reruo321/CLI-Simple-Picross)
-* [MIDI to 3Octave](https://github.com/reruo321/MIDI-to-3Octave)
+* [MIDITo3Octave](https://github.com/reruo321/MIDI-to-3Octave)
