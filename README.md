@@ -11,5 +11,5 @@ See [here](https://github.com/reruo321/Cplus_Practice) for my first C++ practice
 Also see [here](https://github.com/reruo321/OS-Self-Study) for my OS self study repository. It focuses on the C usage on the Linux system programming.
 
 ## My C++ Projects
-* [CLI Simple Picross](https://github.com/reruo321/CLI-Simple-Picross)
+* [CLI Simple Picross for Windows](https://github.com/reruo321/CLI-Simple-Picross)
 * [MIDITo3Octave](https://github.com/reruo321/MIDI-to-3Octave)
