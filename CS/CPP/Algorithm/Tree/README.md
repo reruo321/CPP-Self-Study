@@ -5,6 +5,8 @@
 All nodes in a binary tree can have their children maximum two.
 
 ### Complete Binary Tree
+1. Binary Tree
+
 All nodes in a complete binary tree have two children.
 ### Binary Search Tree
 1. Binary Tree
