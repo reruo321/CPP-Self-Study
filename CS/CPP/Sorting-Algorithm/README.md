@@ -22,7 +22,9 @@ Select two elements, and if they need to be changed, change them.
 
 ## B. O(nlog(n))
 ### 1. Quick Sort
-Use pivot & divide-and-conquer.
+Use pivot & divide-and-conquer. Select a pivor of a subset by choosing one of these options:
+
+
 
 #### Pivot Selection
 1. The first element in the set
