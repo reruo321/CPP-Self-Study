@@ -2,7 +2,7 @@
 This repository covers everything I have studied on mainly C++ and C.
 
 * Personal Solutions for Online Judge Problems
-* Standard C++ STL and Other Useful Famous 3rd Libraries
+* Standard C++ STL and Other Useful Famous 3rd-party Libraries
 * Assembly, C, C++, and Modern C++
 * Anything Else for Tech. Interview
 
