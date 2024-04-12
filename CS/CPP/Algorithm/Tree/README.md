@@ -2,7 +2,7 @@
 ![tree](https://github.com/reruo321/CPP-Self-Study/assets/48712088/65727cef-1156-4684-9482-43080d3067e8)
 
 ## Binary Tree
-All nodes in a binary tree can have their children maximum two.
+All nodes in a binary tree can have maximum two children.
 
 ### Complete Binary Tree
 1. Binary Tree
