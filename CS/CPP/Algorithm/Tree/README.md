@@ -11,10 +11,10 @@ All nodes in a binary tree can have maximum two children.
 1. Binary Tree
 2. Value of all left subtree nodes must be smaller than their root value, and value of all right subtree nodes must be bigger than their root value.
 ## Heap Sort
-O(nlogn)
+One of sorting algorithms with O(nlogn).
 
 1. Binary Heap
-2. 
+
 ## Red-Black Tree
 1. Binary Search Tree
 2. Every node is elther red or black.
