@@ -25,19 +25,24 @@ int main()
         return 0;
     }
     
+    vector<pair<int, long long>> goodnums(S.back()+1, 0);
+    
     int end_idx = 0;
     
-    while(end_idx <= S.size()-1){
-        int start_num;
-        int end_num = S.at(end_idx);
+    while(end_idx < S.size()){
+        int start_thres;
+        int end_thres = S.at(end_idx);
         
         if(!end_idx){
-            start_num = 0;
+            start_thres = 0;
         }
         else{
-            start_num = S.at(end_idx-1);
+            start_thres = S.at(end_idx-1);
         }
         
+        for(int i=start_thres+1; i<end_thres; ++i){
+            goodnums.at(i)
+        }
         
     }
     
