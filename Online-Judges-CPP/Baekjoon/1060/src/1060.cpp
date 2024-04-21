@@ -41,12 +41,10 @@ int main()
         }
         
         for(int i=start_thres+1; i<end_thres; ++i){
-            goodnums.at(i)
+            goodnums.push_back(make_pair(i, static_cast<long long>((i-start_thres)*(end_thres-i))));
         }
         
     }
     
-    
-
     return 0;
 }
