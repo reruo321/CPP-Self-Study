@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <limits>
 
 using namespace std;
 
@@ -17,7 +18,7 @@ int main()
     
     sort(S.begin(), S.end());
     
-    if(S.size() <= n){
+    if(S.size() > n){
         for(int i=0; i<n; ++i){
             cout << S.at(i) << " ";
         }
@@ -25,7 +26,14 @@ int main()
         return 0;
     }
     
-    vector<pair<int, long long>> goodnums(S.back()+1, 0);
+    int sback = S.back();
+    
+    vector<pair<int, long long>> goodnums(sback+1);
+    goodnums.at(0) = make_pair(0, numeric_limits<long long>::max());
+    
+    for(auto s: S){
+        goodnums.at(s) = make_pair(s, 0);
+    }
     
     int end_idx = 0;
     
@@ -41,9 +49,34 @@ int main()
         }
         
         for(int i=start_thres+1; i<end_thres; ++i){
-            goodnums.push_back(make_pair(i, static_cast<long long>((i-start_thres)*(end_thres-i))));
+            goodnums.at(i) = make_pair(i, static_cast<long long>((i-start_thres)*(end_thres-i)));
         }
         
+        ++end_idx;
+    }
+    
+    sort(goodnums.begin(), goodnums.end(), [](const pair<int, long long> &a, const pair<int, long long> &b){
+        if(a.second == b.second)
+            return a < b;
+        return a.second < b.second;
+    });
+    
+    int count = 0;
+    
+    for(auto &p: goodnums){
+        if(p.first){
+            if(count < n){
+                cout << p.first << " ";
+                ++count;
+            }
+            else
+                break;
+        }
+    }
+    
+    while(count < n){
+        cout << ++sback << " ";
+        ++count;
     }
     
     return 0;
