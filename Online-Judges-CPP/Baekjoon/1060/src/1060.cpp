@@ -1,9 +1,24 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <queue>
 #include <limits>
+#include <algorithm>
 
 using namespace std;
+
+struct Goodnum{
+    int no;
+    long long weight;
+    
+    Goodnum(int n, long long w): no(n), weight(w){}
+    bool operator<(const Goodnum &another) const {
+        if(weight != another.weight){
+            return weight > another.weight;
+        }
+        return no > another.no;
+    }
+};
+
 
 int main()
 {
@@ -28,11 +43,9 @@ int main()
     
     int sback = S.back();
     
-    vector<pair<int, long long>> goodnums(sback+1);
-    goodnums.at(0) = make_pair(0, numeric_limits<long long>::max());
-    
-    for(auto s: S){
-        goodnums.at(s) = make_pair(s, 0);
+    priority_queue<Goodnum> pque;
+    for(auto &s: S){
+        pque.push(Goodnum(s, 0));
     }
     
     int end_idx = 0;
@@ -48,35 +61,42 @@ int main()
             start_thres = S.at(end_idx-1);
         }
         
+        long long peak = 0;
+        
         for(int i=start_thres+1; i<end_thres; ++i){
-            goodnums.at(i) = make_pair(i, static_cast<long long>((i-start_thres)*(end_thres-i)));
+            long long multi = (i-start_thres)*(end_thres-i);
+            if(multi > peak){
+                peak = multi;
+                if(pque.size() < n || (pque.size() >= n && pque.top().weight >= multi)){
+                    pque.push(Goodnum(i, multi));
+                }
+                else{
+                    break;
+                }
+            }
+            else{
+                break;
+            }
+        }
+        
+        while(pque.size() > n){
+            pque.pop();
         }
         
         ++end_idx;
     }
     
-    sort(goodnums.begin(), goodnums.end(), [](const pair<int, long long> &a, const pair<int, long long> &b){
-        if(a.second == b.second)
-            return a < b;
-        return a.second < b.second;
-    });
-    
-    int count = 0;
-    
-    for(auto &p: goodnums){
-        if(p.first){
-            if(count < n){
-                cout << p.first << " ";
-                ++count;
-            }
-            else
-                break;
-        }
+    while(pque.size() < n){
+        pque.push(Goodnum(++sback, numeric_limits<long long>::max()));
     }
     
-    while(count < n){
-        cout << ++sback << " ";
-        ++count;
+    while(pque.size() > n){
+        pque.pop();
+    }
+    
+    while(!pque.empty()){
+        cout << pque.top().no << " ";
+        pque.pop();
     }
     
     return 0;
