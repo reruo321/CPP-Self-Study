@@ -61,18 +61,17 @@ int main()
             start_thres = S.at(end_idx-1);
         }
         
-        long long peak = 0;
-        
         for(int i=start_thres+1; i<end_thres; ++i){
             long long multi = (i-start_thres)*(end_thres-i);
-            if(multi > peak){
-                peak = multi;
-                if(pque.size() < n || (pque.size() >= n && pque.top().weight >= multi)){
-                    pque.push(Goodnum(i, multi));
+            if(pque.size() < n || (pque.size() >= n && pque.top().weight >= multi)){
+                int opposite = start_thres + end_thres - i;
+                if(i < opposite){
+                    pque.push(Goodnum(opposite, multi));
                 }
-                else{
+                else if(i > opposite){
                     break;
                 }
+                pque.push(Goodnum(i, multi));
             }
             else{
                 break;
