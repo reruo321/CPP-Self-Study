@@ -32,14 +32,6 @@ int main()
     cin >> n;
     
     sort(S.begin(), S.end());
-
-    if(S.size() >= n){
-        for(int i=0; i<n; ++i){
-            cout << S.at(i) << " ";
-        }
-        cout << endl;
-        return 0;
-    }
     
     priority_queue<Goodnum> que;
     
@@ -64,6 +56,11 @@ int main()
         send_num = S.at(send_idx);
         
         for(int i=1; sstart_num + i <= send_num - i; ++i){
+            if(send_num - sstart_num == 2){
+                que.push(Goodnum(send_num - 1, 0));
+                break;
+            }
+            
             long long mult = static_cast<long long>(i) * (send_num - sstart_num - i);
             Goodnum gn(sstart_num + i, mult);
             if(que.size() < n){
@@ -99,7 +96,6 @@ int main()
     vector<int> resultvec(que.size(), 0);
     for(int i=0; i<n; ++i){
         resultvec.at(n-1-i) = que.top().no;
-        cout << "NO: " << que.top().no << ", WEIGHT: " << que.top().weight << endl;
         que.pop();
     }
     
