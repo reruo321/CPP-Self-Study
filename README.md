@@ -1,7 +1,7 @@
 # C++ Self Study
 This repository covers everything I have studied on mainly C++ and C.
 
-* Personal Solutions and Useful Algorithms for Online Judge Problems
+* Personal Solutions and Useful Algorithms for Online.   Judge Problems
 * Standard C++ STL and Other Useful 3rd-party Libraries
 * Assembly (x86, x64), C, C++, and Modern C++
 * Anything Else for Tech. Interview
