@@ -31,7 +31,7 @@ C. Select the median of the subset.
 #### Pivot Selection
 1. The first element in the set
 2. The last element in the set
-3. The median of multiple elements
+3. The median of multiple elements. For example, I can get a pivot by getting the median of 3 random elements from the full set.
 
 ### 2. Merge Sort
 Use divide-and-conquer. Divide an input set into half until all subset have 1 element.
