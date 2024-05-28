@@ -1,4 +1,5 @@
 # Good
+* Problem Link: https://www.acmicpc.net/problem/1253
 ## Solution
 <details>
 <summary><b>SPOILERS</b></summary>
