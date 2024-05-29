@@ -26,12 +26,15 @@ Use pivot & divide-and-conquer. Select a pivot of a subset by choosing one of th
 
 A. Select the first element of the subset.
 B. Select the last element of the subset.
-C. Select the median of the subset.
+C. Select the median of the subset. For example, get a pivot by getting the median of 3 random elements from the full set.
 
-#### Pivot Selection
-1. The first element in the set
-2. The last element in the set
-3. The median of multiple elements. For example, I can get a pivot by getting the median of 3 random elements from the full set.
+#### Steps
+1. Select a pivot of an entire set. (Let its size N.) I'll select the last element, (N-1)th, of a set as a `pivot`.
+2. Define a pivot index `pidx`. It is used to put the `pivot` after finishing to sort all other numbers in the set. I'll assign `pidx` = 0.
+3. A number X <= `pivot` should be left of the pivot, and otherwise should be right of the pivot. (Mechanism: Run a loop from the 0th element to the (N-2)th element. If i-th element X <= `pivot`, swap X and set\[pidx\], and increase `pidx` by 1.)
+4. After the loop, swap set\[pidx\] and set\[N-1\].
+5. Return `pidx` to divide the set into 0th ~ (`pidx`-1)th, and (`pidx`+1)th ~ (N-1)th elements.
+6. Run the quick sort again to two subsets. Repeat these until `start` >= `end`, where `start` and `end` are the start/end indices of a set.
 
 ### 2. Merge Sort
 Use divide-and-conquer. Divide an input set into half until all subset have 1 element.
