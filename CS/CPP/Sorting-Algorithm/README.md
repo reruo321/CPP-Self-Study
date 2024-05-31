@@ -15,7 +15,7 @@ Time Complexity:
 Pick an element and put it into the adaquate place.
 
 ### 2. Bubble Sort
-Exchange two elements.
+Exchange two elements. Loop from the start element to the last element, until there's no more exchanging happens.
 
 ### 3. Selection Sort
 Select two elements, and if they need to be changed, change them.
