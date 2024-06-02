@@ -37,7 +37,7 @@ C. Select the median of the subset. For example, get a pivot by getting the medi
 6. Run the quick sort again to two subsets. Repeat these until `start` >= `end`, where `start` and `end` are the start/end indices of a set.
 
 ### 2. Merge Sort
-Use divide-and-conquer. Divide an input set into half until all subset have 1 element.
+Use divide-and-conquer. Divide an input set into half until all subset have 1 element. Conquer two subsets with two pointers; Set a pointer for the first element of subset 1, and for the first element of subset 2. Compare two numbers, push less or the same element to a new bigger set, move the pointer (which was pointing to the pushed element) to the right, and compare two numbers again.
 
 ### 3. Heap Sort
 **Heap** is a tree-based data structure.
