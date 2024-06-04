@@ -15,7 +15,7 @@ Time Complexity:
 Pick an element and put it into the adaquate place.
 
 ### 2. Bubble Sort
-Exchange two elements. Loop from the start element to the last element, until there's no more exchanging happens.
+Exchange two elements. Repeat loops from the start element to the last element, until there's no more exchanging happens in a loop.
 
 #### Variation 1
 1. Find the biggest number in a full set.
