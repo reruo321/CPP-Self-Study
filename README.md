@@ -8,7 +8,7 @@ This repository covers everything I have studied on mainly C++, and C and assemb
 
 See [here](https://github.com/reruo321/Cplus_Practice) for my first C++ practice with a guide book.
 
-Also see [here](https://github.com/reruo321/OS-Self-Study) for my OS self study repository. It focuses on the C usage on the Linux system programming.
+Also see [here](https://github.com/reruo321/OS-Self-Study) for my OS self study repository. It focuses on C on the Linux system programming.
 
 ## My C++ Projects
 * [CLI Simple Picross for Windows](https://github.com/reruo321/CLI-Simple-Picross) - A simple puzzle game in Windows CLI
