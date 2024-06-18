@@ -12,4 +12,4 @@ This repository covers everything I have studied mainly on C++, and C and assemb
 
 ## My C++ Projects
 * [CLI Simple Picross for Windows](https://github.com/reruo321/CLI-Simple-Picross) - A simple puzzle game in Windows CLI
-* [MIDITo3Octave](https://github.com/reruo321/MIDI-to-3Octave) - An intermediate CLI utility program to convert MIDI files to text files for another program's input
+* [MIDITo3Octave](https://github.com/reruo321/MIDI-to-3Octave) - An intermediate CLI utility program to convert MIDI files to text files in specific syntax.
