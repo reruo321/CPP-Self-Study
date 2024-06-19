@@ -1,4 +1,4 @@
-# Good Number (in progress)
+# Good Number
 ## Solution
 <details>
 <summary><b>SPOILERS</b></summary>
