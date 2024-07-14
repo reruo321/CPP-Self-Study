@@ -3,7 +3,7 @@
 <details>
 <summary><b>SPOILERS</b></summary>
 
-The problem is the combination of GCD & LCM and one-way DFS.
+One of the solutions is the combination of GCD & LCM and one-way DFS.
 
 ### Steps
 1. Before we start the DFS, we should multiply all prime numbers from all ratios, excluding just GCD of each ratio. For example, there are two ratios as 6:4 and 3:1. Then we can get the value of the DFS starting node, v0.
