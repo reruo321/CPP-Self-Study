@@ -15,4 +15,6 @@ $$ n0 = (3 × 1 / GCD(3, 1)) × (6 × 4 / GCD(6, 4))
 
 $$ v1 = 36 × 4 / 6 = 24 $$
 
+3. Divide all node values into their GCD, so that we can get the final answer numbers.
+
 </details>
