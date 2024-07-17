@@ -15,6 +15,6 @@ $$ n0 = (3 × 1 / GCD(3, 1)) × (6 × 4 / GCD(6, 4))
 
 $$ v1 = 36 × 4 / 6 = 24 $$
 
-3. Divide all node values into their GCD, so that we can get the final answer numbers. Loop the nodes to find their GCD, and divide them into it with another loop.
+3. Divide all node values into their GCD, so that we can get the final answer numbers. Loop the nodes to find their GCD, and divide them into it with another loop. If the values of the nodes are 24, 30, 36, we can find the GCD 6 with a loop. Dividing the nodes into GCD, we can finally get the values 4, 5, 6.
 
 </details>
