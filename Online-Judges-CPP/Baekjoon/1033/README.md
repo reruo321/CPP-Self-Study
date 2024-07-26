@@ -6,7 +6,7 @@
 One of the solutions is the combination of GCD (Greatest Common Divisor) & LCM (Least Common Multiple) and one-way DFS.
 
 ### Steps
-1. Before we start the DFS, we should multiply all prime numbers from all ratios, excluding just GCD of each ratio. Then we can divide node values into any prime divisors brought from any ratios. For example, there are two ratios as 6:4 and 3:1. Then we can get the value of the DFS starting node. You can select any node as the starting node. Let v0 be the value of the 0-th starting node, n0.
+1. Before we start the DFS, we should multiply all prime numbers from all ratios, excluding just GCD of each ratio. Then we can divide node values into any prime divisors brought from any ratios in the tree. For example, there are two ratios as 6:4 and 3:1. Then we can get the value of the DFS starting node. You can select any node as the starting node. Let v0 be the value of the 0-th starting node, n0.
 
 $$ n0 = (3 × 1 / GCD(3, 1)) × (6 × 4 / GCD(6, 4))
 = 3 × 12 = 36 $$
