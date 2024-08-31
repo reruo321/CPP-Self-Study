@@ -1,7 +1,8 @@
-// Not Finished
+// Not Finished. Wrong solution
 
 #include <iostream>
 #include <vector>
+#include <queue>
 
 using namespace std;
 
@@ -11,30 +12,38 @@ vector<vector<P>> graph;
 vector<int> rsum;
 vector<int> rcount;
 vector<int> ctopo;
+queue<int> que;
 
 int f_source, f_dest;
 
-void topoFunc(int v){
-    if(ctopo.at(v) == 0){
-        --ctopo.at(v);
+void topoFunc(int start){
+    que.push(start);
+    
+    while(!que.empty()){
+        int v = que.front();
+        que.pop();
+        
         for(auto &np: graph.at(v)){
             int &next = np.first;
             int &dist = np.second;
             
             --ctopo.at(next);
             
-            cout << "? => " << v << " " << next << endl;
-            
             int distsum = rsum.at(v) + dist;
             if(rsum.at(next) < distsum){
                 rsum.at(next) = distsum;
                 rcount.at(next) = rcount.at(v) + 1;
+                
+                cout << "~~~ " << v << " " << next << " => " << rcount.at(next) << endl;
             }
             else if(rsum.at(next) == distsum){
                 rcount.at(next) += (rcount.at(v) + 1);
+                cout << "@@@ " << v << " " << next << " => " << rcount.at(next) << endl;
             }
             
-            topoFunc(next);
+            if(ctopo.at(next) == 0){
+                que.push(next);
+            }
         }
     }
 }
