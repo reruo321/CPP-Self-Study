@@ -8,48 +8,63 @@ using namespace std;
 
 typedef pair<int, int> P;
 
-vector<vector<P>> graph;
-vector<int> rsum;
-vector<int> rcount;
-vector<int> ctopo;
+vector<vector<P>> v_forward;
+vector<vector<P>> v_reverse;
+
+vector<int> f_topo;
+vector<int> r_topo;
+vector<bool> r_isvisited;
+
 queue<int> que;
 
-int f_source, f_dest;
+int rcount = 0;
 
-void topoFunc(int start){
+void f_topoFunc(int start){
     que.push(start);
-    
     while(!que.empty()){
         int v = que.front();
         que.pop();
         
-        for(auto &np: graph.at(v)){
+        for(auto &np: v_forward.at(v)){
             int &next = np.first;
             int &dist = np.second;
             
-            --ctopo.at(next);
+            --f_topo.at(next);
+            r_topo.at(next) = max(r_topo.at(next), r_topo.at(v) + dist);
             
-            int distsum = rsum.at(v) + dist;
-            if(rsum.at(next) < distsum){
-                rsum.at(next) = distsum;
-                rcount.at(next) = rcount.at(v) + 1;
-                
-                cout << "~~~ " << v << " " << next << " => " << rcount.at(next) << endl;
-            }
-            else if(rsum.at(next) == distsum){
-                rcount.at(next) += (rcount.at(v) + 1);
-                cout << "@@@ " << v << " " << next << " => " << rcount.at(next) << endl;
-            }
-            
-            if(ctopo.at(next) == 0){
+            if(f_topo.at(next) == 0){
                 que.push(next);
             }
         }
     }
 }
 
-int main(){
+void r_topoFunc(int dest){
+    int &final = r_topo.at(dest);
+    que.push(dest);
     
+    while(!que.empty()){
+        int v = que.front();
+        que.pop();
+        
+        for(auto &pp: v_reverse.at(v)){
+            int &prev = pp.first;
+            int &dist = pp.second;
+            
+            if(r_isvisited.at(prev))
+                continue;
+            
+            r_isvisited.at(prev) = true;
+            if(r_topo.at(v) == r_topo.at(prev) + dist){
+                ++rcount;
+                que.push(prev);
+            }
+        }
+    }
+}
+
+int main()
+{
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
@@ -57,22 +72,32 @@ int main(){
     int n, m;
     cin >> n >> m;
     
-    graph.assign(n+1, vector<P>());
-    rcount.assign(n+1, 0);
-    rsum.assign(n+1, 0);
-    ctopo.assign(n+1, 0);
+    v_forward.assign(n+1, vector<P>());
+    v_reverse.assign(n+1, vector<P>());
+    
+    f_topo.assign(n+1, 0);
+    r_topo.assign(n+1, 0);
+    r_isvisited.assign(n+1, false);
+    r_isvisited.at(0) = true;
     
     for(int i=0; i<m; ++i){
-        int source, dest, d;
-        cin >> source >> dest >> d;
-        graph.at(source).push_back(make_pair(dest, d));
-        ++ctopo.at(dest);
+        int s, d, t;
+        cin >> s >> d >> t;
+        
+        v_forward.at(s).push_back(make_pair(d, t));
+        v_reverse.at(d).push_back(make_pair(s, t));
+        
+        ++f_topo.at(d);
+        ++r_topo.at(s);
     }
     
-    cin >> f_source >> f_dest;
-    topoFunc(f_source);
+    int c_source, c_dest;
+    cin >> c_source >> c_dest;
     
-    cout << rsum.at(f_dest) << "\n" << rcount.at(f_dest) << "\n";
+    f_topoFunc(c_source);
+    r_topoFunc(c_dest);
+    
+    cout << r_topo.at(c_dest) << "\n" << rcount << "\n";
 
     return 0;
 }
