@@ -1,5 +1,3 @@
-// Not Finished. Wrong solution
-
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -11,60 +9,62 @@ typedef pair<int, int> P;
 vector<vector<P>> v_forward;
 vector<vector<P>> v_reverse;
 
-vector<int> f_topo;
-vector<int> r_topo;
-vector<bool> r_isvisited;
+vector<int> v_ftopo;
 
-queue<int> que;
+vector<bool> v_risvisited;
+vector<int> v_csum;
 
 int rcount = 0;
 
-void f_topoFunc(int start){
+void topoForward(int start){
+    queue<int> que;
     que.push(start);
-    while(!que.empty()){
-        int v = que.front();
-        que.pop();
-        
-        for(auto &np: v_forward.at(v)){
-            int &next = np.first;
-            int &dist = np.second;
-            
-            --f_topo.at(next);
-            r_topo.at(next) = max(r_topo.at(next), r_topo.at(v) + dist);
-            
-            if(f_topo.at(next) == 0){
-                que.push(next);
-            }
-        }
-    }
-}
-
-void r_topoFunc(int dest){
-    int &final = r_topo.at(dest);
-    que.push(dest);
     
     while(!que.empty()){
         int v = que.front();
         que.pop();
         
-        for(auto &pp: v_reverse.at(v)){
-            int &prev = pp.first;
-            int &dist = pp.second;
-            
-            if(r_isvisited.at(prev))
-                continue;
-            
-            r_isvisited.at(prev) = true;
-            if(r_topo.at(v) == r_topo.at(prev) + dist){
-                ++rcount;
-                que.push(prev);
+        if(v_ftopo.at(v) == 0){
+            --v_ftopo.at(v);
+            for(auto &np: v_forward.at(v)){
+                int &next = np.first;
+                int &dist = np.second;
+                
+                --v_ftopo.at(next);
+                v_csum.at(next) = max(v_csum.at(next), v_csum.at(v) + dist);
+                
+                if(v_ftopo.at(next) == 0)
+                    que.push(next);
             }
         }
     }
 }
 
-int main()
-{
+void topoReverse(int end){
+    queue<int> que;
+    que.push(end);
+    
+    while(!que.empty()){
+        int v = que.front();
+        que.pop();
+        
+        if(!v_risvisited.at(v)){
+            v_risvisited.at(v) = true;
+            for(auto &pp: v_reverse.at(v)){
+                int &prev = pp.first;
+                int &dist = pp.second;
+                
+                if(v_csum.at(v) == v_csum.at(prev) + dist){
+                    ++rcount;
+                    que.push(prev);
+                }
+            }
+        }
+    }
+}
+
+int main(){
+    
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
@@ -75,10 +75,10 @@ int main()
     v_forward.assign(n+1, vector<P>());
     v_reverse.assign(n+1, vector<P>());
     
-    f_topo.assign(n+1, 0);
-    r_topo.assign(n+1, 0);
-    r_isvisited.assign(n+1, false);
-    r_isvisited.at(0) = true;
+    v_ftopo.assign(n+1, 0);
+    
+    v_risvisited.assign(n+1, false);
+    v_csum.assign(n+1, 0);
     
     for(int i=0; i<m; ++i){
         int s, d, t;
@@ -87,17 +87,16 @@ int main()
         v_forward.at(s).push_back(make_pair(d, t));
         v_reverse.at(d).push_back(make_pair(s, t));
         
-        ++f_topo.at(d);
-        ++r_topo.at(s);
+        ++v_ftopo.at(d);
     }
     
-    int c_source, c_dest;
-    cin >> c_source >> c_dest;
+    int i_source, i_dest;
+    cin >> i_source >> i_dest;
     
-    f_topoFunc(c_source);
-    r_topoFunc(c_dest);
+    topoForward(i_source);
+    topoReverse(i_dest);
     
-    cout << r_topo.at(c_dest) << "\n" << rcount << "\n";
-
+    cout << v_csum.at(i_dest) << "\n" << rcount << "\n";
+    
     return 0;
 }
