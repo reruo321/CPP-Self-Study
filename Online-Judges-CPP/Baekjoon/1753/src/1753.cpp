@@ -1,5 +1,3 @@
-// Not finished. Wrong solution.
-
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -10,25 +8,28 @@ using namespace std;
 typedef pair<int, int> P;
 
 vector<vector<P>> graph;
-vector<int> dijk;
 vector<bool> isvisited;
+vector<int> dijk;
 
-int main()
-{
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
+auto comp = [](const P &a, const P &b){
+    if(a.second != b.second)
+        return a.second > b.second;
+    return a.first > b.first;
+};
+
+priority_queue<P, vector<P>, decltype(comp)> que(comp);
+
+int main(){
     
     int V, E;
     cin >> V >> E;
     
     int K;
     cin >> K;
-
+    
     graph.assign(V+1, vector<P>());
-    dijk.assign(V+1, numeric_limits<int>::max());
-    dijk.at(K) = 0;
     isvisited.assign(V+1, false);
+    dijk.assign(V+1, numeric_limits<int>::max());
     
     for(int i=0; i<E; ++i){
         int u, v, w;
@@ -37,37 +38,33 @@ int main()
         graph.at(u).push_back(make_pair(v, w));
     }
     
-    queue<int> que;
-    que.push(K);
+    dijk.at(K) = 0;
+    que.push(make_pair(K, dijk.at(K)));
     
     while(!que.empty()){
-        int v = que.front();
-        que.pop();
+        int v = que.top().first;
         
         if(!isvisited.at(v)){
             isvisited.at(v) = true;
-            int &cur = dijk.at(v);
-            
             for(auto &np: graph.at(v)){
                 int &next = np.first;
                 int &dist = np.second;
                 
-                dijk.at(next) = min(dijk.at(next), cur + dist);
-                if(!isvisited.at(next)){
-                    que.push(next);
+                if(dijk.at(next) > dijk.at(v) + dist){
+                    dijk.at(next) = dijk.at(v) + dist;
+                    que.push(make_pair(next, dijk.at(next)));
                 }
             }
         }
+        que.pop();
     }
     
     for(int i=1; i<=V; ++i){
-        int &result = dijk.at(i);
-        
-        if(result == numeric_limits<int>::max())
+        if(dijk.at(i) == numeric_limits<int>::max())
             cout << "INF\n";
         else
-            cout << result << "\n";
+            cout << dijk.at(i) << "\n";
     }
-
+    
     return 0;
 }
