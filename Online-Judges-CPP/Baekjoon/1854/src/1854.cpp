@@ -32,6 +32,8 @@ int main()
     }
     
     que.push(make_pair(0, 1));
+
+// try to add a dijkstra thing to check a road only once
     
     while(!que.empty()){
         P p = que.top();
