@@ -1,5 +1,3 @@
-// Not finished. Wrong solution
-
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -32,8 +30,7 @@ int main()
     }
     
     que.push(make_pair(0, 1));
-
-// try to add a dijkstra thing to check all roads to visit only once in a path
+    citydist.at(1).push(0);
     
     while(!que.empty()){
         P p = que.top();
