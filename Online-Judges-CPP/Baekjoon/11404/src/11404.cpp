@@ -15,13 +15,15 @@ int main()
     cin >> n >> m;
     
     graph.assign(n+1, pair<int, int>());
-    floyd.assign(n+1, vector<int>(n+1, 0));
+    floyd.assign(n+1, vector<int>(n+1, numeric_limits<int>::max()));
     
     for(int i=0; i<m; ++i){
         int a, b, c;
         cin >> a >> b >> c;
         graph.at(a).push_back({b, c});
     }
+
+    
 
     return 0;
 }
