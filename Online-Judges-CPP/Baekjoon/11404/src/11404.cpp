@@ -21,9 +21,7 @@ int main()
         int a, b, c;
         cin >> a >> b >> c;
         graph.at(a).push_back({b, c});
-    }
-
-    
+    }    
 
     return 0;
 }
