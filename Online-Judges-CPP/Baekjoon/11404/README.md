@@ -1,4 +1,4 @@
 # Floyd
 
 ## Solution
-Use Floyd-Warshall algorithm to find the shortest path for all pairs in a graph.
+Use Floyd-Warshall algorithm to find the shortest path for all vertices' pairs in a graph.
