@@ -1,5 +1,3 @@
-// Not finished
-
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -38,13 +36,10 @@ int main()
             for(int k=1; k<=n; ++k){
                 int &f = floyd.at(j).at(k);
                 
-                if(j == 2 && k == 1){
-                    cout << "--- " << f << "\n";
-                }
-                
-                if(f != INT_MAX){
+                if(floyd.at(j).at(i) != INT_MAX && floyd.at(i).at(k) != INT_MAX){
                     f = min(f, floyd.at(j).at(i) + floyd.at(i).at(k));
                 }
+                
             }
         }
     }
