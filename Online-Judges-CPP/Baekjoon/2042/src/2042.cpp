@@ -32,8 +32,8 @@ int main()
     int c1 = 0;
     int c2 = 0;
     
-    for(int i=halftree - 1; i>0; --i){
-        segtree.at(i) = segtree.at(i * 2) + segtree.at(i * 2 + 1);
+    for(int i=segtree.size()-1; i>1; --i){
+        segtree.at(i / 2) += segtree.at(i);
     }
     
     while(c1 < M || c2 < K){
@@ -44,11 +44,12 @@ int main()
             ++c1;
             
             int changed_idx = halftree + y - 1;
+            long long diff = z - segtree.at(changed_idx);
             segtree.at(changed_idx) = z;
 
             while(changed_idx > 1){
-                changed_idx /= 2;                
-                segtree.at(changed_idx) = segtree.at(changed_idx * 2) + segtree.at(changed_idx * 2 + 1);
+                segtree.at(changed_idx / 2) += diff;
+                changed_idx /= 2;
             }
         }
         else{
@@ -69,7 +70,6 @@ int main()
                 start_idx = (start_idx + 1) / 2;
                 end_idx = (end_idx - 1) / 2;
             }
-            
             cout << segsum << "\n";
         }
     }
