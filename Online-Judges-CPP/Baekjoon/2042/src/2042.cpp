@@ -1,5 +1,3 @@
-// Not finished. Should be optimized more.
-
 #include <iostream>
 #include <vector>
 
@@ -29,20 +27,16 @@ int main()
         cin >> segtree.at(halftree + i);
     }
     
-    int c1 = 0;
-    int c2 = 0;
-    
     for(int i=segtree.size()-1; i>1; --i){
         segtree.at(i / 2) += segtree.at(i);
     }
     
-    while(c1 < M || c2 < K){
-        int x, y, z;
+    for(int i=0; i<M+K; ++i){
+        int x, y;
+        long long z;
         cin >> x >> y >> z;
         
         if(x == 1){
-            ++c1;
-            
             int changed_idx = halftree + y - 1;
             long long diff = z - segtree.at(changed_idx);
             segtree.at(changed_idx) = z;
@@ -53,8 +47,6 @@ int main()
             }
         }
         else{
-            ++c2;
-            
             long long segsum = 0;
             int start_idx = halftree + y - 1;
             int end_idx = halftree + z - 1;
