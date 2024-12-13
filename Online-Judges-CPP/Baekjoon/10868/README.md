@@ -1,4 +1,4 @@
-# Minimum Number
+# Minimum
 ## Solution
 <details>
 <summary><b>SPOILERS</b></summary>
