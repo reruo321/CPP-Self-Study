@@ -1,1 +1,1 @@
-# K-th Number
+# The K-th Number
