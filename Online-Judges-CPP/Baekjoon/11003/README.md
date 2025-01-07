@@ -1,1 +1,1 @@
-# The Smallest Number
+# The Minimum Number
