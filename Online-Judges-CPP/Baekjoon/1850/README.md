@@ -1,1 +1,2 @@
 # Greatest Common Divisor
+## Solution
