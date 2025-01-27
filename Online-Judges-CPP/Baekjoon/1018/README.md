@@ -1,1 +1,2 @@
 # Recolor the Chessboard
+## Solution
