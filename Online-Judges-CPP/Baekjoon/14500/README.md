@@ -1,3 +1,4 @@
+# Tetromino
 ## Solution 1
 
 ![baek14500](https://user-images.githubusercontent.com/48712088/197559094-a88a8193-d865-49b2-8af4-08e9e18b7f98.jpg)
@@ -8,4 +9,4 @@ Especially for 2x3 and 3x2 cases, I found the maximum tetris-sum from each of th
 Do not forget some exceptions that has no tetris shape!
 
 ## Solution
-Use DFS to make most type of tetris blocks.
+Use DFS to make most type of tetris blocks. Almost types of tetromino except one resembling "T" can be make by 4-level DFS.
