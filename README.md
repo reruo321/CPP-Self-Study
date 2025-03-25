@@ -4,7 +4,7 @@ This repository covers everything I have studied mainly on C++, and C and assemb
 * My Solutions and Useful Algorithms for Online Programming Problems
 * Standard C++ STL, and Other Useful 3rd-party Libraries
 * Assembly (x86, x64), C, C++, and Modern C++
-* Anything Else for Computer Science Tech. Interview
+* Anything Else for Computer Science Technical Interview
 
 ## Other Related Self-Study Repositories
 * [C++ Practice](https://github.com/reruo321/Cplus_Practice) - My first C++ practice with a guide book.
