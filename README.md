@@ -3,7 +3,7 @@ This repository covers everything I have studied mainly on C++, C, and assembly 
 
 * My Solutions and Useful Algorithms for Programming Problems
 * Standard C++ STL, and Other Useful 3rd-party Libraries
-* Assembly (x86, x64), C, C++, and Modern C++
+* Assembly (x86, x64), C, C++, and Modern C++ (Since C++11)
 * Anything Else for Computer Science Technical Interview
 
 ## Other Related Self-Study Repositories
