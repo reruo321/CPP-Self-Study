@@ -3,6 +3,6 @@
 ## Solution
 <details>
 <summary><b>SPOILERS</b></summary>
-Find the number of bubble sort.
+Find the number of times to run the bubble sort.
 
 </details>
