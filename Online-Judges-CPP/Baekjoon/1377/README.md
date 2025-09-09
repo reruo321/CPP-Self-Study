@@ -23,5 +23,6 @@ for (int i=1; i<=N+1; i++) {
     }
 }
 ```
+* `bool changed`: A flag to check if any changes happened in a sort.
 
 </details>
