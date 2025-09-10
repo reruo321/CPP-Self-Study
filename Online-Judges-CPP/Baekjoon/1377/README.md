@@ -23,6 +23,7 @@ for (int i=1; i<=N+1; i++) {
     }
 }
 ```
-* `bool changed`: A flag to check if any changes happened in a sort.
+* `changed`: The flag to check if any changes happened in a sort.
+* `i`: The iterative number to tell the number of times of the bubble sort so far.
 
 </details>
