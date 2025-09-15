@@ -24,7 +24,7 @@ for (int i=1; i<=N+1; i++) {
 }
 ```
 * `N`: The size of the array `A`.
-* `changed`: The flag to check if any changes happened in a sort.
+* `changed`: The flag to check if any changes happened in a sort. If it is false at the end of a bubble sort, the program ends.
 * `i`: The iterative number to tell the number of times of the bubble sort so far.
 * `j`: The iterative number to tell the index of an element in the array `A`.
 
