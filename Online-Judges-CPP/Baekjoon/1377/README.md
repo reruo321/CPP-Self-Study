@@ -4,7 +4,7 @@
 <details>
 <summary><b>SPOILERS</b></summary>
 Find the number of times to run bubble sort.
-If nothing changed in a sort, stop the program.
+If nothing changed in a sort, the code stops the loop.
 
 ### Code Explanation
 ```
