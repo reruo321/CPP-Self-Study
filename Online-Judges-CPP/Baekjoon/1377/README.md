@@ -27,9 +27,8 @@ for (int i=1; i<=N+1; i++) {
 * `changed`: The flag to check if any changes happened in a sort.
 It becomes true if any changes made in a bubble sort loop.
 If it is true at the end of the loop, another bubble sort loop starts as the order of some elements changed in the array `A`.
-Otherwise, the loop ends and prints the number of the iteration.
+Otherwise, the program prints the number of the iteration and end the algorithm.
 * `i`: The iterative number to tell the number of times of the bubble sort so far.
-
 * `j`: The iterative number to tell the index of an element in the array `A`.
 
 </details>
