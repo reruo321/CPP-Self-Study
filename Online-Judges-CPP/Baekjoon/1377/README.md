@@ -23,6 +23,7 @@ for (int i=1; i<=N+1; i++) {
     }
 }
 ```
+* `A`:
 * `N`: The size of the array `A`.
 * `changed`: The flag to check if any changes happened in a sort.
 It becomes true if any changes made in a bubble sort loop.
