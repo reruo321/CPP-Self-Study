@@ -24,12 +24,12 @@ for (int i=1; i<=N+1; i++) {
 }
 ```
 * `A`: The array to be sorted.
-* `N`: The size of the array `A`.
-* `changed`: The flag to check if any changes happened in a sort.
+* `N`: The size of `A`.
+* `changed`: The flag to check if any changes happened from `A` in a sort.
 It becomes true if any changes made in a bubble sort loop.
-If it is true at the end of the loop, another bubble sort loop starts as the order of some elements changed in the array `A`.
+If it is true at the end of the loop, another bubble sort loop starts as the order of some elements changed in `A`.
 Otherwise, the program prints the number of the iteration and end the algorithm.
 * `i`: The iterative number to tell the number of times of the bubble sort so far.
-* `j`: The iterative number to tell the index of an element in the array `A`.
+* `j`: The iterative number to tell the index of an element in `A`.
 
 </details>
