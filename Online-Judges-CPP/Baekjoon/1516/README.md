@@ -2,5 +2,5 @@
 ## Solution
 <details>
 <summary><b>SPOILERS</b></summary>
-Use topological sorting.
+Use topological sorting to calculate the minimum time for every structure.
 </details>
