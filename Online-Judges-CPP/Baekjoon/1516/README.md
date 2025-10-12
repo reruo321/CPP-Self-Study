@@ -9,7 +9,9 @@ Assume that a structure `X` needs the time `x` to be built when the condition is
 And assume that `Y` is dependent on `X`.
 Then we can make `X` and `Y` as nodes in a graph, where `X` points to `Y`.
 
-X -> Y
+$X -> Y$
 
-Then we can think of the time to need to Y as 
+And we can think of the time to build `X` from the initial `X'` and build `Y` from the initial `Y'` like this:
+
+$Y' = X' + y$
 </details>
