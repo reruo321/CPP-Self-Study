@@ -11,9 +11,11 @@ Then we can make `X` and `Y` as nodes in a graph, where `X` points to `Y`.
 
 $X -> Y$
 
-And we can think of the relationship between the time to build `X` from the initial `X'` and the time to build `Y` from the initial `Y'` like this:
+And we can think of the relationship between the time to build `X` from the initial `y'` and the time to build `Y` from the initial `y'` like this:
 
 $Y' = X' + y$
+
+Finally, when we let `y'_min` the minimum time to build `Y` from the initial, we can define it with the minimum time to build `X` from the initial, `x'_min`. 
 
 
 </details>
