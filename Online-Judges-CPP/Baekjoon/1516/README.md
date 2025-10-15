@@ -17,5 +17,5 @@ $Y' = X' + y$
 
 Finally, when we let `y'_min` the minimum time to build `Y` from the initial, we can define it with the minimum time to build `X` from the initial, `x'_min`. 
 
-
+$y'_min = x'_min + x$
 </details>
