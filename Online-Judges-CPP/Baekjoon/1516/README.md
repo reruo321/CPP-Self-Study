@@ -9,13 +9,19 @@ Assume that a structure `X` needs the time `x` to be built when the condition is
 And assume that `Y` is dependent on `X`.
 Then we can make `X` and `Y` as nodes in a graph, where `X` points to `Y`.
 
-$X -> Y$
+$$
+X -> Y
+$$
 
 And we can think of the relationship between the time to build `X` from the initial `y'` and the time to build `Y` from the initial `y'` like this:
 
-$Y' = X' + y$
+$$
+Y' = X' + y
+$$
 
 Finally, when we let `y'_{\min}` the minimum time to build `Y` from the initial, we can define it with the minimum time to build `X` from the initial, `x'_{\min}`. 
 
-$y'_{\min} = x'_{\min} + x$
+$$
+y'_{\min} = x'_{\min} + x
+$$
 </details>
