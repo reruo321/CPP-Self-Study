@@ -22,6 +22,6 @@ $$
 Finally, when we let `y'_{\min}` the minimum time to build `Y` from the initial, we can define it with the minimum time to build `X` from the initial, `x'_{\min}`. 
 
 $$
-y'_{\min} = x'_{\min} + x
+y'_{\min} = x'_{\min} + y
 $$
 </details>
