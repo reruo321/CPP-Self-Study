@@ -16,7 +16,7 @@ $$
 And we can think of the relationship between the time to build `X` from the initial `y'` and the time to build `Y` from the initial `y'` like this:
 
 $$
-Y' = X' + y
+y' = x' + y
 $$
 
 Finally, when we let `y'_{\min}` the minimum time to build `Y` from the initial, we can define it with the minimum time to build `X` from the initial, `x'_{\min}`. 
