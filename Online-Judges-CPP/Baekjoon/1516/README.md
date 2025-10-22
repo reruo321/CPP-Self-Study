@@ -9,9 +9,9 @@ Assume that a structure $X$ needs the time $x$ to be built when the condition is
 And assume that $Y$ is dependent on $X$.
 Then we can make $X$ and $Y$ as nodes in a graph, where $X$ points to $Y$.
 
-$$
+$
 X -> Y
-$$
+$
 
 And we can think of the relationship between the time to build `X` from the initial `y'` and the time to build `Y` from the initial `y'` like this:
 
