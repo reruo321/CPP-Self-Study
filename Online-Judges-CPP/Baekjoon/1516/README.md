@@ -24,4 +24,6 @@ Finally, when we let `y'_min` the minimum time to build `Y` from the initial, we
 $$
 y'_{\min} = x'_{\min} + y
 $$
+
+We can conclude that we can store the minimun time to build every structure to every graph node, and accumulate the values to the next node that is dependent on the previous nodes.
 </details>
