@@ -2,7 +2,7 @@
 ## Solution
 <details>
 <summary><b>SPOILERS</b></summary>
-Use topological sorting to calculate the minimum time for every structure to build.
+Use **topological sorting** to calculate the minimum time for every structure to build.
 
 We can think the relations among structures as a graph.
 Assume that a structure `X` needs the time `x` to be built when the condition is met, and a structure `Y` needs the time `y` to be built when the condition is met.
@@ -25,5 +25,5 @@ $$
 y'_{\min} = x'_{\min} + y
 $$
 
-We can conclude that we can store the minimun time to build every structure to every graph node, and accumulate the values to the next node that is dependent on the previous nodes.
+We can conclude that we can store the minimun time to build every structure to every graph node, and determine the value of the next node by adding the time to take the node to the maximum time value among the previous nodes.
 </details>
