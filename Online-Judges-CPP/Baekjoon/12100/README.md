@@ -6,5 +6,5 @@ Create the board class (or struct) and its member variable or functions, followi
 ### Code Explanation
 * `Board`: The class that expresses whole game.
 * `GameCase`: The class that expresses a case that can happen while a user is playing the game, whose condition is given by inputs.
-* `printGame`: The debugging function to traack the information on game.
+* `printGame`: The debugging function to track the information on game.
 </details>
