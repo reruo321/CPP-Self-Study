@@ -10,4 +10,5 @@ Create the board class (or struct) and its member variable or functions, followi
 * `findMaxValue`: The function to find the maximum value in the game.
 * `moveAndConquer`: The function to express the "move-and-conquer" control in the game, which combines two same blocks into one.
 * `moveDIR`: The function to move all blocks to specific direction, `DIR`.
+* `playGame`: The function to initialize the game, and check all cases possible in the game.
 </details>
