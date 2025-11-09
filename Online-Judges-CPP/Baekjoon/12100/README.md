@@ -8,4 +8,5 @@ Create the board class (or struct) and its member variable or functions, followi
 * `GameCase`: The class that expresses a case that can happen while a user is playing the game, whose initial condition is given by inputs.
 * `printGame`: The debugging function to track the information on game.
 * `findMaxValue`: The function to find the maximum value in the game.
+* `moveAndConquer`: The function to express the "move-and-conquer" control in the game, which combines two same blocks into one.
 </details>
