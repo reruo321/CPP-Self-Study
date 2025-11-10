@@ -9,4 +9,5 @@ Create the board class (or struct) and its member variable or functions, followi
 * `printGame`: The debugging function to track the information on game.
 * `findMaxValue`: The function to find the maximum value in the game.
 * `moveAndConquer`: The function to express the "move-and-conquer" control in the game, which combines two same blocks into one.
+* `moveDIR`: The function to move all blocks to specific direction, `DIR`.
 </details>
