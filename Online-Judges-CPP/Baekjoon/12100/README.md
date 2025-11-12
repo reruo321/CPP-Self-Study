@@ -16,4 +16,5 @@ Create the board class (or struct) and its member variable or functions, followi
 ### Algorithm Explanation
 1. Initialize the board game by getting inputs, and initializing `Board` and `GameCase`. Put the initial `GameCase` into the queue.
 2. Check all cases by running all kinds of `moveDIR` for all board in the queue, and increase the level up to 5. From the start to the end of the game (where the level of the board is 5), find the maximum value inside the board.
+3. Print the maximum value found from the game.
 </details>
