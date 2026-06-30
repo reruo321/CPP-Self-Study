@@ -1,5 +1,5 @@
 # C++ Self Study
-This repository covers everything I have studied mainly on C++, C, and assembly programming languages.
+This repository covers everything I have studied mainly on C++, and additionally C and assembly programming languages.
 
 * My Solutions and Useful Algorithms for Programming Problems
 * Standard C++ STL, and Other Useful 3rd-party Libraries
